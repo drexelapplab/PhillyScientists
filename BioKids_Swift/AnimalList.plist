@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animal-group</key>
+	<dict>
+		<key>dataField</key>
+		<string>Group</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>icon</key>
+				<string>seq-bird.png</string>
+				<key>label</key>
+				<string>Bird</string>
+				<key>next</key>
+				<string>bird-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-mammal.png</string>
+				<key>label</key>
+				<string>Mammal</string>
+				<key>next</key>
+				<string>mammal-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-reptile.png</string>
+				<key>label</key>
+				<string>Reptile</string>
+				<key>next</key>
+				<string>reptile-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-fish.png</string>
+				<key>label</key>
+				<string>Fish</string>
+				<key>next</key>
+				<string>fish-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-0legs-worm.png</string>
+				<key>label</key>
+				<string>0 Legs (Annelid)</string>
+				<key>next</key>
+				<string>annelid-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-0legs-mollusk.png</string>
+				<key>label</key>
+				<string>0 Legs (Mollusk)</string>
+				<key>next</key>
+				<string>mollusk-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-insect.png</string>
+				<key>label</key>
+				<string>6 Legs (Insect)</string>
+				<key>next</key>
+				<string>insect-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-arachnid.png</string>
+				<key>label</key>
+				<string>8 Legs (Arachnid)</string>
+				<key>next</key>
+				<string>arachnid-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-multilegs-crustacean.png</string>
+				<key>label</key>
+				<string>10-14 Legs (Crustacean)</string>
+				<key>next</key>
+				<string>crustacean-type</string>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>seq-multilegs-myriapod.png</string>
+				<key>label</key>
+				<string>20+ Legs (Myriapod)</string>
+				<key>next</key>
+				<string>myriapod-type</string>
+			</dict>
+		</array>
+		<key>title</key>
+		<string>What animal group is it in?</string>
+		<key>type</key>
+		<string>Choose1</string>
+	</dict>
+</dict>
+</plist>

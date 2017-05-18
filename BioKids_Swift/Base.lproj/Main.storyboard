@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LFg-tE-UTF">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="xFr-wx-Vx9">
+            <objects>
+                <viewController id="VWQ-xS-7ns" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MRO-WK-S7I"/>
+                        <viewControllerLayoutGuide type="bottom" id="D2q-ld-k0R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hgl-Tf-BtN">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="xsa-xb-WKI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqC-M9-oAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="975" y="403"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="fgi-3m-pKq">
+            <objects>
+                <viewController id="F2k-Qh-3R8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CfM-2V-uXf"/>
+                        <viewControllerLayoutGuide type="bottom" id="pAm-a0-pPJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="azx-0o-urw">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kids' Inquiry of Diverse Species" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CG-Vq-Zuc">
+                                <rect key="frame" x="20" y="20" width="728" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="xHE-E6-whx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fiG-xq-VTB">
+                                <rect key="frame" x="20" y="83" width="728" height="859"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">About BioKIDS:
+
+It is increasingly important for all American students to become sophisticated thinkers of science. The BioKIDS/DeepThink research group is engaged in educational research to improve science learning in high-poverty, urban, elementary and middle school classrooms, with particular focus on the Detroit Public Schools. Our work centers on the fourth through eighth grades, a period when the performance of American students in science falls behind that of students in other countries. We work in two areas:
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="•">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="Helvetica-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="20" firstLineHeadIndent="10" headIndent="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> The development of curricular units and associated technologies to promote students' deep understandings of current science topics
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="20" firstLineHeadIndent="10" headIndent="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="•">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="Helvetica-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="20" firstLineHeadIndent="10" headIndent="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> The exploration of new ideas in educational assessment leading to tests that evaluate students' complex reasoning with science.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="20" firstLineHeadIndent="10" headIndent="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Learn more at biokids.umich.edu and essentialscience.umich.edu.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+About This App:
+BioKIDS for iOS
+Version 2.0.0</string>
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fiG-xq-VTB" firstAttribute="trailing" secondItem="azx-0o-urw" secondAttribute="trailingMargin" id="53D-3f-MzX"/>
+                            <constraint firstItem="5CG-Vq-Zuc" firstAttribute="leading" secondItem="azx-0o-urw" secondAttribute="leadingMargin" id="BTL-A7-DKr"/>
+                            <constraint firstItem="fiG-xq-VTB" firstAttribute="top" secondItem="5CG-Vq-Zuc" secondAttribute="bottom" constant="11" id="HSE-qw-o5y"/>
+                            <constraint firstItem="fiG-xq-VTB" firstAttribute="leading" secondItem="azx-0o-urw" secondAttribute="leadingMargin" id="Ihq-T1-tjr"/>
+                            <constraint firstItem="fiG-xq-VTB" firstAttribute="top" secondItem="5CG-Vq-Zuc" secondAttribute="bottom" constant="11" id="JOk-ef-fLO"/>
+                            <constraint firstItem="5CG-Vq-Zuc" firstAttribute="top" secondItem="CfM-2V-uXf" secondAttribute="bottom" id="fqz-6w-E27"/>
+                            <constraint firstItem="5CG-Vq-Zuc" firstAttribute="top" secondItem="CfM-2V-uXf" secondAttribute="bottom" id="lAA-oN-fzk"/>
+                            <constraint firstItem="5CG-Vq-Zuc" firstAttribute="trailing" secondItem="azx-0o-urw" secondAttribute="trailingMargin" id="wBX-c7-wp8"/>
+                            <constraint firstItem="pAm-a0-pPJ" firstAttribute="top" secondItem="fiG-xq-VTB" secondAttribute="bottom" constant="33.5" id="zjs-Gg-y5d"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About" id="uTz-oI-pmV"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VxO-NV-w5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.4375" y="1162.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jYw-em-xOn">
+            <objects>
+                <viewController id="ahv-IC-BwF" customClass="ViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NIY-30-AKq"/>
+                        <viewControllerLayoutGuide type="bottom" id="lsT-kw-Gza"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jkj-GH-UYi">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcO-V7-Y0P">
+                                <rect key="frame" x="47" y="123" width="674" height="80"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
+                                <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMd-jG-33K">
+                                <rect key="frame" x="224" y="901" width="320" height="87"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="6yi-fZ-pAI"/>
+                                    <constraint firstAttribute="width" constant="320" id="dHH-ZY-adD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="50"/>
+                                <state key="normal" title="Collect Data">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0fd-LL-8v3" kind="show" id="Fia-At-HTA"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IY1-rn-MoV">
+                                <rect key="frame" x="47" y="307" width="674" height="586"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="51" id="P1c-N4-7Nt" customClass="ObservationTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="674" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P1c-N4-7Nt" id="YqK-h7-IQP">
+                                            <rect key="frame" x="0.0" y="0.0" width="674" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdS-Ts-1ZO">
+                                                    <rect key="frame" x="8" y="8" width="658" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="28"/>
+                                                    <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="observationLabel" destination="IdS-Ts-1ZO" id="t9K-UM-8xW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ahv-IC-BwF" id="eri-kN-ufb"/>
+                                    <outlet property="delegate" destination="ahv-IC-BwF" id="7Lq-GT-0MM"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher/Program: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kd-rJ-KVQ">
+                                <rect key="frame" x="47" y="211" width="674" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="kZN-pp-F7t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
+                                <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collected Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRL-CD-kLp">
+                                <rect key="frame" x="47" y="265" width="674" height="34"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
+                                <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhc-Mj-LG2">
+                                <rect key="frame" x="302" y="56" width="165" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="7EA-aA-jcf"/>
+                                    <constraint firstAttribute="height" constant="59" id="HIa-KS-2PM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xhc-Mj-LG2" firstAttribute="centerX" secondItem="IY1-rn-MoV" secondAttribute="centerX" id="22n-Mk-tGs"/>
+                            <constraint firstItem="xhc-Mj-LG2" firstAttribute="centerX" secondItem="jkj-GH-UYi" secondAttribute="centerX" id="5Pu-FV-fSb"/>
+                            <constraint firstItem="7Kd-rJ-KVQ" firstAttribute="leading" secondItem="jkj-GH-UYi" secondAttribute="leadingMargin" constant="27" id="9LQ-d0-oOV"/>
+                            <constraint firstItem="mMd-jG-33K" firstAttribute="centerX" secondItem="IY1-rn-MoV" secondAttribute="centerX" id="GOs-eH-WbG"/>
+                            <constraint firstItem="7Kd-rJ-KVQ" firstAttribute="leading" secondItem="IY1-rn-MoV" secondAttribute="leading" id="GZj-HH-Y5B"/>
+                            <constraint firstItem="bRL-CD-kLp" firstAttribute="leading" secondItem="7Kd-rJ-KVQ" secondAttribute="leading" id="Hms-je-cqD"/>
+                            <constraint firstItem="mMd-jG-33K" firstAttribute="centerX" secondItem="jkj-GH-UYi" secondAttribute="centerX" id="Imb-VY-bt7"/>
+                            <constraint firstItem="mMd-jG-33K" firstAttribute="top" secondItem="IY1-rn-MoV" secondAttribute="bottom" constant="8" id="JwZ-4Z-sjo"/>
+                            <constraint firstItem="bRL-CD-kLp" firstAttribute="top" secondItem="7Kd-rJ-KVQ" secondAttribute="bottom" constant="18" id="M8G-ZG-LeI"/>
+                            <constraint firstItem="qcO-V7-Y0P" firstAttribute="centerX" secondItem="jkj-GH-UYi" secondAttribute="centerX" id="R6U-ne-bhq"/>
+                            <constraint firstItem="xhc-Mj-LG2" firstAttribute="top" secondItem="NIY-30-AKq" secondAttribute="bottom" constant="36" id="SLa-tz-N4C"/>
+                            <constraint firstItem="7Kd-rJ-KVQ" firstAttribute="centerX" secondItem="jkj-GH-UYi" secondAttribute="centerX" id="ccX-Sy-hv8"/>
+                            <constraint firstItem="lsT-kw-Gza" firstAttribute="top" secondItem="mMd-jG-33K" secondAttribute="bottom" constant="36" id="daZ-oY-IAB"/>
+                            <constraint firstItem="7Kd-rJ-KVQ" firstAttribute="top" secondItem="qcO-V7-Y0P" secondAttribute="bottom" constant="8" id="gHJ-f1-1cX"/>
+                            <constraint firstItem="IY1-rn-MoV" firstAttribute="centerX" secondItem="jkj-GH-UYi" secondAttribute="centerX" id="hGm-4J-dms"/>
+                            <constraint firstItem="7Kd-rJ-KVQ" firstAttribute="leading" secondItem="qcO-V7-Y0P" secondAttribute="leading" id="nf2-IL-OfA"/>
+                            <constraint firstItem="bRL-CD-kLp" firstAttribute="centerX" secondItem="jkj-GH-UYi" secondAttribute="centerX" id="pwp-bB-IY0"/>
+                            <constraint firstItem="qcO-V7-Y0P" firstAttribute="top" secondItem="xhc-Mj-LG2" secondAttribute="bottom" constant="8" id="raF-3w-puu"/>
+                            <constraint firstItem="IY1-rn-MoV" firstAttribute="top" secondItem="bRL-CD-kLp" secondAttribute="bottom" constant="8" symbolic="YES" id="wyj-nU-DIZ"/>
+                            <constraint firstItem="IY1-rn-MoV" firstAttribute="top" secondItem="7Kd-rJ-KVQ" secondAttribute="bottom" constant="60" id="xCd-w3-68L"/>
+                            <constraint firstItem="7Kd-rJ-KVQ" firstAttribute="top" secondItem="jkj-GH-UYi" secondAttribute="top" constant="211" id="zEf-Je-stF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jpM-7x-rdG"/>
+                    <connections>
+                        <outlet property="collectDataBtn" destination="mMd-jG-33K" id="13i-Df-3q2"/>
+                        <outlet property="groupNameLbl" destination="qcO-V7-Y0P" id="4UU-bm-pkv"/>
+                        <outlet property="observationTable" destination="IY1-rn-MoV" id="kgq-MZ-kEd"/>
+                        <outlet property="teacherProgramLbl" destination="7Kd-rJ-KVQ" id="eol-47-2ws"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R85-Cx-XFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686.71875" y="-330.46875"/>
+        </scene>
+        <!--What Do You See?-->
+        <scene sceneID="AJB-B6-gwu">
+            <objects>
+                <viewController id="0fd-LL-8v3" customClass="PhotoController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xsd-g0-c7S"/>
+                        <viewControllerLayoutGuide type="bottom" id="s1k-oz-mxS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dLy-fB-CMQ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="100" image="PhotoImageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="5ze-N7-Qy4">
+                                <rect key="frame" x="99" y="53" width="570" height="614"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-CW-63B">
+                                <rect key="frame" x="241" y="730" width="286" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="useCamera:" destination="0fd-LL-8v3" eventType="touchUpInside" id="2PV-Qj-fOX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ro-Xb-pG6">
+                                <rect key="frame" x="311" y="809" width="147" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uMs-Dj-Cme" kind="show" identifier="howSensedSegue" id="ddd-gq-hXr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5ze-N7-Qy4" secondAttribute="trailing" constant="79" id="0dp-dw-5bc"/>
+                            <constraint firstItem="XVJ-CW-63B" firstAttribute="leading" secondItem="dLy-fB-CMQ" secondAttribute="leadingMargin" constant="221" id="23Y-Gl-75e"/>
+                            <constraint firstItem="5ze-N7-Qy4" firstAttribute="top" secondItem="5Ro-Xb-pG6" secondAttribute="bottom" constant="-827" id="728-hd-YO6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Ro-Xb-pG6" secondAttribute="trailing" constant="290" id="AIl-4d-acG"/>
+                            <constraint firstItem="XVJ-CW-63B" firstAttribute="top" secondItem="5ze-N7-Qy4" secondAttribute="bottom" constant="63" id="Csj-KD-3vK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XVJ-CW-63B" secondAttribute="trailing" constant="221" id="H4D-Ku-ITF"/>
+                            <constraint firstItem="5ze-N7-Qy4" firstAttribute="top" secondItem="Xsd-g0-c7S" secondAttribute="bottom" constant="33" id="I4l-Ns-V7R"/>
+                            <constraint firstItem="5ze-N7-Qy4" firstAttribute="leading" secondItem="dLy-fB-CMQ" secondAttribute="leadingMargin" constant="79" id="YbT-Fi-AFh"/>
+                            <constraint firstItem="XVJ-CW-63B" firstAttribute="top" secondItem="5ze-N7-Qy4" secondAttribute="bottom" constant="63" id="drW-KZ-GyN"/>
+                            <constraint firstItem="5Ro-Xb-pG6" firstAttribute="leading" secondItem="dLy-fB-CMQ" secondAttribute="leadingMargin" constant="291" id="fnM-SU-eCj"/>
+                            <constraint firstItem="5Ro-Xb-pG6" firstAttribute="top" secondItem="XVJ-CW-63B" secondAttribute="bottom" constant="8" id="zm9-gk-Drm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="What Do You See?" id="lec-40-W22"/>
+                    <connections>
+                        <outlet property="imageView" destination="5ze-N7-Qy4" id="Dsb-CQ-hfp"/>
+                        <outlet property="nextBtn" destination="5Ro-Xb-pG6" id="Vi1-dF-4tU"/>
+                        <outlet property="takePhotoBtn" destination="XVJ-CW-63B" id="P5p-ev-3TD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jMj-Ft-jvk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2405" y="-330"/>
+        </scene>
+        <!--How Do You Sense It?-->
+        <scene sceneID="jbS-T9-0tR">
+            <objects>
+                <viewController id="uMs-Dj-Cme" customClass="SensedHowViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h8c-Jb-QDU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vfe-Yh-8mT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FeO-IV-5pp">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbH-Rc-PRw">
+                                <rect key="frame" x="20" y="112" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <color key="tintColor" red="0.96470588239999999" green="0.73725490199999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="See">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.027450980390000001" green="0.16078431369999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSeeBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="LSn-MU-6PN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkC-nz-f3p">
+                                <rect key="frame" x="20" y="328" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <color key="tintColor" red="0.96470588239999999" green="0.73725490199999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Smell">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.027450980390000001" green="0.16078431369999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSmellBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="DTD-n2-DNg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGh-xn-ir7">
+                                <rect key="frame" x="20" y="436" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <color key="tintColor" red="0.96470588239999999" green="0.73725490199999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Feel">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.027450980390000001" green="0.16078431369999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressFeelBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="mbr-QR-7Li"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khl-Oh-YsB">
+                                <rect key="frame" x="20" y="220" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <color key="tintColor" red="0.96470588239999999" green="0.73725490199999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Hear">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.027450980390000001" green="0.16078431369999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressHearBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="bCt-Re-hp4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3V-Wr-4JF">
+                                <rect key="frame" x="311" y="902" width="147" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressNextBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="tFV-es-dYC"/>
+                                    <segue destination="8de-Pa-lNH" kind="show" identifier="whatSensedSegue" id="obI-CT-kVq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vfe-Yh-8mT" firstAttribute="top" secondItem="k3V-Wr-4JF" secondAttribute="bottom" constant="51" id="ch7-AK-9LA"/>
+                            <constraint firstItem="k3V-Wr-4JF" firstAttribute="leading" secondItem="FeO-IV-5pp" secondAttribute="leadingMargin" constant="291" id="las-p9-SmE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k3V-Wr-4JF" secondAttribute="trailing" constant="290" id="wYE-Qy-u45"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="How Do You Sense It?" id="1aH-oc-JoP"/>
+                    <connections>
+                        <outlet property="feelBtn" destination="MGh-xn-ir7" id="Bh7-o6-0X3"/>
+                        <outlet property="hearBtn" destination="khl-Oh-YsB" id="uEE-ym-ZgL"/>
+                        <outlet property="nextBtn" destination="k3V-Wr-4JF" id="7Iu-LY-5uH"/>
+                        <outlet property="seeBtn" destination="HbH-Rc-PRw" id="2np-ws-bsx"/>
+                        <outlet property="smellBtn" destination="DkC-nz-f3p" id="v0W-3Z-dQ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1g1-D5-nfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3153.90625" y="-325.1953125"/>
+        </scene>
+        <!--What Do You Sense?-->
+        <scene sceneID="rXy-cU-7jV">
+            <objects>
+                <viewController id="8de-Pa-lNH" customClass="SensedWhatViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FFd-BK-dSw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Irm-MO-2Hg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UrL-S4-NVS">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqz-DU-sBn">
+                                <rect key="frame" x="20" y="101" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Plant">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressPlantBtn:" destination="8de-Pa-lNH" eventType="touchUpInside" id="5e4-OQ-dto"/>
+                                    <action selector="didPressSeeBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="lCP-wF-kVh"/>
+                                    <segue destination="aex-uM-6AU" kind="show" identifier="kindOfPlantSegue" id="DBr-yo-FiT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0Y-EO-nMs">
+                                <rect key="frame" x="20" y="317" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Tracks">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSmellBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="Zfp-G2-S33"/>
+                                    <action selector="didPressTracksBtn:" destination="8de-Pa-lNH" eventType="touchUpInside" id="Rbi-7y-SOk"/>
+                                    <segue destination="FRd-oo-oG4" kind="show" id="2eE-GT-OxS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58Q-kh-bHj">
+                                <rect key="frame" x="20" y="425" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Other Sign">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressFeelBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="lCs-oj-P18"/>
+                                    <action selector="didPressOtherSignsBtn:" destination="8de-Pa-lNH" eventType="touchUpInside" id="As5-gT-Wrv"/>
+                                    <segue destination="FRd-oo-oG4" kind="show" id="5Dv-K5-ZPV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nw-bZ-FJZ">
+                                <rect key="frame" x="20" y="209" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Live Animal">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressHearBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="VWV-Mw-VzP"/>
+                                    <action selector="didPressLiveAnimalBtn:" destination="8de-Pa-lNH" eventType="touchUpInside" id="OlD-pY-AzR"/>
+                                    <segue destination="FRd-oo-oG4" kind="show" identifier="" id="Tgc-Wb-knC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="What Do You Sense?" id="JV6-sf-5kG"/>
+                    <connections>
+                        <outlet property="animalBtn" destination="6Nw-bZ-FJZ" id="J8o-wy-0fi"/>
+                        <outlet property="otherBtn" destination="58Q-kh-bHj" id="Yp7-xp-Ocu"/>
+                        <outlet property="plantBtn" destination="Tqz-DU-sBn" id="eCP-zc-hvY"/>
+                        <outlet property="tracksBtn" destination="b0Y-EO-nMs" id="5u9-4r-fTv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WwE-vk-f5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3905" y="-325"/>
+        </scene>
+        <!--Which Animal Group?-->
+        <scene sceneID="xxh-hv-VLu">
+            <objects>
+                <tableViewController id="FRd-oo-oG4" customClass="AnimalGroupTableViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" id="Caa-vo-Jba">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="xir-Fj-zCW" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="768" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xir-Fj-zCW" id="My9-gr-lie">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZo-oU-7wb">
+                                            <rect key="frame" x="107" y="25" width="554" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="UZo-oU-7wb" firstAttribute="top" secondItem="My9-gr-lie" secondAttribute="topMargin" constant="17" id="1FT-db-Xcz"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="UZo-oU-7wb" secondAttribute="bottom" constant="17" id="KrM-bu-VYX"/>
+                                        <constraint firstItem="UZo-oU-7wb" firstAttribute="leading" secondItem="My9-gr-lie" secondAttribute="leadingMargin" constant="99" id="b4z-o3-aZn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="UZo-oU-7wb" secondAttribute="trailing" constant="99" id="kFB-xF-eeE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="AnimalGroupLbl" destination="UZo-oU-7wb" id="GGx-bD-tKS"/>
+                                    <segue destination="Chp-G3-wnD" kind="show" identifier="AnimalTypeSegue" id="RBY-BW-WN8"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FRd-oo-oG4" id="M3Y-j9-iUM"/>
+                            <outlet property="delegate" destination="FRd-oo-oG4" id="GCm-O5-2jJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Which Animal Group?" id="ADd-hP-Rdo"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qR6-WB-SVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4770" y="98"/>
+        </scene>
+        <!--What Kind of Plant?-->
+        <scene sceneID="kQA-9M-hfz">
+            <objects>
+                <viewController id="aex-uM-6AU" customClass="PlantKindViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sn6-Ge-g4T"/>
+                        <viewControllerLayoutGuide type="bottom" id="m5y-ME-rHd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kyp-xM-Mt2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9d-1O-ht5">
+                                <rect key="frame" x="20" y="72" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Grass">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSeeBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="aDn-gO-HIa"/>
+                                    <segue destination="blD-83-Lh0" kind="show" identifier="howMuchGrassSegue" id="Kpm-2E-yWn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-5J-mT4">
+                                <rect key="frame" x="20" y="288" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Vine">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSmellBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="H14-1J-8qh"/>
+                                    <segue destination="c7x-iG-uJP" kind="show" id="IRr-8u-ct7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cav-ml-zVK">
+                                <rect key="frame" x="20" y="396" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Shrub / Bush">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressFeelBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="aHx-UA-cZk"/>
+                                    <segue destination="c7x-iG-uJP" kind="show" id="bEn-qf-OZG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apk-pP-Zxf">
+                                <rect key="frame" x="20" y="180" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Weeds, Herbs, or Small Plants">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressHearBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="FrC-TP-10b"/>
+                                    <segue destination="c7x-iG-uJP" kind="show" id="IG6-aI-QJb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tf-X9-0vX">
+                                <rect key="frame" x="20" y="504" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Tree">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressFeelBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="s6r-rG-jxI"/>
+                                    <segue destination="c7x-iG-uJP" kind="show" id="NXF-BE-sMp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="What Kind of Plant?" id="YTt-3Q-oeB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rgc-yn-KR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5205" y="-797"/>
+        </scene>
+        <!--How Much Grass Is In Your Zone?-->
+        <scene sceneID="xpo-p9-iLQ">
+            <objects>
+                <viewController id="blD-83-Lh0" customClass="HowMuchGrassViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qC5-kx-xPW"/>
+                        <viewControllerLayoutGuide type="bottom" id="4zR-fi-HHa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SWM-gK-F8v">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y35-Jc-1ZS">
+                                <rect key="frame" x="20" y="72" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Almost None">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSeeBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="Vwc-FZ-SrW"/>
+                                    <segue destination="jlU-D9-aS2" kind="show" id="QiX-8j-dJo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tK9-mx-z6c">
+                                <rect key="frame" x="20" y="180" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Less Than Half">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSeeBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="jck-ZT-rva"/>
+                                    <segue destination="jlU-D9-aS2" kind="show" id="lzT-dS-TeR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXO-ZR-fJM">
+                                <rect key="frame" x="20" y="288" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="About Half">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSeeBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="qvS-NI-fBE"/>
+                                    <segue destination="jlU-D9-aS2" kind="show" id="gR6-Vc-87r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwo-Wx-Qrd">
+                                <rect key="frame" x="20" y="396" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="More Than Half">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSeeBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="8XN-Ma-Fgc"/>
+                                    <segue destination="jlU-D9-aS2" kind="show" id="fuV-ad-2Z2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fck-iJ-3Ij">
+                                <rect key="frame" x="20" y="504" width="728" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Almost All">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSeeBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="D1l-jL-TS0"/>
+                                    <segue destination="jlU-D9-aS2" kind="show" id="4Bm-3C-1Jy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="How Much Grass Is In Your Zone?" id="hu1-G8-dXn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WxN-dB-LQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6125" y="-797"/>
+        </scene>
+        <!--How Many?-->
+        <scene sceneID="989-KG-wXT">
+            <objects>
+                <viewController id="c7x-iG-uJP" customClass="AmountSensedViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3h9-Qm-dMt"/>
+                        <viewControllerLayoutGuide type="bottom" id="g2n-Ed-n0o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eLN-yt-YRq">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Many Did You See?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSh-s2-FIe">
+                                <rect key="frame" x="77" y="71" width="612" height="59"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuJ-BQ-TRW">
+                                <rect key="frame" x="311" y="903" width="147" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jlU-D9-aS2" kind="show" id="WcK-TP-jwf"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDL-21-zUE">
+                                <rect key="frame" x="311" y="421" width="140" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="4YN-yn-u9X"/>
+                                    <constraint firstAttribute="width" constant="140" id="KB9-Fv-wvg"/>
+                                </constraints>
+                                <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="48"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="didChangeHowManyField:" destination="c7x-iG-uJP" eventType="editingDidEnd" id="Ek8-oy-luT"/>
+                                    <action selector="didStartEnteringAmount:" destination="c7x-iG-uJP" eventType="editingDidBegin" id="s3T-br-KnH"/>
+                                </connections>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="la0-Yk-uYP">
+                                <rect key="frame" x="124" y="307" width="520" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5Tg-DC-Ujs"/>
+                                    <constraint firstAttribute="width" constant="520" id="B86-Xi-7ob"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Exact"/>
+                                    <segment title="Estimate"/>
+                                </segments>
+                                <color key="tintColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="didPressSegmentBtn:" destination="c7x-iG-uJP" eventType="valueChanged" id="Pj9-G8-yi5"/>
+                                    <action selector="didTouchSegmentBtn:" destination="c7x-iG-uJP" eventType="touchUpInside" id="i6B-lk-f1M"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sSh-s2-FIe" firstAttribute="top" secondItem="3h9-Qm-dMt" secondAttribute="bottom" constant="51" id="0JE-7i-fJw"/>
+                            <constraint firstItem="sSh-s2-FIe" firstAttribute="centerX" secondItem="eLN-yt-YRq" secondAttribute="centerX" constant="-1" id="26z-yb-ab2"/>
+                            <constraint firstItem="la0-Yk-uYP" firstAttribute="centerX" secondItem="sSh-s2-FIe" secondAttribute="centerX" constant="1" id="6ho-PA-hXI"/>
+                            <constraint firstItem="g2n-Ed-n0o" firstAttribute="top" secondItem="DuJ-BQ-TRW" secondAttribute="bottom" constant="50" id="8rH-Vv-Sbk"/>
+                            <constraint firstItem="sSh-s2-FIe" firstAttribute="leading" secondItem="eLN-yt-YRq" secondAttribute="leadingMargin" constant="57" id="Kii-h6-Avc"/>
+                            <constraint firstItem="DuJ-BQ-TRW" firstAttribute="centerX" secondItem="eLN-yt-YRq" secondAttribute="centerX" id="Y7u-uU-ORO"/>
+                            <constraint firstItem="kDL-21-zUE" firstAttribute="leading" secondItem="eLN-yt-YRq" secondAttribute="leading" constant="311" id="ZRh-4e-jJh"/>
+                            <constraint firstItem="la0-Yk-uYP" firstAttribute="top" secondItem="eLN-yt-YRq" secondAttribute="top" constant="307" id="hj0-mu-3Cy"/>
+                            <constraint firstItem="kDL-21-zUE" firstAttribute="leading" secondItem="DuJ-BQ-TRW" secondAttribute="leading" id="jV3-IG-OJ0"/>
+                            <constraint firstItem="kDL-21-zUE" firstAttribute="top" secondItem="la0-Yk-uYP" secondAttribute="bottom" constant="34" id="qAC-87-wL1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="How Many?" id="COD-RX-YYI"/>
+                    <connections>
+                        <outlet property="amountField" destination="kDL-21-zUE" id="JXx-2h-gyx"/>
+                        <outlet property="doneBtn" destination="DuJ-BQ-TRW" id="P1u-9g-ztX"/>
+                        <outlet property="segmentBtn" destination="la0-Yk-uYP" id="SVI-qo-Wuk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LsN-7b-VMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7781.25" y="-330.46875"/>
+        </scene>
+        <!--Notes View Controller-->
+        <scene sceneID="WxX-rK-T7f">
+            <objects>
+                <viewController id="jlU-D9-aS2" customClass="NotesViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eIA-ZD-zIS"/>
+                        <viewControllerLayoutGuide type="bottom" id="ebV-Jg-pbP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xjq-kq-ArR">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvg-EG-kpr">
+                                <rect key="frame" x="187" y="108" width="395" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter text here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UDx-ZK-GNe">
+                                <rect key="frame" x="76" y="234" width="617" height="474"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xv-Lv-KHk">
+                                <rect key="frame" x="311" y="854" width="147" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressDoneBtn:" destination="jlU-D9-aS2" eventType="touchUpInside" id="p0z-GS-aYA"/>
+                                    <segue destination="ahv-IC-BwF" kind="show" id="z8A-vJ-D67"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="doneBtn" destination="4xv-Lv-KHk" id="P65-9a-VPL"/>
+                        <outlet property="noteTextView" destination="UDx-ZK-GNe" id="pxc-FB-gdO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mh1-CV-a5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8603.90625" y="-330.46875"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oXv-JH-MZY">
+            <objects>
+                <tabBarController id="LFg-tE-UTF" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="beF-tO-Q1J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="B6Z-4q-kfY" kind="relationship" relationship="viewControllers" id="OOc-KG-Bak"/>
+                        <segue destination="VWQ-xS-7ns" kind="relationship" relationship="viewControllers" id="ZoD-5T-XgB"/>
+                        <segue destination="F2k-Qh-3R8" kind="relationship" relationship="viewControllers" id="9uS-Lo-LFO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJu-ya-O7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-87" y="403"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="4T1-IN-JbF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B6Z-4q-kfY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="5WG-IU-S0c"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ITb-zk-Hus">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ahv-IC-BwF" kind="relationship" relationship="rootViewController" id="9Kg-ms-LAf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggg-hD-a3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="975" y="-330"/>
+        </scene>
+        <!--What Animal Type?-->
+        <scene sceneID="Eyg-Un-USu">
+            <objects>
+                <tableViewController id="Chp-G3-wnD" customClass="AnimalTypeTableViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" id="IIS-QD-s0t">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="tEy-vV-iGD" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="768" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tEy-vV-iGD" id="mFu-Si-da8">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sy5-Qk-xDd">
+                                            <rect key="frame" x="107" y="25" width="554" height="49"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Sy5-Qk-xDd" secondAttribute="bottom" constant="17" id="V4p-zm-Fqv"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Sy5-Qk-xDd" secondAttribute="trailing" constant="99" id="V6T-VU-H36"/>
+                                        <constraint firstItem="Sy5-Qk-xDd" firstAttribute="leading" secondItem="mFu-Si-da8" secondAttribute="leadingMargin" constant="99" id="idu-ka-jrm"/>
+                                        <constraint firstItem="Sy5-Qk-xDd" firstAttribute="top" secondItem="mFu-Si-da8" secondAttribute="topMargin" constant="17" id="r6G-rJ-7Iw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="AnimalGroupLbl" destination="Sy5-Qk-xDd" id="nnV-96-qcA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Chp-G3-wnD" id="7e0-h3-AW2"/>
+                            <outlet property="delegate" destination="Chp-G3-wnD" id="7wH-ci-lfa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="What Animal Type?" id="rXh-wB-fxu"/>
+                    <connections>
+                        <segue destination="3kh-1S-bg2" kind="show" identifier="animalSpeciesSegue" id="o5f-6a-6tN"/>
+                        <segue destination="c7x-iG-uJP" kind="show" identifier="howManySegue" id="9tD-3x-LN3"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bz-3k-uEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5663" y="98"/>
+        </scene>
+        <!--What Animal Type?-->
+        <scene sceneID="4Kv-eg-UPf">
+            <objects>
+                <tableViewController id="3kh-1S-bg2" customClass="AnimalSpeciesTableViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" id="mrO-J9-XZv">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="Xu7-YH-kZr" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="768" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xu7-YH-kZr" id="Lyx-s1-LgG">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgL-vo-TPc">
+                                            <rect key="frame" x="107" y="25" width="554" height="49"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RgL-vo-TPc" firstAttribute="top" secondItem="Lyx-s1-LgG" secondAttribute="topMargin" constant="17" id="IGH-kp-v19"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="RgL-vo-TPc" secondAttribute="trailing" constant="99" id="KNe-zs-9fs"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="RgL-vo-TPc" secondAttribute="bottom" constant="17" id="iab-3G-yTg"/>
+                                        <constraint firstItem="RgL-vo-TPc" firstAttribute="leading" secondItem="Lyx-s1-LgG" secondAttribute="leadingMargin" constant="99" id="ipl-cX-yIu"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="AnimalGroupLbl" destination="RgL-vo-TPc" id="Mg4-YW-h7W"/>
+                                    <segue destination="c7x-iG-uJP" kind="show" id="apZ-cQ-3Gv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3kh-1S-bg2" id="kki-g3-wev"/>
+                            <outlet property="delegate" destination="3kh-1S-bg2" id="cLF-j4-zRh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="What Animal Type?" id="oA3-WP-Baw"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fdk-kn-37x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6521" y="98"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="PhotoImageBackground" width="570" height="646"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tgc-Wb-knC"/>
+        <segue reference="z8A-vJ-D67"/>
+        <segue reference="WcK-TP-jwf"/>
+        <segue reference="apZ-cQ-3Gv"/>
+    </inferredMetricsTieBreakers>
+</document>
