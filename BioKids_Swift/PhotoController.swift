@@ -24,9 +24,8 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     override func viewDidLoad() {
         takePhotoBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
-        print(observation)
-        
     }
+    
     @IBAction func useCamera(_ sender: AnyObject) {
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
             let imagePicker = UIImagePickerController()
@@ -62,11 +61,6 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
         
-//        let imageURL = info[UIImagePickerControllerReferenceURL] as! URL
-//        let imageName = imageURL.lastPathComponent
-//        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-//        let localPath = documentDirectory.stringByAppendingPathComponent(imageName)
-        
         self.dismiss(animated: true, completion: nil)
         
         if mediaType.isEqual(to: kUTTypeImage as String) {
@@ -75,12 +69,28 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             
             imageView.image = image
             
-//            let data = UIImagePNGRepresentation(image)
-//            data.writeToFile(localPath, atomically: true)
-//            
-//            let imageData = NSData(contentsOfFile: localPath)!
-//            let photoURL = NSURL(fileURLWithPath: localPath)
-//            let imageWithData = UIImage(data: imageData)!
+            let fileManager = FileManager.default
+            let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+            
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.long
+            dateFormatter.timeStyle = DateFormatter.Style.long
+            let dateString = dateFormatter.string(from: date)
+            let imagePath = documentsPath?.appendingPathComponent("image_\(dateString).jpg")
+            
+            // extract image from the picker and save it
+            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                
+                do {
+                    try UIImageJPEGRepresentation(pickedImage, 0.0)?.write(to: imagePath!)
+                }
+                catch {
+                    print("Not saved")
+                }
+            }
+            
+            observation.photoLocation = "image_\(dateString).jpg"
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image,

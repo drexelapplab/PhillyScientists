@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var observationTable: UITableView!
     
     var observationContainer = ObservationContainer.sharedInstance
+    var observation = Observation()
     
     let realm = try! Realm()
     
@@ -25,6 +26,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
         
         let results = try! Realm().objects(Observation.self)
+        
+        observationContainer.observations.removeAll()
+        
         for result in results {
             observationContainer.observations.append(result)
         }
@@ -56,6 +60,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.observationLabel.text = observationContainer.observations[indexPath.row].animalType
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        observation = self.observationContainer.observations[indexPath.row]
+        performSegue(withIdentifier: "ObservationSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ObservationSegue"{
+            let destination = segue.destination as! ObservationViewController
+            destination.observation = observation
+        }
     }
 }
 

@@ -18,10 +18,7 @@ class SensedWhatViewController: UIViewController {
     
     var observation = Observation()
 
-    override func viewDidLoad() {
-        
-        print(observation)
-        
+    override func viewDidLoad() {        
         plantBtn.layer.cornerRadius = 10
         animalBtn.layer.cornerRadius = 10
         tracksBtn.layer.cornerRadius = 10
@@ -29,20 +26,20 @@ class SensedWhatViewController: UIViewController {
     }
 
     @IBAction func didPressPlantBtn(_ sender: Any) {
-        observation.whatSensed = "plant"
+        observation.whatSensed = "Plant"
         
     }
     
     @IBAction func didPressLiveAnimalBtn(_ sender: Any) {
-        observation.whatSensed = "liveAnimal"
+        observation.whatSensed = "Live Animal"
     }
     
     @IBAction func didPressTracksBtn(_ sender: Any) {
-        observation.whatSensed = "tracks"
+        observation.whatSensed = "Tracks"
     }
     
     @IBAction func didPressOtherSignsBtn(_ sender: Any) {
-        observation.whatSensed = "otherSign"
+        observation.whatSensed = "Other Sign"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

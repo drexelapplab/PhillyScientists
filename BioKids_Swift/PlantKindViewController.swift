@@ -14,8 +14,6 @@ class PlantKindViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(observation)
         // Do any additional setup after loading the view.
     }
 
@@ -23,7 +21,27 @@ class PlantKindViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
+    
+    @IBAction func didPressGrassBtn(_ sender: Any) {
+        observation.plantKind = "Grass"
+    }
+    
+    @IBAction func didPressWeedsBtn(_ sender: Any) {
+        observation.plantKind = "Weeds, Herbs, or Small Plants"
+    }
+    
+    @IBAction func didPressVineBtn(_ sender: Any) {
+        observation.plantKind = "Vine"
+    }
+    
+    @IBAction func didPressShrubBtn(_ sender: Any) {
+        observation.plantKind = "Shrub/Bush"
+    }
+    
+    @IBAction func didPressTreeBtn(_ sender: Any) {
+        observation.plantKind = "Tree"
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "howMuchGrassSegue" {

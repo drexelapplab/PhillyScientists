@@ -26,4 +26,3 @@ class Observation: Object {
     dynamic var howManyIsExact = false
     
 }
-

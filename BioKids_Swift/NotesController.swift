@@ -32,6 +32,8 @@ class NotesViewController: UIViewController, UITextViewDelegate{
         try! realm.write {
             realm.add(observation)
         }
+     
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

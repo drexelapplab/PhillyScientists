@@ -25,8 +25,6 @@ class SensedHowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(observation)
         // Do any additional setup after loading the view, typically from a nib.
         
         seeBtn.layer.cornerRadius = 10
@@ -49,7 +47,7 @@ class SensedHowViewController: UIViewController {
             seeBtn.isSelected = false
         }
         else {
-            sensedHowArray.append("see")
+            sensedHowArray.append("See")
             seeBtn.isSelected = true
         }
         
@@ -61,7 +59,7 @@ class SensedHowViewController: UIViewController {
             hearBtn.isSelected = false
         }
         else {
-            sensedHowArray.append("hear")
+            sensedHowArray.append("Hear")
             hearBtn.isSelected = true
         }
     }
@@ -72,7 +70,7 @@ class SensedHowViewController: UIViewController {
             smellBtn.isSelected = false
         }
         else {
-            sensedHowArray.append("smell")
+            sensedHowArray.append("Smell")
             smellBtn.isSelected = true
         }
     }
@@ -83,7 +81,7 @@ class SensedHowViewController: UIViewController {
             feelBtn.isSelected = false
         }
         else {
-            sensedHowArray.append("feel")
+            sensedHowArray.append("Feel")
             feelBtn.isSelected = true
         }
     }

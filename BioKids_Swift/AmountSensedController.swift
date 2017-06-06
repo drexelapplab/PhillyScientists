@@ -21,9 +21,6 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
         doneBtn.layer.cornerRadius = 10 
         amountField.delegate = self
         segmentBtn.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 38.0)! ], for: .normal)
-        
-        print(observation)
-        
     }
     
     @IBAction func didStartEnteringAmount(_ sender: Any) {
