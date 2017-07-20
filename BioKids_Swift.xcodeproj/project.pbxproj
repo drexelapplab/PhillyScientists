@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58B306777822FC8CC1C19220 /* Pods_BioKids_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247792A69BEB773FB3155D41 /* Pods_BioKids_Swift.framework */; };
+		6E0DE50F52C921FAFBF6DB1C /* Pods_BioKids_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247792A69BEB773FB3155D41 /* Pods_BioKids_Swift.framework */; };
 		CA39BEC11E9DA5F100B5389D /* ObservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39BEC01E9DA5F100B5389D /* ObservationTableViewCell.swift */; };
 		CA5DC7BB1E8C2832006B9224 /* ObservationsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DC7BA1E8C2832006B9224 /* ObservationsContainer.swift */; };
 		CA5DC7BD1E8C2BD6006B9224 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DC7BC1E8C2BD6006B9224 /* Observation.swift */; };
@@ -33,6 +33,7 @@
 		CAD2BB291E73083900354675 /* AnimalGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BB281E73083900354675 /* AnimalGroupTableViewController.swift */; };
 		CAD2BB2B1E7327B900354675 /* sequencePhilly.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAD2BB2A1E7327B900354675 /* sequencePhilly.plist */; };
 		CAD2BB2D1E732E5000354675 /* AnimalGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BB2C1E732E5000354675 /* AnimalGroupTableViewCell.swift */; };
+		FD5561B91F1FCEBD008D2FA2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5561B81F1FCEBD008D2FA2 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		CAD2BB281E73083900354675 /* AnimalGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalGroupTableViewController.swift; sourceTree = "<group>"; };
 		CAD2BB2A1E7327B900354675 /* sequencePhilly.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sequencePhilly.plist; sourceTree = "<group>"; };
 		CAD2BB2C1E732E5000354675 /* AnimalGroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalGroupTableViewCell.swift; sourceTree = "<group>"; };
+		FD5561B81F1FCEBD008D2FA2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B306777822FC8CC1C19220 /* Pods_BioKids_Swift.framework in Frameworks */,
+				6E0DE50F52C921FAFBF6DB1C /* Pods_BioKids_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +134,7 @@
 				CAB8FC791E240EFB00B6EAC4 /* SensedHowViewController.swift */,
 				CAB8FC7B1E240F0D00B6EAC4 /* SensedWhatController.swift */,
 				CAB8FC731E23FA4400B6EAC4 /* SettingsController.swift */,
+				FD5561B81F1FCEBD008D2FA2 /* LoginController.swift */,
 				CAB8FC631E23F05E00B6EAC4 /* ViewController.swift */,
 				CAB8FC681E23F05E00B6EAC4 /* Assets.xcassets */,
 				CAB8FC6A1E23F05E00B6EAC4 /* LaunchScreen.storyboard */,
@@ -235,7 +238,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		681760B9910237F8432AD6DE /* [CP] Embed Pods Frameworks */ = {
@@ -284,6 +287,7 @@
 				CAB8FC821E2410D300B6EAC4 /* AnimalTypeController.swift in Sources */,
 				CAB8FC741E23FA4400B6EAC4 /* SettingsController.swift in Sources */,
 				CAB8FC641E23F05E00B6EAC4 /* ViewController.swift in Sources */,
+				FD5561B91F1FCEBD008D2FA2 /* LoginController.swift in Sources */,
 				CA5DC7BB1E8C2832006B9224 /* ObservationsContainer.swift in Sources */,
 				CAB8FC621E23F05E00B6EAC4 /* AppDelegate.swift in Sources */,
 				CA5DC7BD1E8C2BD6006B9224 /* Observation.swift in Sources */,
