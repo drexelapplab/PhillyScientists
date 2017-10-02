@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5E27D917DD8BCA4F2C25FD47 /* Pods_BioKids_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D9F7758D1AACD7C136D2D0 /* Pods_BioKids_Swift.framework */; };
-		A20AF4571F7E906900BD66B9 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20AF4561F7E906900BD66B9 /* Reachability.swift */; };
 		CA39BEC11E9DA5F100B5389D /* ObservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39BEC01E9DA5F100B5389D /* ObservationTableViewCell.swift */; };
 		CA5C34E21F7A9AA400D340D8 /* GrassType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C34E11F7A9AA400D340D8 /* GrassType.swift */; };
 		CA5DC7BB1E8C2832006B9224 /* ObservationsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DC7BA1E8C2832006B9224 /* ObservationsContainer.swift */; };
@@ -43,7 +42,6 @@
 		5D5EC777303DD97551E2319E /* Pods-BioKids_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BioKids_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-BioKids_Swift/Pods-BioKids_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		68D9F7758D1AACD7C136D2D0 /* Pods_BioKids_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BioKids_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CBB0872D5C435C87E8E7431 /* Pods-BioKids_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BioKids_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BioKids_Swift/Pods-BioKids_Swift.debug.xcconfig"; sourceTree = "<group>"; };
-		A20AF4561F7E906900BD66B9 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CA39BEC01E9DA5F100B5389D /* ObservationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationTableViewCell.swift; sourceTree = "<group>"; };
 		CA5C34E11F7A9AA400D340D8 /* GrassType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrassType.swift; sourceTree = "<group>"; };
 		CA5DC7BA1E8C2832006B9224 /* ObservationsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationsContainer.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				FD5561B81F1FCEBD008D2FA2 /* LoginController.swift */,
 				CAB8FC631E23F05E00B6EAC4 /* ViewController.swift */,
 				CA5C34E11F7A9AA400D340D8 /* GrassType.swift */,
-				A20AF4561F7E906900BD66B9 /* Reachability.swift */,
 				CAB8FC681E23F05E00B6EAC4 /* Assets.xcassets */,
 				CAB8FC6A1E23F05E00B6EAC4 /* LaunchScreen.storyboard */,
 				CAB8FC651E23F05E00B6EAC4 /* Main.storyboard */,
@@ -312,7 +309,6 @@
 				CAE4BDF91F7AA80000A6043C /* GrassKindTableViewCell.swift in Sources */,
 				CAB8FC621E23F05E00B6EAC4 /* AppDelegate.swift in Sources */,
 				CA5DC7BD1E8C2BD6006B9224 /* Observation.swift in Sources */,
-				A20AF4571F7E906900BD66B9 /* Reachability.swift in Sources */,
 				CAD2BB2D1E732E5000354675 /* AnimalGroupTableViewCell.swift in Sources */,
 				CAB8FC761E23FA5400B6EAC4 /* AboutController.swift in Sources */,
 				CAD2BB291E73083900354675 /* AnimalGroupTableViewController.swift in Sources */,
