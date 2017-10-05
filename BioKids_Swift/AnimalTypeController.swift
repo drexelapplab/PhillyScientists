@@ -75,12 +75,12 @@ class AnimalTypeTableViewController: UITableViewController {
         
         // Configure the cell...
         cell.AnimalGroupLbl.text = animalTypes[indexPath.row]
-        cell.AnimalGroupLbl.textColor = UIColor(red:0.965, green:0.737, blue:0.157, alpha:1.0)
+        cell.AnimalGroupLbl.textColor = Constants.Colors.buttonTextColor
         cell.contentView.backgroundColor = UIColor.clear
         
         
         let blueRoundedView : UIView = UIView(frame: CGRect(x: 8, y: 10, width: self.view.frame.size.width-16.0, height: 100))
-        blueRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.190, 0.297, 0.619, 1.0])
+        blueRoundedView.layer.backgroundColor = Constants.Colors.buttonBGColor.cgColor
         blueRoundedView.layer.masksToBounds = false
         blueRoundedView.layer.cornerRadius = 10.0
         

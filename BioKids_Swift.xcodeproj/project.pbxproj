@@ -13,6 +13,7 @@
 		CA5DC7BB1E8C2832006B9224 /* ObservationsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DC7BA1E8C2832006B9224 /* ObservationsContainer.swift */; };
 		CA5DC7BD1E8C2BD6006B9224 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DC7BC1E8C2BD6006B9224 /* Observation.swift */; };
 		CA5DC7BF1E8C3A08006B9224 /* HowMuchGrassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DC7BE1E8C3A08006B9224 /* HowMuchGrassViewController.swift */; };
+		CA74526D1F7C33A800DBE2F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA74526C1F7C33A800DBE2F2 /* Constants.swift */; };
 		CAA672271E76F44100BB1458 /* AnimalSpeciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA672261E76F44100BB1458 /* AnimalSpeciesTableViewController.swift */; };
 		CAB8FC621E23F05E00B6EAC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB8FC611E23F05E00B6EAC4 /* AppDelegate.swift */; };
 		CAB8FC641E23F05E00B6EAC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB8FC631E23F05E00B6EAC4 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		CA5DC7BA1E8C2832006B9224 /* ObservationsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationsContainer.swift; sourceTree = "<group>"; };
 		CA5DC7BC1E8C2BD6006B9224 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 		CA5DC7BE1E8C3A08006B9224 /* HowMuchGrassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowMuchGrassViewController.swift; sourceTree = "<group>"; };
+		CA74526C1F7C33A800DBE2F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CAA672261E76F44100BB1458 /* AnimalSpeciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalSpeciesTableViewController.swift; sourceTree = "<group>"; };
 		CAB8FC5E1E23F05E00B6EAC4 /* BioKids_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BioKids_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB8FC611E23F05E00B6EAC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		CAB8FC551E23F05E00B6EAC4 = {
 			isa = PBXGroup;
 			children = (
+				CA74526C1F7C33A800DBE2F2 /* Constants.swift */,
 				CAB8FC601E23F05E00B6EAC4 /* BioKids_Swift */,
 				CAB8FC5F1E23F05E00B6EAC4 /* Products */,
 				9443F5CEC6CFF9B367738C6E /* Pods */,
@@ -290,6 +293,7 @@
 				CAB8FC7E1E2410AA00B6EAC4 /* PlantTypeController.swift in Sources */,
 				CAB8FC7A1E240EFB00B6EAC4 /* SensedHowViewController.swift in Sources */,
 				CAB8FC781E240EE000B6EAC4 /* PhotoController.swift in Sources */,
+				CA74526D1F7C33A800DBE2F2 /* Constants.swift in Sources */,
 				CA5C34E21F7A9AA400D340D8 /* GrassType.swift in Sources */,
 				CAB8FC821E2410D300B6EAC4 /* AnimalTypeController.swift in Sources */,
 				CAB8FC741E23FA4400B6EAC4 /* SettingsController.swift in Sources */,
