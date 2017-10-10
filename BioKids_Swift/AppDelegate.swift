@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let realm = try! Realm()
+    
+    let observationContainer = ObservationContainer.sharedInstance
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        let results = realm.objects(Observation.self)
+
+        for result in results {
+            observationContainer.observations.append(result)
+        }
+        
         return true
     }
 

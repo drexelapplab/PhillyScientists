@@ -11,11 +11,12 @@ import UIKit
 import RealmSwift
 
 class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var takePhotoBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
+    var fileURL: URL?
     var newMedia: Bool?
     
     let realm = try! Realm()
@@ -27,6 +28,8 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         print(observation)
         
     }
+    
+    
     @IBAction func useCamera(_ sender: AnyObject) {
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
             let imagePicker = UIImagePickerController()
@@ -42,55 +45,42 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         }
     }
     
-    @IBAction func useCameraRoll(_ sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
-            let imagePicker = UIImagePickerController()
-            
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = false
-            self.present(imagePicker, animated: true,
-                         completion: nil)
-            newMedia = false
-        }
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        
-        
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
-        
-//        let imageURL = info[UIImagePickerControllerReferenceURL] as! URL
-//        let imageName = imageURL.lastPathComponent
-//        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-//        let localPath = documentDirectory.stringByAppendingPathComponent(imageName)
-        
         self.dismiss(animated: true, completion: nil)
         
         if mediaType.isEqual(to: kUTTypeImage as String) {
-            let image = info[UIImagePickerControllerOriginalImage]
-                as! UIImage
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             imageView.image = image
             
-//            let data = UIImagePNGRepresentation(image)
-//            data.writeToFile(localPath, atomically: true)
-//            
-//            let imageData = NSData(contentsOfFile: localPath)!
-//            let photoURL = NSURL(fileURLWithPath: localPath)
-//            let imageWithData = UIImage(data: imageData)!
+            let date = Date()
+            let df = DateFormatter()
+            df.dateFormat = "yyyyMMddhhmmss"
+            
+            fileURL = getDocumentsDirectory().appendingPathComponent("photo\(df.string(from: date)).png")
+            let data = UIImagePNGRepresentation(image)
+            
+            // Save image
+            do {
+                try data!.write(to: fileURL!, options: .atomic)
+                try print(fileURL!.checkResourceIsReachable())
+            } catch {
+                print ("couldn't save photo \(error)")
+            }
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image,
                                                self,
                                                #selector(PhotoController.image(image:didFinishSavingWithError:contextInfo:)),
                                                nil)
-            } else if mediaType.isEqual(to: kUTTypeMovie as String) {
-                // Code to support video here
             }
-            
         }
     }
     
@@ -106,6 +96,10 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             alert.addAction(cancelAction)
             self.present(alert, animated: true, completion: nil)
         }
+        else {
+            try! print(fileURL!.checkResourceIsReachable())
+            observation.photoLocation = fileURL!.lastPathComponent
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -118,5 +112,4 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             destination.observation = self.observation
         }
     }
-    
 }
