@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let results = realm.objects(Observation.self)
-
         for result in results {
             observationContainer.observations.append(result)
         }
