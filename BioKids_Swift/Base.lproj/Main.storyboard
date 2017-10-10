@@ -348,7 +348,11 @@ Version 2.0.0</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-CW-63B">
+<<<<<<< Updated upstream
                                 <rect key="frame" x="241" y="528" width="542" height="68"/>
+=======
+                                <rect key="frame" x="241" y="572" width="542" height="68"/>
+>>>>>>> Stashed changes
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Take Photo">
@@ -359,7 +363,11 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ro-Xb-pG6">
+<<<<<<< Updated upstream
                                 <rect key="frame" x="412.5" y="604" width="200" height="68"/>
+=======
+                                <rect key="frame" x="311" y="648" width="403" height="68"/>
+>>>>>>> Stashed changes
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="YrD-jj-5A6"/>
