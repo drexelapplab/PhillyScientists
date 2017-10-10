@@ -192,7 +192,7 @@
 				TargetAttributes = {
 					CAB8FC5D1E23F05E00B6EAC4 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 38UN2K8879;
+						DevelopmentTeam = BBME9M5D97;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -430,11 +430,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 38UN2K8879;
+				DEVELOPMENT_TEAM = BBME9M5D97;
 				INFOPLIST_FILE = BioKids_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.applab.PhilaScientists;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandon.PhilaScientistsDebug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -447,11 +447,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 38UN2K8879;
+				DEVELOPMENT_TEAM = BBME9M5D97;
 				INFOPLIST_FILE = BioKids_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.applab.PhilaScientists;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandon.PhilaScientistsDebug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;

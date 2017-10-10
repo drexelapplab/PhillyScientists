@@ -25,5 +25,5 @@ class Observation: Object {
     dynamic var animalSubType = ""
     dynamic var note = ""
     dynamic var howManyIsExact = false
-    
+    dynamic var wasSubmitted = false
 }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LFg-tE-UTF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LFg-tE-UTF">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -347,7 +348,7 @@ Version 2.0.0</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-CW-63B">
-                                <rect key="frame" x="241" y="528" width="542" height="71"/>
+                                <rect key="frame" x="241" y="528" width="542" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Take Photo">
@@ -358,8 +359,11 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ro-Xb-pG6">
-                                <rect key="frame" x="311" y="607" width="403" height="71"/>
+                                <rect key="frame" x="412.5" y="604" width="200" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="YrD-jj-5A6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -379,13 +383,11 @@ Version 2.0.0</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XVJ-CW-63B" firstAttribute="leading" secondItem="dLy-fB-CMQ" secondAttribute="leadingMargin" constant="221" id="23Y-Gl-75e"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5Ro-Xb-pG6" secondAttribute="trailing" constant="290" id="AIl-4d-acG"/>
                             <constraint firstItem="5Ro-Xb-pG6" firstAttribute="centerX" secondItem="dLy-fB-CMQ" secondAttribute="centerX" id="Cn6-8R-ih9"/>
                             <constraint firstItem="XVJ-CW-63B" firstAttribute="top" secondItem="5ze-N7-Qy4" secondAttribute="bottom" constant="46" id="Duu-Gh-IUV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XVJ-CW-63B" secondAttribute="trailing" constant="221" id="H4D-Ku-ITF"/>
                             <constraint firstItem="5ze-N7-Qy4" firstAttribute="centerX" secondItem="dLy-fB-CMQ" secondAttribute="centerX" id="UjF-Nb-XqN"/>
                             <constraint firstItem="5ze-N7-Qy4" firstAttribute="top" secondItem="Xsd-g0-c7S" secondAttribute="bottom" constant="37" id="aed-cu-HGu"/>
-                            <constraint firstItem="5Ro-Xb-pG6" firstAttribute="leading" secondItem="dLy-fB-CMQ" secondAttribute="leadingMargin" constant="291" id="fnM-SU-eCj"/>
                             <constraint firstItem="XVJ-CW-63B" firstAttribute="centerX" secondItem="dLy-fB-CMQ" secondAttribute="centerX" id="qjK-th-rH1"/>
                             <constraint firstItem="5Ro-Xb-pG6" firstAttribute="top" secondItem="XVJ-CW-63B" secondAttribute="bottom" constant="8" id="zm9-gk-Drm"/>
                         </constraints>
@@ -1249,7 +1251,7 @@ Version 2.0.0</string>
                     <tabBarItem key="tabBarItem" title="Home" id="5WG-IU-S0c"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ITb-zk-Hus">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1363,9 +1365,9 @@ Version 2.0.0</string>
         <image name="PhotoImageBackground" width="570" height="646"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="z8A-vJ-D67"/>
         <segue reference="lzT-dS-TeR"/>
-        <segue reference="Tgc-Wb-knC"/>
         <segue reference="bEn-qf-OZG"/>
+        <segue reference="Tgc-Wb-knC"/>
+        <segue reference="z8A-vJ-D67"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-
+    
     @IBOutlet weak var groupNameLbl: UILabel!
     @IBOutlet weak var teacherProgramLbl: UILabel!
     @IBOutlet weak var collectDataBtn: UIButton!
@@ -22,25 +22,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        let results = try! Realm().objects(Observation.self)
-        for result in results {
-            observationContainer.observations.append(result)
-        }
-        
         collectDataBtn.layer.cornerRadius = 10
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         observationTable.reloadData()
+        print ("Need to submit \(observationContainer.howManyNeedSubmitting()) observations")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return observationContainer.observations.count
     }
