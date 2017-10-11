@@ -53,6 +53,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
     @IBAction func didPressSubmitBtn(_ sender: Any) {
         
         let submissionURL = "https://biokids.soe.drexel.edu/addObservation.php"
@@ -85,11 +90,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     switch response.result {
                     case .success:
                         print("Validation Successful...\(String(describing: response.value))")
-                        
+
                         //                        try! realm.write {
                         //                            observation.wasSubmitted = true
                         //                        }
-                        
+
                     case .failure(let error):
                         print(error)
                     }
@@ -99,17 +104,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 // Send Photo //
                 ////////////////
                 
-                let imageToUpload = URL(fileURLWithPath: observation.photoLocation)
+                let imgFileName = observation.photoLocation
+                let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
+                
                 Alamofire.upload(
                     multipartFormData: { multipartFormData in
-                        
+
                         // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
-                        multipartFormData.append(imageToUpload, withName: observation.photoLocation)
-                        for (key, val) in parameters {
-                            multipartFormData.append((val as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
-                        }
+                        multipartFormData.append(imgFileURL, withName: imgFileName)
                 },
-                    
                     to: submissionURL,
                     encodingCompletion: { encodingResult in
                         switch encodingResult {
