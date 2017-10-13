@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import Alamofire
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ObservationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var groupNameLbl: UILabel!
     @IBOutlet weak var teacherProgramLbl: UILabel!
@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var submitBtn: UIButton!
     
     var observationContainer = ObservationContainer.sharedInstance
+    var observationIdx = -1
     
     let realm = try! Realm()
     
@@ -86,19 +87,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 // Send Text data //
                 ////////////////////
                 
-                Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
-                    switch response.result {
-                    case .success:
-                        print("Validation Successful...\(String(describing: response.value))")
-
-                        //                        try! realm.write {
-                        //                            observation.wasSubmitted = true
-                        //                        }
-
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
+//                Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
+//                    switch response.result {
+//                    case .success:
+//                        print("Validation Successful...\(String(describing: response.value))")
+//
+//                        //                        try! realm.write {
+//                        //                            observation.wasSubmitted = true
+//                        //                        }
+//
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
                 
                 ////////////////
                 // Send Photo //
@@ -106,29 +107,47 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 let imgFileName = observation.photoLocation
                 let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
+                let image = UIImage(contentsOfFile: imgFileURL.path)
+                let data = UIImagePNGRepresentation(image!)
                 
                 Alamofire.upload(
                     multipartFormData: { multipartFormData in
-
+                        
                         // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
-                        multipartFormData.append(imgFileURL, withName: imgFileName)
-                },
+                        
+                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/png")
+//                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/jpeg")
+//                        multipartFormData.append(imgFileURL, withName: "photo")
+                    },
+                    
                     to: submissionURL,
                     encodingCompletion: { encodingResult in
                         switch encodingResult {
                         case .success(let upload, _, _):
+                            print("Success...")
                             upload.responseJSON { response in
                                 if let jsonResponse = response.result.value as? [String: Any] {
                                     print(jsonResponse)
                                 }
                             }
                         case .failure(let encodingError):
+                            print("Failure...")
                             print(encodingError)
                         }
                 }
                 )
+                
+                print("Done")
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextScene = segue.destination as! SingleObservationViewController
+        
+        if let indexPath = self.observationTable.indexPathForSelectedRow{
+            observationIdx = indexPath.row
+            nextScene.observationIdx = observationIdx
+        }
+    }
 }
-

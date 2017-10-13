@@ -9,6 +9,8 @@
 import MobileCoreServices
 import UIKit
 import RealmSwift
+import Photos
+
 
 class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -28,7 +30,6 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         print(observation)
         
     }
-    
     
     @IBAction func useCamera(_ sender: AnyObject) {
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
@@ -58,22 +59,18 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         if mediaType.isEqual(to: kUTTypeImage as String) {
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             
-            imageView.image = image
+//            imageView.image = image
             
-            let date = Date()
-            let df = DateFormatter()
-            df.dateFormat = "yyyyMMddhhmmss"
-            
-            fileURL = getDocumentsDirectory().appendingPathComponent("photo\(df.string(from: date)).png")
-            let data = UIImagePNGRepresentation(image)
-            
-            // Save image
-            do {
-                try data!.write(to: fileURL!, options: .atomic)
-                try print(fileURL!.checkResourceIsReachable())
-            } catch {
-                print ("couldn't save photo \(error)")
-            }
+
+//            let data = UIImageJPEGRepresentation(image, 0.8)
+//
+//            // Save image
+//            do {
+//                try data!.write(to: fileURL!, options: .atomic)
+//                try print(fileURL!.checkResourceIsReachable())
+//            } catch {
+//                print ("couldn't save photo \(error)")
+//            }
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image,
@@ -97,8 +94,32 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             self.present(alert, animated: true, completion: nil)
         }
         else {
-            try! print(fileURL!.checkResourceIsReachable())
-            observation.photoLocation = fileURL!.lastPathComponent
+            
+            let date = Date()
+            let df = DateFormatter()
+            df.dateFormat = "yyyyMMddhhmmss"
+            
+            let fileName = "photo\(df.string(from: date)).png"
+            
+            let imageData = UIImagePNGRepresentation(image)!
+            let docDir = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let imageURL = docDir.appendingPathComponent(fileName)
+            try! imageData.write(to: imageURL)
+            
+            let newImage = UIImage(contentsOfFile: imageURL.path)!
+            imageView.image = newImage
+            
+//            fileURL = getDocumentsDirectory().appendingPathComponent(fileName)
+//
+//            let data = UIImagePNGRepresentation(image)
+//
+//            do{
+//                try data?.write(to: fileURL!, options: .atomic)
+//            }catch {
+//                print(error.localizedDescription)
+//            }
+            
+            observation.photoLocation = fileName
         }
     }
     
