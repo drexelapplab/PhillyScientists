@@ -115,21 +115,24 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                         
                         // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
                         
-                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-//                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/jpeg")
-//                        multipartFormData.append(imgFileURL, withName: "photo")
+//                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/png")
+                        multipartFormData.append(imgFileURL, withName: "photo")
                     },
                     
                     to: submissionURL,
                     encodingCompletion: { encodingResult in
                         switch encodingResult {
                         case .success(let upload, _, _):
-                            print("Success...")
-                            upload.responseJSON { response in
-                                if let jsonResponse = response.result.value as? [String: Any] {
-                                    print(jsonResponse)
-                                }
+                            upload.responseString {response in
+                                print(response)
                             }
+//                            upload.responseJSON { response in
+//                                print("Recieved JSON object from website")
+//                                if let jsonResponse = response.result.value as? [String: Any] {
+//                                    print("Printing JSON object from website")
+//                                    print(jsonResponse)
+//                                }
+//                            }
                         case .failure(let encodingError):
                             print("Failure...")
                             print(encodingError)
