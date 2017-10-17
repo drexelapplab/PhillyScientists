@@ -17,12 +17,18 @@ class NotesViewController: UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var noteTextView: UITextView!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     let realm = try! Realm()
     
     override func viewDidLoad() {
         doneBtn.layer.cornerRadius = 10
+        cancelBtn.layer.cornerRadius = 10
+        
         noteTextView.delegate = self
+        noteTextView.layer.borderColor = UIColor.black.cgColor
+        noteTextView.layer.borderWidth = 3.0
+        noteTextView.layer.cornerRadius = 10
     }
     
     @IBAction func didPressDoneBtn(_ sender: Any) {
@@ -32,6 +38,31 @@ class NotesViewController: UIViewController, UITextViewDelegate{
         try! realm.write {
             realm.add(observation)
         }
+    }
+    
+    func showMessageToUser(title: String, msg: String)  {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+            // Return
+            print("pressed yes")
+            
+            self.observation = Observation()
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("pressed no")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressCancelBtn(_ sender: Any) {
+        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

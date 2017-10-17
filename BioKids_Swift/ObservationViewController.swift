@@ -87,19 +87,19 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                 // Send Text data //
                 ////////////////////
                 
-//                Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
-//                    switch response.result {
-//                    case .success:
-//                        print("Validation Successful...\(String(describing: response.value))")
-//
-//                        //                        try! realm.write {
-//                        //                            observation.wasSubmitted = true
-//                        //                        }
-//
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                }
+                Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
+                    switch response.result {
+                    case .success:
+                        print("Validation Successful...\(String(describing: response.value))")
+
+                        //                        try! realm.write {
+                        //                            observation.wasSubmitted = true
+                        //                        }
+
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
                 
                 ////////////////
                 // Send Photo //
@@ -108,7 +108,6 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                 let imgFileName = observation.photoLocation
                 let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
                 let image = UIImage(contentsOfFile: imgFileURL.path)
-                let data = UIImagePNGRepresentation(image!)
                 
                 Alamofire.upload(
                     multipartFormData: { multipartFormData in
@@ -116,7 +115,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                         // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
                         
 //                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-                        multipartFormData.append(imgFileURL, withName: "photo")
+                        multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
                     },
                     
                     to: submissionURL,

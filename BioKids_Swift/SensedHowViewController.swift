@@ -17,6 +17,7 @@ class SensedHowViewController: UIViewController {
     @IBOutlet weak var smellBtn: UIButton!
     @IBOutlet weak var feelBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     var observation = Observation()
     var sensedHowArray = [String]()
@@ -34,7 +35,7 @@ class SensedHowViewController: UIViewController {
         smellBtn.layer.cornerRadius = 10
         feelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
-        
+        cancelBtn.layer.cornerRadius = 10
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,6 +94,30 @@ class SensedHowViewController: UIViewController {
         try! realm.write {
             
         }
+    }
+    
+    func showMessageToUser(title: String, msg: String)  {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+            // Return
+            print("pressed yes")
+            
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("pressed no")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressCancelBtn(_ sender: Any) {
+        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

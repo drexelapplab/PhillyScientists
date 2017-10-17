@@ -11,12 +11,12 @@ import UIKit
 import RealmSwift
 import Photos
 
-
 class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var takePhotoBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     var fileURL: URL?
     var newMedia: Bool?
@@ -27,8 +27,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     override func viewDidLoad() {
         takePhotoBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
-        print(observation)
-        
+        cancelBtn.layer.cornerRadius = 10        
     }
     
     @IBAction func useCamera(_ sender: AnyObject) {
@@ -58,19 +57,6 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         
         if mediaType.isEqual(to: kUTTypeImage as String) {
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-            
-//            imageView.image = image
-            
-
-//            let data = UIImageJPEGRepresentation(image, 0.8)
-//
-//            // Save image
-//            do {
-//                try data!.write(to: fileURL!, options: .atomic)
-//                try print(fileURL!.checkResourceIsReachable())
-//            } catch {
-//                print ("couldn't save photo \(error)")
-//            }
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image,
@@ -109,22 +95,36 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             let newImage = UIImage(contentsOfFile: imageURL.path)!
             imageView.image = newImage
             
-//            fileURL = getDocumentsDirectory().appendingPathComponent(fileName)
-//
-//            let data = UIImagePNGRepresentation(image)
-//
-//            do{
-//                try data?.write(to: fileURL!, options: .atomic)
-//            }catch {
-//                print(error.localizedDescription)
-//            }
-            
             observation.photoLocation = fileName
         }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func showMessageToUser(title: String, msg: String)  {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+            // Return
+            print("pressed yes")
+            
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("pressed no")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressCancelBtn(_ sender: Any) {
+        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
