@@ -298,7 +298,6 @@
                             <constraint firstItem="5Ro-Xb-pG6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XVJ-CW-63B" secondAttribute="trailing" id="6cG-Wn-RZy"/>
                             <constraint firstItem="XVJ-CW-63B" firstAttribute="centerX" secondItem="dLy-fB-CMQ" secondAttribute="centerX" id="6uP-8a-Go0"/>
                             <constraint firstItem="Tdl-2C-TEV" firstAttribute="trailing" secondItem="XVJ-CW-63B" secondAttribute="trailing" constant="-280" id="Frf-By-hkd"/>
-                            <constraint firstItem="5ze-N7-Qy4" firstAttribute="top" secondItem="dLy-fB-CMQ" secondAttribute="top" constant="89" id="PcT-Cy-2M1"/>
                             <constraint firstItem="Tdl-2C-TEV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XVJ-CW-63B" secondAttribute="leading" id="QAX-O6-ViK"/>
                             <constraint firstItem="XVJ-CW-63B" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5ze-N7-Qy4" secondAttribute="trailing" id="QK8-2d-byp"/>
                             <constraint firstItem="XVJ-CW-63B" firstAttribute="top" secondItem="5ze-N7-Qy4" secondAttribute="bottom" constant="25" id="TCL-1Z-rem"/>
@@ -309,7 +308,6 @@
                             <constraint firstItem="5ze-N7-Qy4" firstAttribute="top" secondItem="Xsd-g0-c7S" secondAttribute="bottom" constant="25" id="aGc-oB-xe7"/>
                             <constraint firstItem="5Ro-Xb-pG6" firstAttribute="width" secondItem="Tdl-2C-TEV" secondAttribute="width" id="fLI-LG-aQB"/>
                             <constraint firstItem="5Ro-Xb-pG6" firstAttribute="height" secondItem="Tdl-2C-TEV" secondAttribute="height" id="hU6-67-p3Z"/>
-                            <constraint firstItem="5ze-N7-Qy4" firstAttribute="top" secondItem="dLy-fB-CMQ" secondAttribute="top" constant="89" id="hzu-Sl-SRy"/>
                             <constraint firstItem="5Ro-Xb-pG6" firstAttribute="bottom" secondItem="Tdl-2C-TEV" secondAttribute="bottom" id="mPH-3v-LE4"/>
                             <constraint firstItem="5Ro-Xb-pG6" firstAttribute="centerY" secondItem="Tdl-2C-TEV" secondAttribute="centerY" id="tcB-fS-SYV"/>
                             <constraint firstItem="5ze-N7-Qy4" firstAttribute="centerX" secondItem="dLy-fB-CMQ" secondAttribute="centerX" id="xrT-in-E1H"/>
@@ -779,6 +777,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="What Kind of Plant?" id="YTt-3Q-oeB"/>
+                    <connections>
+                        <outlet property="cancelBtn" destination="j7h-P3-iWv" id="uQd-zU-Yby"/>
+                        <outlet property="grassBtn" destination="s9d-1O-ht5" id="ySt-lO-0RJ"/>
+                        <outlet property="shrubBtn" destination="Cav-ml-zVK" id="85L-xF-fkl"/>
+                        <outlet property="treeBtn" destination="3Tf-X9-0vX" id="YCG-fu-Sxv"/>
+                        <outlet property="vineBtn" destination="fu4-5J-mT4" id="J7G-YC-BlD"/>
+                        <outlet property="weedBtn" destination="apk-pP-Zxf" id="56X-NU-Usa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgc-yn-KR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -796,31 +802,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9mC-ek-iFo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9mC-ek-iFo">
                                 <rect key="frame" x="109" y="104" width="806" height="450"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="7Em-Yh-HsE"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GrassKindCell" rowHeight="71" id="XBI-g7-MQX" customClass="GrassKindTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="806" height="71"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GrassKindCell" rowHeight="81" id="XBI-g7-MQX" customClass="GrassKindTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="806" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XBI-g7-MQX" id="bmm-Sq-dci" customClass="GrassKindTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="806" height="70.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="806" height="80.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gI-Jq-DPO">
-                                                    <rect key="frame" x="153" y="6" width="500" height="58"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goA-Bc-u7U">
+                                                    <rect key="frame" x="65" y="8" width="677" height="65"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="grassKindLbl" destination="3gI-Jq-DPO" id="RpI-1I-wVW"/>
+                                            <outlet property="grassKindLbl" destination="goA-Bc-u7U" id="MRd-bx-Csl"/>
                                             <segue destination="blD-83-Lh0" kind="show" id="oXt-zo-Ejs"/>
                                         </connections>
                                     </tableViewCell>
@@ -831,7 +837,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0u5-By-yjG">
-                                <rect key="frame" x="311" y="564" width="403" height="71"/>
+                                <rect key="frame" x="310.5" y="564" width="403" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="IXO-VX-wi6"/>
@@ -1122,7 +1128,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvg-EG-kpr">
-                                <rect key="frame" x="443" y="104" width="139" height="71"/>
+                                <rect key="frame" x="442.5" y="104" width="139" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="cgH-1m-1mp"/>
                                 </constraints>
@@ -1624,7 +1630,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="teB-t6-sCo"/>
         <segue reference="WcK-TP-jwf"/>
-        <segue reference="IRr-8u-ct7"/>
+        <segue reference="NXF-BE-sMp"/>
         <segue reference="Tgc-Wb-knC"/>
         <segue reference="ddd-gq-hXr"/>
     </inferredMetricsTieBreakers>

@@ -11,13 +11,25 @@ import UIKit
 class PlantKindViewController: UIViewController {
 
     var observation = Observation()
-
+    @IBOutlet weak var grassBtn: UIButton!
+    @IBOutlet weak var weedBtn: UIButton!
+    @IBOutlet weak var vineBtn: UIButton!
+    @IBOutlet weak var shrubBtn: UIButton!
+    @IBOutlet weak var treeBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(observation)
         // Do any additional setup after loading the view.
+        
+        grassBtn.layer.cornerRadius = 10
+        weedBtn.layer.cornerRadius = 10
+        vineBtn.layer.cornerRadius = 10
+        shrubBtn.layer.cornerRadius = 10
+        treeBtn.layer.cornerRadius = 10
+        cancelBtn.layer.cornerRadius = 10
     }
 
     override func didReceiveMemoryWarning() {
