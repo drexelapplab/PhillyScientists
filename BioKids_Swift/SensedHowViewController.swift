@@ -36,13 +36,37 @@ class SensedHowViewController: UIViewController {
         feelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         cancelBtn.layer.cornerRadius = 10
+        
+        if observation.howSensed != "" {
+            let values = observation.howSensed.split(separator: ",")
+            
+            for val in values{
+                switch val {
+                case "see":
+                    seeBtn.isSelected = true
+                    sensedHowArray.append("see")
+                case"hear":
+                    hearBtn.isSelected = true
+                    sensedHowArray.append("hear")
+                case "smell":
+                    smellBtn.isSelected = true
+                    sensedHowArray.append("smell")
+                case "feel":
+                    feelBtn.isSelected = true
+                    sensedHowArray.append("feel")
+                default:
+                    break
+                }
+            }
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     @IBAction func didPressSeeBtn(_ sender: Any) {
         if let index = sensedHowArray.index(of: "see") {
@@ -89,12 +113,6 @@ class SensedHowViewController: UIViewController {
         }
     }
     
-    @IBAction func didPressNextBtn(_ sender: Any) {
-        let realm = try! Realm()
-        try! realm.write {
-            
-        }
-    }
     
     func showMessageToUser(title: String, msg: String)  {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
@@ -122,7 +140,11 @@ class SensedHowViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "whatSensedSegue"{
-            observation.howSensed = sensedHowArray.joined(separator: ",")
+            let realm = try! Realm()
+            try! realm.write {
+                observation.howSensed = sensedHowArray.joined(separator: ",")
+            }
+            
             let destination = segue.destination as! SensedWhatViewController
             destination.observation = self.observation
         }

@@ -54,4 +54,10 @@ class SingleObservationViewController: UIViewController {
         return paths[0]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editingSegue"{
+            let destination = segue.destination as! SensedHowViewController
+            destination.observation = self.observationContainer.observations[observationIdx]
+        }
+    }
 }
