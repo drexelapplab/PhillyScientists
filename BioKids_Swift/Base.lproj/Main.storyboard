@@ -1277,13 +1277,28 @@ Version 2.0.0</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="&lt;PhillyScientistsLink&gt;"/>
+                                <connections>
+                                    <action selector="HomeLink:" destination="wQz-3n-GLK" eventType="touchUpInside" id="lqZ-qA-aWH"/>
+                                    <action selector="didTapHome:" destination="wQz-3n-GLK" eventType="touchUpInside" id="ifA-4a-O9D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bou-zI-msB">
+                                <rect key="frame" x="0.0" y="312" width="768" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Register Here"/>
+                                <connections>
+                                    <action selector="HomeLink:" destination="wQz-3n-GLK" eventType="touchUpInside" id="EZr-zK-Vdl"/>
+                                    <action selector="didTapHome:" destination="wQz-3n-GLK" eventType="touchUpInside" id="FqQ-X3-G1m"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="web-page-home" selectedImage="web-page-home" id="kvw-a5-AKp"/>
                     <connections>
-                        <outlet property="HomeLink" destination="t06-wD-MYV" id="wEf-7D-ukG"/>
+                        <outlet property="HomeLink" destination="t06-wD-MYV" id="PcP-c6-MQV"/>
+                        <outlet property="RegButton" destination="Bou-zI-msB" id="7Ke-Qj-CKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylf-en-LTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
