@@ -57,10 +57,12 @@ class GrassTypeViewController: UIViewController, UITableViewDataSource, UITableV
         
         // Configure the cell...
         cell.grassKindLbl.textColor = UIColor(red:0.965, green:0.737, blue:0.157, alpha:1.0)
+        cell.grassKindLbl.textAlignment = .center
         cell.contentView.backgroundColor = UIColor.clear
         
         
-        let blueRoundedView : UIView = UIView(frame: CGRect(x: 8, y: 10, width: self.view.frame.size.width-16.0, height: 100))
+        
+        let blueRoundedView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: grassTypeTable.contentSize.width, height: 71))
         blueRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.190, 0.297, 0.619, 1.0])
         blueRoundedView.layer.masksToBounds = false
         blueRoundedView.layer.cornerRadius = 10.0
