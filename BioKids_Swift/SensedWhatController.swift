@@ -77,7 +77,7 @@ class SensedWhatViewController: UIViewController {
         }
         
         else {
-            let destination = segue.destination as! AnimalGroupTableViewController
+            let destination = segue.destination as! AnimalGroupViewController
             destination.observation = self.observation
         }
     }
