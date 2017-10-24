@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1504C58613B2136491CCBF9378193D79"
-               BuildableName = "Pods_BioKids_Swift.framework"
-               BlueprintName = "Pods-BioKids_Swift"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "CAB8FC5D1E23F05E00B6EAC4"
+               BuildableName = "BioKids_Swift.app"
+               BlueprintName = "BioKids_Swift"
+               ReferencedContainer = "container:BioKids_Swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,6 +30,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CAB8FC5D1E23F05E00B6EAC4"
+            BuildableName = "BioKids_Swift.app"
+            BlueprintName = "BioKids_Swift"
+            ReferencedContainer = "container:BioKids_Swift.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -44,15 +53,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1504C58613B2136491CCBF9378193D79"
-            BuildableName = "Pods_BioKids_Swift.framework"
-            BlueprintName = "Pods-BioKids_Swift"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "CAB8FC5D1E23F05E00B6EAC4"
+            BuildableName = "BioKids_Swift.app"
+            BlueprintName = "BioKids_Swift"
+            ReferencedContainer = "container:BioKids_Swift.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -62,6 +72,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CAB8FC5D1E23F05E00B6EAC4"
+            BuildableName = "BioKids_Swift.app"
+            BlueprintName = "BioKids_Swift"
+            ReferencedContainer = "container:BioKids_Swift.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

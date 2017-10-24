@@ -110,6 +110,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqC-M9-oAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2105" y="1155"/>
+<<<<<<< HEAD
+=======
+        </scene>
+        <!--GroupInfo-->
+        <scene sceneID="0Mi-H6-uTL">
+            <objects>
+                <viewController id="BDj-v6-A1C" userLabel="GroupInfo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zfX-LD-QYS"/>
+                        <viewControllerLayoutGuide type="bottom" id="efD-aE-fsA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wDc-gV-5lN">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;GroupName&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THu-Uq-b3c">
+                                <rect key="frame" x="415" y="147" width="194" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;GroupCode&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW8-uz-O13">
+                                <rect key="frame" x="415" y="252" width="194" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;TeacherName&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2e-Ka-Rzo">
+                                <rect key="frame" x="404" y="357" width="216" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="li3-QK-ypL">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="nSO-Xp-irl" kind="show" id="ah1-Qr-KId"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8Q-ZW-OdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1424" y="1155"/>
+>>>>>>> JoeDev
         </scene>
         <!--About-->
         <scene sceneID="fgi-3m-pKq">
@@ -829,12 +882,96 @@
         </scene>
         <!--Grass Type View Controller-->
         <scene sceneID="7vk-Al-gxY">
+<<<<<<< HEAD
+=======
             <objects>
                 <viewController id="rEI-sr-0mz" customClass="GrassTypeViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jjG-Cf-lwk"/>
                         <viewControllerLayoutGuide type="bottom" id="d7S-EM-Esl"/>
                     </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GIi-XU-XxV">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9mC-ek-iFo">
+                                <rect key="frame" x="109" y="60" width="806" height="450"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="7Em-Yh-HsE"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GrassKindCell" rowHeight="81" id="XBI-g7-MQX" customClass="GrassKindTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="806" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XBI-g7-MQX" id="bmm-Sq-dci" customClass="GrassKindTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="806" height="80.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goA-Bc-u7U">
+                                                    <rect key="frame" x="65" y="8" width="677" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="grassKindLbl" destination="goA-Bc-u7U" id="MRd-bx-Csl"/>
+                                            <segue destination="blD-83-Lh0" kind="show" id="oXt-zo-Ejs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rEI-sr-0mz" id="BXE-u8-vsT"/>
+                                    <outlet property="delegate" destination="rEI-sr-0mz" id="l4R-rf-zge"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0u5-By-yjG">
+                                <rect key="frame" x="310.5" y="520" width="403" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="IXO-VX-wi6"/>
+                                    <constraint firstAttribute="width" constant="403" id="XwJ-4t-s1a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressCancelBtn:" destination="aex-uM-6AU" eventType="touchUpInside" id="1wc-Ps-BUf"/>
+                                    <action selector="didPressCancelBtn:" destination="rEI-sr-0mz" eventType="touchUpInside" id="C0C-BU-IZ3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0u5-By-yjG" firstAttribute="centerX" secondItem="GIi-XU-XxV" secondAttribute="centerX" id="0B9-10-7jV"/>
+                            <constraint firstItem="0u5-By-yjG" firstAttribute="top" secondItem="9mC-ek-iFo" secondAttribute="bottom" constant="10" id="83D-SP-dRr"/>
+                            <constraint firstItem="9mC-ek-iFo" firstAttribute="leading" secondItem="GIi-XU-XxV" secondAttribute="leadingMargin" constant="89" id="K5c-4R-lIw"/>
+                            <constraint firstItem="9mC-ek-iFo" firstAttribute="top" secondItem="jjG-Cf-lwk" secondAttribute="bottom" constant="40" id="ODr-sG-w7G"/>
+                            <constraint firstItem="9mC-ek-iFo" firstAttribute="centerX" secondItem="GIi-XU-XxV" secondAttribute="centerX" id="tba-xx-ChF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="grassTypeTable" destination="9mC-ek-iFo" id="C56-9U-A5b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D5c-jn-t3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5662.5" y="-1652.34375"/>
+        </scene>
+        <!--How Much Grass Is In Your Zone?-->
+        <scene sceneID="xpo-p9-iLQ">
+>>>>>>> JoeDev
+            <objects>
+                <viewController id="rEI-sr-0mz" customClass="GrassTypeViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jjG-Cf-lwk"/>
+                        <viewControllerLayoutGuide type="bottom" id="d7S-EM-Esl"/>
+                    </layoutGuides>
+<<<<<<< HEAD
                     <view key="view" contentMode="scaleToFill" id="GIi-XU-XxV">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -923,6 +1060,16 @@
                                 <rect key="frame" x="109" y="60" width="806" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+=======
+                    <view key="view" contentMode="scaleToFill" id="SWM-gK-F8v">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y35-Jc-1ZS">
+                                <rect key="frame" x="109" y="60" width="806" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+>>>>>>> JoeDev
                                     <constraint firstAttribute="height" constant="71" id="gc2-ty-41J"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
@@ -1258,6 +1405,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+<<<<<<< HEAD
+=======
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RY3-W7-66a">
+                                <rect key="frame" x="490" y="390" width="102" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;Register&gt;"/>
+                                <connections>
+                                    <segue destination="BDj-v6-A1C" kind="show" id="3w0-rY-kA0"/>
+                                </connections>
+                            </button>
+>>>>>>> JoeDev
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1265,7 +1423,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aw-C3-PeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-1424" y="230"/>
+=======
+            <point key="canvasLocation" x="-1424.4140625" y="229.6875"/>
+>>>>>>> JoeDev
         </scene>
         <!--Observation View Controller-->
         <scene sceneID="myg-8k-Lxj">
@@ -1534,6 +1696,15 @@
                                     <segue destination="VWQ-xS-7ns" kind="show" id="auK-9v-uLb"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
+=======
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvm-NT-REl">
+                                <rect key="frame" x="435" y="227" width="154" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="&lt;PH WebsiteLink&gt;"/>
+                            </button>
+>>>>>>> JoeDev
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1541,7 +1712,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoK-kA-pXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-2105" y="230"/>
+=======
+            <point key="canvasLocation" x="-2105.2734375" y="229.6875"/>
+>>>>>>> JoeDev
         </scene>
         <!--Animal Type View Controller-->
         <scene sceneID="4Nk-K0-X5n">
@@ -1588,6 +1763,7 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+<<<<<<< HEAD
                                 <connections>
                                     <outlet property="dataSource" destination="qUg-Dq-mxb" id="ALu-Ba-Ni3"/>
                                     <outlet property="delegate" destination="qUg-Dq-mxb" id="l7e-Ll-TaI"/>
@@ -1607,6 +1783,27 @@
                                 <connections>
                                     <action selector="didPressCancelBtn:" destination="qUg-Dq-mxb" eventType="touchUpInside" id="W6d-fr-6Bs"/>
                                 </connections>
+=======
+                                <connections>
+                                    <outlet property="dataSource" destination="qUg-Dq-mxb" id="ALu-Ba-Ni3"/>
+                                    <outlet property="delegate" destination="qUg-Dq-mxb" id="l7e-Ll-TaI"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9n-qE-Lm1">
+                                <rect key="frame" x="310.5" y="520" width="403" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="7pU-Qg-JkC"/>
+                                    <constraint firstAttribute="width" constant="403" id="gaS-nj-lCc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressCancelBtn:" destination="qUg-Dq-mxb" eventType="touchUpInside" id="W6d-fr-6Bs"/>
+                                </connections>
+>>>>>>> JoeDev
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1675,6 +1872,7 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+<<<<<<< HEAD
                                 <connections>
                                     <outlet property="dataSource" destination="wdh-7G-Izl" id="3Xy-OV-91S"/>
                                     <outlet property="delegate" destination="wdh-7G-Izl" id="F3Z-hM-NOd"/>
@@ -1694,6 +1892,27 @@
                                 <connections>
                                     <action selector="didPressCancelBtn:" destination="wdh-7G-Izl" eventType="touchUpInside" id="WPO-qt-Jwa"/>
                                 </connections>
+=======
+                                <connections>
+                                    <outlet property="dataSource" destination="wdh-7G-Izl" id="3Xy-OV-91S"/>
+                                    <outlet property="delegate" destination="wdh-7G-Izl" id="F3Z-hM-NOd"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDz-Wt-aFy">
+                                <rect key="frame" x="310.5" y="520" width="403" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="403" id="WU0-Be-w4B"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="71" id="tmS-hr-BFy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressCancelBtn:" destination="wdh-7G-Izl" eventType="touchUpInside" id="WPO-qt-Jwa"/>
+                                </connections>
+>>>>>>> JoeDev
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1739,6 +1958,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="teB-t6-sCo"/>
+<<<<<<< HEAD
+=======
+        <segue reference="ah1-Qr-KId"/>
+>>>>>>> JoeDev
         <segue reference="gR6-Vc-87r"/>
         <segue reference="xjc-L5-nGL"/>
         <segue reference="eor-z8-ZLV"/>
