@@ -61,79 +61,79 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func didPressSubmitBtn(_ sender: Any) {
         
-        let submissionURL = "https://biokids.soe.drexel.edu/addObservation.php"
-        
-        for observation in observationContainer.observations {
-            
-            if observation.wasSubmitted == false {
-                let dateFormatter = DateFormatter()
-                dateFormatter.timeZone = TimeZone(abbreviation: "EST")
-                dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
-                
-                let parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
-                                              "howSensed": observation.howSensed,
-                                              "whatSensed": observation.whatSensed,
-                                              "plantKind": observation.plantKind,
-                                              "grassKind": observation.grassKind,
-                                              "howMuchPlant": observation.howMuchPlant,
-                                              "howManySeen": observation.howManySeen,
-                                              "animalGroup":observation.animalGroup,
-                                              "animalType": observation.animalType,
-                                              "animalSubType": observation.animalSubType,
-                                              "note": observation.note,
-                                              "howManyIsExact": observation.howManyIsExact]
-                
-                ////////////////////
-                // Send Text data //
-                ////////////////////
-                
-                Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
-                    switch response.result {
-                    case .success:
-                        print("Validation Successful...\(String(describing: response.value))")
-
-                        //                        try! realm.write {
-                        //                            observation.wasSubmitted = true
-                        //                        }
-
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-                
-                ////////////////
-                // Send Photo //
-                ////////////////
-                
-                let imgFileName = observation.photoLocation
-                let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
-                
-                Alamofire.upload(
-                    multipartFormData: { multipartFormData in
-                        
-                        // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
-                        
-//                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-                        multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-                    },
-                    
-                    to: submissionURL,
-                    encodingCompletion: { encodingResult in
-                        switch encodingResult {
-                        case .success(let upload, _, _):
-                            upload.responseString {response in
-                                print(response)
-                            }
-                        case .failure(let encodingError):
-                            print("Failure...")
-                            print(encodingError)
-                        }
-                }
-                )
-                
-                print("Done")
-            }
-        }
+//        let submissionURL = "https://biokids.soe.drexel.edu/addObservation.php"
+//
+//        for observation in observationContainer.observations {
+//
+//            if observation.wasSubmitted == false {
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.timeZone = TimeZone(abbreviation: "EST")
+//                dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
+//
+//                let parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
+//                                              "howSensed": observation.howSensed,
+//                                              "whatSensed": observation.whatSensed,
+//                                              "plantKind": observation.plantKind,
+//                                              "grassKind": observation.grassKind,
+//                                              "howMuchPlant": observation.howMuchPlant,
+//                                              "howManySeen": observation.howManySeen,
+//                                              "animalGroup":observation.animalGroup,
+//                                              "animalType": observation.animalType,
+//                                              "animalSubType": observation.animalSubType,
+//                                              "note": observation.note,
+//                                              "howManyIsExact": observation.howManyIsExact]
+//
+//                ////////////////////
+//                // Send Text data //
+//                ////////////////////
+//
+//                Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
+//                    switch response.result {
+//                    case .success:
+//                        print("Validation Successful...\(String(describing: response.value))")
+//
+//                        //                        try! realm.write {
+//                        //                            observation.wasSubmitted = true
+//                        //                        }
+//
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
+//
+//                ////////////////
+//                // Send Photo //
+//                ////////////////
+//
+//                let imgFileName = observation.photoLocation
+//                let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
+//
+//                Alamofire.upload(
+//                    multipartFormData: { multipartFormData in
+//
+//                        // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
+//
+////                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/png")
+//                        multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
+//                    },
+//
+//                    to: submissionURL,
+//                    encodingCompletion: { encodingResult in
+//                        switch encodingResult {
+//                        case .success(let upload, _, _):
+//                            upload.responseString {response in
+//                                print(response)
+//                            }
+//                        case .failure(let encodingError):
+//                            print("Failure...")
+//                            print(encodingError)
+//                        }
+//                }
+//                )
+//
+//                print("Done")
+//            }
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

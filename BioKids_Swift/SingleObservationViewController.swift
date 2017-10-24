@@ -14,6 +14,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var observationImgView: UIImageView!
     var observationIdx = -1
     let observationContainer = ObservationContainer.sharedInstance
+    var observation: Observation?
     
     var propertyNames = Array<String>()
     
@@ -26,9 +27,9 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
         
         if observationIdx > -1 {
             print("loading observation image")
-            let observation = observationContainer.observations[observationIdx]
-            let photoLocation = observation.photoLocation
-            let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation)
+            observation = observationContainer.observations[observationIdx]
+            let photoLocation = observation?.photoLocation
+            let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
             
 //            let labelText = """
@@ -46,7 +47,9 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
 //            """
 
             propertyNames = observationContainer.observations[observationIdx].propertyNames()
-        }
+            propertyNames.remove(at: propertyNames.index(where: {$0 == "photoLocation"})!)
+            propertyNames.remove(at: propertyNames.index(where: {$0 == "howManyIsExact"})!)
+            propertyNames.remove(at: propertyNames.index(where: {$0 == "wasSubmitted"})!)}
     }
         
     func getDocumentsDirectory() -> URL {
@@ -61,7 +64,42 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath) as! ObservationEntryCell
         
-        cell.entryLbl.text = propertyNames[indexPath.row]
+        let propertyName = propertyNames[indexPath.row]
+        
+        switch propertyName {
+            case "howSensed":
+                cell.entryLbl.text = propertyName + ": \(observation!.howSensed)"
+                break
+            case "whatSensed":
+                cell.entryLbl.text = propertyName + ": \(observation!.whatSensed)"
+                break
+            case "plantKind":
+                cell.entryLbl.text = propertyName + ": \(observation!.plantKind)"
+                break
+            case "grassKind":
+                cell.entryLbl.text = propertyName + ": \(observation!.grassKind)"
+                break
+            case "howMuchPlant":
+                cell.entryLbl.text = propertyName + ": \(observation!.howMuchPlant)"
+                break
+            case "howManySeen":
+                cell.entryLbl.text = propertyName + ": \(observation!.howManySeen)"
+                break
+            case "animalGroup":
+                cell.entryLbl.text = propertyName + ": \(observation!.animalGroup)"
+                break
+            case "animalType":
+                cell.entryLbl.text = propertyName + ": \(observation!.animalType)"
+                break
+            case "animalSubType":
+                cell.entryLbl.text = propertyName + ": \(observation!.animalSubType)"
+                break
+            case "date":
+                cell.entryLbl.text = propertyName + ": \(observation!.date)"
+                break
+            default:
+                break
+        }
         
         return cell
     }
@@ -69,31 +107,39 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
             print("edit button tapped")
-            
-            
-            let property = self.propertyNames[(tableView.indexPathForSelectedRow?.row)!]
+
+            let property = self.propertyNames[editActionsForRowAt.row]
             
             switch property {
             case "howSensed":
+                self.performSegue(withIdentifier: "howSensedSegue", sender: self)
                 break
             case "whatSensed":
+                self.performSegue(withIdentifier: "whatSensedSegue", sender: self)
                 break
             case "plantKind":
+                self.performSegue(withIdentifier: "plantKindSegue", sender: self)
                 break
             case "grassKind":
+                self.performSegue(withIdentifier: "grassKindSegue", sender: self)
                 break
             case "howMuchPlant":
+                self.performSegue(withIdentifier: "howMuchPlantSegue", sender: self)
                 break
             case "howManySeen":
+                self.performSegue(withIdentifier: "howManySeenSegue", sender: self)
                 break
             case "animalGroup":
+                self.performSegue(withIdentifier: "animalGroupSegue", sender: self)
                 break
             case "animalType":
+                self.performSegue(withIdentifier: "animalTypeSegue", sender: self)
                 break
             case "animalSubType":
+                self.performSegue(withIdentifier: "animalSubTypeSegue", sender: self)
                 break
             default:
-                self.performSegue(withIdentifier: "editingSegue", sender: self)
+                break
             }
             
         }
@@ -107,9 +153,48 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editingSegue"{
-            let destination = segue.destination as! SensedHowViewController
-            destination.observation = self.observationContainer.observations[observationIdx]
+        
+        if let segueType = segue.identifier {
+            switch segueType {
+            case "howSensedSegue":
+                let destination = segue.destination as! SensedHowViewController
+                destination.observation = self.observation!
+                break
+            case "whatSensesSegue":
+                let destination = segue.destination as! SensedWhatViewController
+                destination.observation = self.observation!
+                break
+            case "plantKindSegue":
+                let destination = segue.destination as! PlantKindViewController
+                destination.observation = self.observation!
+                break
+            case "grassKindSegue":
+                let destination = segue.destination as! GrassTypeViewController
+                destination.observation = self.observation!
+                break
+            case "howMuchPlantSegue":
+                let destination = segue.destination as! HowMuchGrassViewController
+                destination.observation = self.observation!
+                break
+            case "howManySeenSegue":
+                let destination = segue.destination as! AmountSensedViewController
+                destination.observation = self.observation!
+                break
+            case "animalGroupSegue":
+                let destination = segue.destination as! AnimalGroupViewController
+                destination.observation = self.observation!
+                break
+            case "animalTypeSegue":
+                let destination = segue.destination as! AnimalTypeViewController
+                destination.observation = self.observation!
+                break
+            case "animalSubTypeSegue":
+                let destination = segue.destination as! AnimalSpeciesViewController
+                destination.observation = self.observation!
+                break
+            default:
+                break
+            }
         }
     }
 }
