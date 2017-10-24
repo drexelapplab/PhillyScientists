@@ -11,6 +11,7 @@
 		CA07C55D1F9E25F4004EA42F /* AnimalGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07C55C1F9E25F4004EA42F /* AnimalGroupViewController.swift */; };
 		CA07F2461F9E2EBE007B30B0 /* AnimalTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07F2451F9E2EBE007B30B0 /* AnimalTypeViewController.swift */; };
 		CA39BEC11E9DA5F100B5389D /* ObservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39BEC01E9DA5F100B5389D /* ObservationTableViewCell.swift */; };
+		CA3C7CED1F9E83CF0040EF3E /* ObservationEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C7CEC1F9E83CF0040EF3E /* ObservationEntryCell.swift */; };
 		CA5C34E21F7A9AA400D340D8 /* GrassType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C34E11F7A9AA400D340D8 /* GrassType.swift */; };
 		CA5DC7BB1E8C2832006B9224 /* ObservationsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DC7BA1E8C2832006B9224 /* ObservationsContainer.swift */; };
 		CA5DC7BD1E8C2BD6006B9224 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DC7BC1E8C2BD6006B9224 /* Observation.swift */; };
@@ -49,6 +50,7 @@
 		CA07C55C1F9E25F4004EA42F /* AnimalGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalGroupViewController.swift; sourceTree = "<group>"; };
 		CA07F2451F9E2EBE007B30B0 /* AnimalTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTypeViewController.swift; sourceTree = "<group>"; };
 		CA39BEC01E9DA5F100B5389D /* ObservationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationTableViewCell.swift; sourceTree = "<group>"; };
+		CA3C7CEC1F9E83CF0040EF3E /* ObservationEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationEntryCell.swift; sourceTree = "<group>"; };
 		CA5C34E11F7A9AA400D340D8 /* GrassType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrassType.swift; sourceTree = "<group>"; };
 		CA5DC7BA1E8C2832006B9224 /* ObservationsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationsContainer.swift; sourceTree = "<group>"; };
 		CA5DC7BC1E8C2BD6006B9224 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				CA7704951F9E3A7100AE8FF1 /* AnimalSpeciesViewController.swift */,
 				CA07F2451F9E2EBE007B30B0 /* AnimalTypeViewController.swift */,
 				CAFC278D1F8FA95B00CB1363 /* SingleObservationViewController.swift */,
+				CA3C7CEC1F9E83CF0040EF3E /* ObservationEntryCell.swift */,
 				CA5C34E11F7A9AA400D340D8 /* GrassType.swift */,
 			);
 			path = BioKids_Swift;
@@ -312,6 +315,7 @@
 				CAFC278E1F8FA95B00CB1363 /* SingleObservationViewController.swift in Sources */,
 				CA5DC7BB1E8C2832006B9224 /* ObservationsContainer.swift in Sources */,
 				CAE4BDF91F7AA80000A6043C /* GrassKindTableViewCell.swift in Sources */,
+				CA3C7CED1F9E83CF0040EF3E /* ObservationEntryCell.swift in Sources */,
 				CAB8FC621E23F05E00B6EAC4 /* AppDelegate.swift in Sources */,
 				CA5DC7BD1E8C2BD6006B9224 /* Observation.swift in Sources */,
 				CA07C55D1F9E25F4004EA42F /* AnimalGroupViewController.swift in Sources */,

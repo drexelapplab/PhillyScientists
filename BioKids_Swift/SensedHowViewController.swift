@@ -23,6 +23,7 @@ class SensedHowViewController: UIViewController {
     var sensedHowArray = [String]()
     let realm = try! Realm()
     let observationContainer = ObservationContainer.sharedInstance
+    var editingObservation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,9 @@ class SensedHowViewController: UIViewController {
         cancelBtn.layer.cornerRadius = 10
         
         if observation.howSensed != "" {
+            editingObservation = true
+            cancelBtn.setTitle("Done", for: .normal)
+            
             let values = observation.howSensed.split(separator: ",")
             
             for val in values{
@@ -119,7 +123,6 @@ class SensedHowViewController: UIViewController {
         
         let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
             // Return
-            print("pressed yes")
             
             _ = self.navigationController?.popToRootViewController(animated: true)
         }
@@ -135,7 +138,13 @@ class SensedHowViewController: UIViewController {
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        
+        if editingObservation == false {
+            self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Observations screen?")
+        }
+        else {
+            self.showMessageToUser(title: "Alert", msg: "Would you like to save your changes and return to the Observations screen?")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

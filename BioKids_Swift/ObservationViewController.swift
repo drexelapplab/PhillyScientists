@@ -107,7 +107,6 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                 
                 let imgFileName = observation.photoLocation
                 let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
-                let image = UIImage(contentsOfFile: imgFileURL.path)
                 
                 Alamofire.upload(
                     multipartFormData: { multipartFormData in
@@ -125,13 +124,6 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                             upload.responseString {response in
                                 print(response)
                             }
-//                            upload.responseJSON { response in
-//                                print("Recieved JSON object from website")
-//                                if let jsonResponse = response.result.value as? [String: Any] {
-//                                    print("Printing JSON object from website")
-//                                    print(jsonResponse)
-//                                }
-//                            }
                         case .failure(let encodingError):
                             print("Failure...")
                             print(encodingError)

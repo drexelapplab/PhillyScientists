@@ -9,7 +9,18 @@
 import Foundation
 import RealmSwift
 
-class Observation: Object {
+protocol PropertyNames {
+    func propertyNames() -> [String]
+}
+
+extension PropertyNames
+{
+    func propertyNames() -> [String] {
+        return Mirror(reflecting: self).children.flatMap { $0.label }
+    }
+}
+
+class Observation: Object, PropertyNames {
     
     // MARK: Properties
     dynamic var date = Date()
