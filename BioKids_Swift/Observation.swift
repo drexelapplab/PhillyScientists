@@ -17,6 +17,7 @@ class Observation: Object {
     dynamic var howSensed = ""
     dynamic var whatSensed = ""
     dynamic var plantKind = ""
+    dynamic var grassKind = ""
     dynamic var howMuchPlant = ""
     dynamic var howManySeen = 0
     dynamic var animalGroup = ""
@@ -24,5 +25,5 @@ class Observation: Object {
     dynamic var animalSubType = ""
     dynamic var note = ""
     dynamic var howManyIsExact = false
-    
+    dynamic var wasSubmitted = false
 }

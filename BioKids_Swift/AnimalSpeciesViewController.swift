@@ -1,16 +1,20 @@
 //
-//  AnimalSpeciesTableViewController.swift
+//  AnimalSpeciesViewController.swift
 //  BioKids_Swift
 //
-//  Created by Brandon Morton on 3/13/17.
+//  Created by Brandon Morton on 10/23/17.
 //  Copyright © 2017 App Lab. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class AnimalSpeciesTableViewController: UITableViewController {
+class AnimalSpeciesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var cancelBtn: UIButton!
     var animalSpecies = String()
     var animalSpeciesArray = Array<String>()
     var observation = Observation()
@@ -19,6 +23,8 @@ class AnimalSpeciesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         print(observation)
+        
+        cancelBtn.layer.cornerRadius = 10
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -51,17 +57,12 @@ class AnimalSpeciesTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return animalSpeciesArray.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalGroupCell", for: indexPath) as! AnimalGroupTableViewCell
         
         // Configure the cell...
@@ -79,6 +80,30 @@ class AnimalSpeciesTableViewController: UITableViewController {
         cell.contentView.sendSubview(toBack: blueRoundedView)
         
         return cell
+    }
+    
+    func showMessageToUser(title: String, msg: String)  {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+            // Return
+            print("pressed yes")
+            
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("pressed no")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressCancelBtn(_ sender: Any) {
+        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

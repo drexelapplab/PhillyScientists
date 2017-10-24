@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+import Alamofire
+import RealmSwift
 
 class ObservationContainer {
     static let sharedInstance = ObservationContainer()
@@ -26,5 +27,15 @@ class ObservationContainer {
     
     func removeObservation(index: Int){
         self.observations.remove(at: index)
+    }
+    
+    func howManyNeedSubmitting() -> Int {
+        var count = 0
+        for observation in observations {
+            if observation.wasSubmitted == false{
+                count += 1
+            }
+        }
+        return count
     }
 }

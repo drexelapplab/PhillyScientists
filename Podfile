@@ -4,8 +4,7 @@ use_frameworks!
 
 target 'BioKids_Swift' do
     pod 'Alamofire', '~> 4.4'
-    pod 'RealmSwift', '2.8.3'
-    pod 'Realm', '2.8.3'
+    pod 'RealmSwift'
 end
 
 post_install do |installer|

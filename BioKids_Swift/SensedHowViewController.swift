@@ -17,6 +17,7 @@ class SensedHowViewController: UIViewController {
     @IBOutlet weak var smellBtn: UIButton!
     @IBOutlet weak var feelBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     var observation = Observation()
     var sensedHowArray = [String]()
@@ -25,6 +26,8 @@ class SensedHowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(observation)
         // Do any additional setup after loading the view, typically from a nib.
         
         seeBtn.layer.cornerRadius = 10
@@ -32,14 +35,38 @@ class SensedHowViewController: UIViewController {
         smellBtn.layer.cornerRadius = 10
         feelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
+        cancelBtn.layer.cornerRadius = 10
         
+        if observation.howSensed != "" {
+            let values = observation.howSensed.split(separator: ",")
+            
+            for val in values{
+                switch val {
+                case "see":
+                    seeBtn.isSelected = true
+                    sensedHowArray.append("see")
+                case"hear":
+                    hearBtn.isSelected = true
+                    sensedHowArray.append("hear")
+                case "smell":
+                    smellBtn.isSelected = true
+                    sensedHowArray.append("smell")
+                case "feel":
+                    feelBtn.isSelected = true
+                    sensedHowArray.append("feel")
+                default:
+                    break
+                }
+            }
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     @IBAction func didPressSeeBtn(_ sender: Any) {
         if let index = sensedHowArray.index(of: "see") {
@@ -47,7 +74,7 @@ class SensedHowViewController: UIViewController {
             seeBtn.isSelected = false
         }
         else {
-            sensedHowArray.append("See")
+            sensedHowArray.append("see")
             seeBtn.isSelected = true
         }
         
@@ -59,7 +86,7 @@ class SensedHowViewController: UIViewController {
             hearBtn.isSelected = false
         }
         else {
-            sensedHowArray.append("Hear")
+            sensedHowArray.append("hear")
             hearBtn.isSelected = true
         }
     }
@@ -70,7 +97,7 @@ class SensedHowViewController: UIViewController {
             smellBtn.isSelected = false
         }
         else {
-            sensedHowArray.append("Smell")
+            sensedHowArray.append("smell")
             smellBtn.isSelected = true
         }
     }
@@ -81,21 +108,43 @@ class SensedHowViewController: UIViewController {
             feelBtn.isSelected = false
         }
         else {
-            sensedHowArray.append("Feel")
+            sensedHowArray.append("feel")
             feelBtn.isSelected = true
         }
     }
     
-    @IBAction func didPressNextBtn(_ sender: Any) {
-        let realm = try! Realm()
-        try! realm.write {
+    
+    func showMessageToUser(title: String, msg: String)  {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+            // Return
+            print("pressed yes")
             
+            _ = self.navigationController?.popToRootViewController(animated: true)
         }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("pressed no")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressCancelBtn(_ sender: Any) {
+        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "whatSensedSegue"{
-            observation.howSensed = sensedHowArray.joined(separator: ",")
+            let realm = try! Realm()
+            try! realm.write {
+                observation.howSensed = sensedHowArray.joined(separator: ",")
+            }
+            
             let destination = segue.destination as! SensedWhatViewController
             destination.observation = self.observation
         }
