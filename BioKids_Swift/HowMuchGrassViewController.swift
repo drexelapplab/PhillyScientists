@@ -7,19 +7,62 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HowMuchGrassViewController: UIViewController {
-
+    
     var observation = Observation()
+    var initialObservation = true
+    
+    @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
+    
+    @IBOutlet weak var almostNoneBtn: UIButton!
+    @IBOutlet weak var lessThanHalfBtn: UIButton!
+    @IBOutlet weak var aboutHalfBtn: UIButton!
+    @IBOutlet weak var moreThanHalfBtn: UIButton!
+    @IBOutlet weak var almostAllBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(observation)
-
+        
         // Do any additional setup after loading the view.
+        cancelBtn.layer.cornerRadius = 10
+        nextBtn.layer.cornerRadius = 10
+        almostNoneBtn.layer.cornerRadius = 10
+        lessThanHalfBtn.layer.cornerRadius = 10
+        aboutHalfBtn.layer.cornerRadius = 10
+        moreThanHalfBtn.layer.cornerRadius = 10
+        almostAllBtn.layer.cornerRadius = 10
+        
+        if observation.howMuchPlant != "" {
+            nextBtn.setTitle("Save", for: .normal)
+            initialObservation = false
+            
+            switch observation.whatSensed {
+            case "Almost None":
+                almostNoneBtn.isSelected = true
+                break
+            case"Less Than Half":
+                lessThanHalfBtn.isSelected = true
+                break
+            case "About Half":
+                aboutHalfBtn.isSelected = true
+                break
+            case "More Than Half":
+                moreThanHalfBtn.isSelected = true
+                break
+            case "Almost All":
+                almostAllBtn.isSelected = true
+                break
+            default:
+                break
+            }
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,13 +89,122 @@ class HowMuchGrassViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    @IBAction func didPressAlmostNoneBtn(_ sender: Any) {
+        
+        almostNoneBtn.isSelected = true
+        lessThanHalfBtn.isSelected = false
+        aboutHalfBtn.isSelected = false
+        moreThanHalfBtn.isSelected = false
+        almostAllBtn.isSelected = false
+        
+        if initialObservation{
+            observation.howMuchPlant = "Almost None"
+        }
+        else {
+            let realm = try! Realm()
+            try! realm.write {
+                observation.howMuchPlant = "Almost None"
+            }   
+        }
+    }
+    
+    @IBAction func didPressLessThanHalfBtn(_ sender: Any) {
+        almostNoneBtn.isSelected = false
+        lessThanHalfBtn.isSelected = true
+        aboutHalfBtn.isSelected = false
+        moreThanHalfBtn.isSelected = false
+        almostAllBtn.isSelected = false
+        
+        if initialObservation{
+            observation.howMuchPlant = "Less Than Half"
+        }
+        else {
+            let realm = try! Realm()
+            try! realm.write {
+                observation.howMuchPlant = "Less Than Half"
+            }
+        }
+    }
+    
+    @IBAction func didPressAboutHalfBtn(_ sender: Any) {
+        almostNoneBtn.isSelected = false
+        lessThanHalfBtn.isSelected = false
+        aboutHalfBtn.isSelected = true
+        moreThanHalfBtn.isSelected = false
+        almostAllBtn.isSelected = false
+        
+        if initialObservation{
+            observation.howMuchPlant = "About Half"
+        }
+        else {
+            let realm = try! Realm()
+            try! realm.write {
+                observation.howMuchPlant = "About Half"
+            }
+        }
+    }
+    
+    @IBAction func didPressMoreThanHalfBtn(_ sender: Any) {
+        almostNoneBtn.isSelected = false
+        lessThanHalfBtn.isSelected = false
+        aboutHalfBtn.isSelected = false
+        moreThanHalfBtn.isSelected = true
+        almostAllBtn.isSelected = false
+        
+        if initialObservation{
+            observation.howMuchPlant = "More Than Half"
+        }
+        else {
+            let realm = try! Realm()
+            try! realm.write {
+                observation.howMuchPlant = "More Than Half"
+            }
+        }
+    }
+    
+    @IBAction func didPressAlmostAllBtn(_ sender: Any) {
+        almostNoneBtn.isSelected = false
+        lessThanHalfBtn.isSelected = false
+        aboutHalfBtn.isSelected = false
+        moreThanHalfBtn.isSelected = false
+        almostAllBtn.isSelected = true
+        
+        if initialObservation{
+            observation.howMuchPlant = "Almost All"
+        }
+        else {
+            let realm = try! Realm()
+            try! realm.write {
+                observation.howMuchPlant = "Almost All"
+            }
+        }
+    }
+    
+    @IBAction func didPressNextBtn(_ sender: Any) {
+        if initialObservation{
+            performSegue(withIdentifier: "notesSegue", sender: self)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        if initialObservation {
+            self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! NotesViewController
-        destination.observation = self.observation
+        if initialObservation {
+            if segue.identifier == "notesSegue" {
+                let destination = segue.destination as! NotesViewController
+                destination.observation = self.observation
+            }
+        }
     }
-
 }

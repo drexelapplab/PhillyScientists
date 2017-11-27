@@ -21,9 +21,8 @@ class SensedHowViewController: UIViewController {
     
     var observation = Observation()
     var sensedHowArray = [String]()
-    let realm = try! Realm()
     let observationContainer = ObservationContainer.sharedInstance
-    var editingObservation = false
+    var initialObservation = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +38,8 @@ class SensedHowViewController: UIViewController {
         cancelBtn.layer.cornerRadius = 10
         
         if observation.howSensed != "" {
-            editingObservation = true
-            cancelBtn.setTitle("Done", for: .normal)
+            initialObservation = false
+            nextBtn.setTitle("Save", for: .normal)
             
             let values = observation.howSensed.split(separator: ",")
             
@@ -62,7 +61,6 @@ class SensedHowViewController: UIViewController {
                     break
                 }
             }
-            
         }
     }
     
@@ -139,23 +137,41 @@ class SensedHowViewController: UIViewController {
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
         
-        if editingObservation == false {
+        if initialObservation == true {
             self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Observations screen?")
         }
         else {
-            self.showMessageToUser(title: "Alert", msg: "Would you like to save your changes and return to the Observations screen?")
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "whatSensedSegue"{
+    @IBAction func didPressNextBtn(_ sender: Any) {
+        if initialObservation {
+            performSegue(withIdentifier: "whatSensedSegue", sender: self)
+        }
+        else {
             let realm = try! Realm()
             try! realm.write {
                 observation.howSensed = sensedHowArray.joined(separator: ",")
             }
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if initialObservation {
+            if segue.identifier == "whatSensedSegue"{
+                
+                observation.howSensed = sensedHowArray.joined(separator: ",")
+                
+                let destination = segue.destination as! SensedWhatViewController
+                destination.observation = self.observation
+            }
+        }
             
-            let destination = segue.destination as! SensedWhatViewController
-            destination.observation = self.observation
+        else {
+            
         }
     }
     

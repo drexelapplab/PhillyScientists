@@ -8,15 +8,20 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var segmentBtn: UISegmentedControl!
     @IBOutlet weak var amountField: UITextField!
+    
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
     var observation = Observation()
+    var initialObservation = true
+    
+    
     
     override func viewDidLoad() {
         // Do something
@@ -28,6 +33,13 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
         
         print(observation)
         
+        if observation.howManySeen != 0 {
+            initialObservation = false
+            nextBtn.setTitle("Save", for: .normal)
+        
+            amountField.text = "\(observation.howManySeen)"
+            segmentBtn.selectedSegmentIndex = observation.howManyIsExact ? 1 : 0
+        }
     }
     
     @IBAction func didStartEnteringAmount(_ sender: Any) {
@@ -35,13 +47,27 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didPressSegmentBtn(_ sender: Any) {
-        observation.howManyIsExact = (segmentBtn.selectedSegmentIndex == 0)
-        print(observation)
+        if initialObservation {
+            observation.howManyIsExact = (segmentBtn.selectedSegmentIndex == 0)
+        }
+        else {
+            let realm = try! Realm()
+            try! realm.write{
+                observation.howManyIsExact = (segmentBtn.selectedSegmentIndex == 0)
+            }
+        }
     }
     
     @IBAction func didChangeHowManyField(_ sender: Any) {
-        observation.howManySeen = Int(amountField.text!)!
-        print(observation)
+        if initialObservation {
+            observation.howManySeen = Int(amountField.text!)!
+        }
+        else {
+            let realm = try! Realm()
+            try! realm.write{
+                observation.howManySeen = Int(amountField.text!)!
+            }
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -73,12 +99,28 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func didPressNextBtn(_ sender: Any) {
+        if initialObservation {
+            performSegue(withIdentifier: "notesSegue", sender: self)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        if initialObservation {
+            self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! NotesViewController
-        destination.observation = self.observation
+        if segue.identifier == "notesSegue" {
+            let destination = segue.destination as! NotesViewController
+            destination.observation = self.observation
+        }
     }
 }

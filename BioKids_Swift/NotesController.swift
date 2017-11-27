@@ -18,8 +18,8 @@ class NotesViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var cancelBtn: UIButton!
-    
-    let realm = try! Realm()
+    var initialObservation = true
+    var textViewCleared = false
     
     override func viewDidLoad() {
         doneBtn.layer.cornerRadius = 10
@@ -29,15 +29,40 @@ class NotesViewController: UIViewController, UITextViewDelegate{
         noteTextView.layer.borderColor = UIColor.black.cgColor
         noteTextView.layer.borderWidth = 3.0
         noteTextView.layer.cornerRadius = 10
+        
+        if observation.note != "" {
+            noteTextView.text = observation.note
+            doneBtn.setTitle("Save", for: .normal)
+            initialObservation = false
+        }
+    }
+    
+    // To dismiss keyboard when view is touched
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if !self.textViewCleared {
+            textView.text = ""
+            self.textViewCleared = true
+        }
     }
     
     @IBAction func didPressDoneBtn(_ sender: Any) {
-        observation.note = noteTextView.text
-        observationContainer.addObservation(observation: observation)
-        
+        let realm = try! Realm()
         try! realm.write {
-            realm.add(observation)
+            observation.note = noteTextView.text
+            
+            if initialObservation {
+                observationContainer.addObservation(observation: observation)
+                realm.add(observation)
+            }
         }
+        
+        self.tabBarController?.selectedIndex = 1
+        self.navigationController?.popToRootViewController(animated: false)
     }
     
     func showMessageToUser(title: String, msg: String)  {

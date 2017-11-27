@@ -11,8 +11,6 @@ import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let realm = try! Realm()
     
     let observationContainer = ObservationContainer.sharedInstance
     var window: UIWindow?
@@ -20,11 +18,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Update Realm Schemas if necessary
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                    // The enumerateObjects(ofType:_:) method iterates
+                    // over every Observation object stored in the Realm file
+                    migration.enumerateObjects(ofType: Observation.className()) { oldObject, newObject in
+                        // Add new field name
+                        newObject!["wasSubmitted"] = false
+                    }
+                }
+        })
+        
+        // Now that we've told Realm how to handle the schema change, opening the file
+        // will automatically perform the migration
+        let realm = try! Realm()
         
         let results = realm.objects(Observation.self)
         for result in results {
             observationContainer.observations.append(result)
         }
+        
+        // Change the font size of the Tab Bar Controller
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18)!], for: .selected)
+        
         
         return true
     }

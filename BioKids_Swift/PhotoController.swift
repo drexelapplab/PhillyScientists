@@ -8,7 +8,6 @@
 
 import MobileCoreServices
 import UIKit
-import RealmSwift
 import Photos
 
 class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -21,7 +20,6 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     var fileURL: URL?
     var newMedia: Bool?
     
-    let realm = try! Realm()
     var observation = Observation()
     
     override func viewDidLoad() {

@@ -15,15 +15,14 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     var observationIdx = -1
     let observationContainer = ObservationContainer.sharedInstance
     var observation: Observation?
+    @IBOutlet weak var observationTableView: UITableView!
     
     var propertyNames = Array<String>()
-    
-    @IBOutlet weak var editBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editBtn.layer.cornerRadius = 10.0
+        observationTableView.setEditing(false, animated: false)
         
         if observationIdx > -1 {
             print("loading observation image")
@@ -32,26 +31,18 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
             
-//            let labelText = """
-//            Date: \(observation.date)\n
-//            How Sensed: \(observation.howSensed)\n
-//            What Sensed: \(observation.whatSensed)\n
-//            Kind of Plant: \(observation.plantKind)\n
-//            Kind of Grass: \(observation.grassKind)\n
-//            Plant amount: \(observation.howMuchPlant)\n
-//            How Many: \(observation.howManySeen)\n
-//            Animal Group: \(observation.animalGroup)\n
-//            Animal Type: \(observation.animalType)\n
-//            Animal Subtype: \(observation.animalSubType)\n
-//            Notes: \(observation.note)
-//            """
-
             propertyNames = observationContainer.observations[observationIdx].propertyNames()
             propertyNames.remove(at: propertyNames.index(where: {$0 == "photoLocation"})!)
             propertyNames.remove(at: propertyNames.index(where: {$0 == "howManyIsExact"})!)
             propertyNames.remove(at: propertyNames.index(where: {$0 == "wasSubmitted"})!)}
     }
-        
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        observationTableView.setEditing(false, animated: false)
+        self.observationTableView.reloadData()
+    }
+    
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -97,6 +88,9 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             case "date":
                 cell.entryLbl.text = propertyName + ": \(observation!.date)"
                 break
+        case "note":
+                cell.entryLbl.text = propertyName + ": \(observation!.note)"
+                break
             default:
                 break
         }
@@ -138,6 +132,9 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             case "animalSubType":
                 self.performSegue(withIdentifier: "animalSubTypeSegue", sender: self)
                 break
+            case "note":
+                self.performSegue(withIdentifier: "noteSegue", sender: self)
+                break
             default:
                 break
             }
@@ -160,7 +157,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
                 let destination = segue.destination as! SensedHowViewController
                 destination.observation = self.observation!
                 break
-            case "whatSensesSegue":
+            case "whatSensedSegue":
                 let destination = segue.destination as! SensedWhatViewController
                 destination.observation = self.observation!
                 break
@@ -190,6 +187,10 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
                 break
             case "animalSubTypeSegue":
                 let destination = segue.destination as! AnimalSpeciesViewController
+                destination.observation = self.observation!
+                break
+            case "noteSegue":
+                let destination = segue.destination as! NotesViewController
                 destination.observation = self.observation!
                 break
             default:

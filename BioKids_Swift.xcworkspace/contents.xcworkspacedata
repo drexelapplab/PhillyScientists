@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/Brandon/Desktop/Post-Doc/App Lab/GitHubProjects/PhillyScientists/BioKids_Swift/GroupInfoViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:BioKids_Swift.xcodeproj">
    </FileRef>
    <FileRef
