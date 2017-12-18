@@ -17,13 +17,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>6</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>For taking photos while using the BioKids App</string>
+	<string>For taking photos while using the Philly Scientists App</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>For storing photos taken using the BioKids App</string>
+	<string>For storing photos taken using the Philly Scientists App</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Regular.otf</string>

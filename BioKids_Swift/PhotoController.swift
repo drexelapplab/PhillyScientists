@@ -8,7 +8,6 @@
 
 import MobileCoreServices
 import UIKit
-import RealmSwift
 import Photos
 
 class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -21,13 +20,24 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     var fileURL: URL?
     var newMedia: Bool?
     
-    let realm = try! Realm()
     var observation = Observation()
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         takePhotoBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
-        cancelBtn.layer.cornerRadius = 10        
+        cancelBtn.layer.cornerRadius = 10
+        
+        // If this is not initial loading change view to observation view
+        
+        print(defaults.bool(forKey: "initialLoading"))
+
+        if !defaults.bool(forKey: "initialLoading") {
+            if ObservationContainer.sharedInstance.observations.count > 0 {
+                self.tabBarController?.selectedIndex = 0
+            }
+        }
     }
     
     @IBAction func useCamera(_ sender: AnyObject) {
@@ -124,7 +134,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

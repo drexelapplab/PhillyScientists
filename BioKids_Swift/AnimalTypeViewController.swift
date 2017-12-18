@@ -8,32 +8,37 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
     
     var animalType = String()
     var animalTypes = Array<String>()
     var animalSpecies = Array<String?>()
     var observation = Observation()
     
+    var editMode = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(observation)
-        
         cancelBtn.layer.cornerRadius = 10
+        cancelBtn.setTitleColor(C.Colors.buttonText, for: .normal)
+        cancelBtn.backgroundColor = C.Colors.buttonBg
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        nextBtn.layer.cornerRadius = 10
+        nextBtn.setTitleColor(C.Colors.buttonText, for: .normal)
+        nextBtn.backgroundColor = C.Colors.buttonBg
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.rowHeight = 120.0
         
         if let path = Bundle.main.path(forResource: "sequencePhilly", ofType: "plist") {
+            
+            animalType = observation.animalType_screen
             
             //Treat root as dictionary
             if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
@@ -54,8 +59,16 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         }
-        print(animalTypes)
-        print(animalSpecies)
+        
+        if editMode {
+            nextBtn.setTitle("Save", for: .normal)
+            if let animalTypeIndex = animalTypes.index(of: observation.animalType) {
+                let index = animalTypes.startIndex.distance(to: animalTypeIndex)
+                let indexPath = IndexPath(row: index, section: 0)
+                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,28 +87,43 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalGroupCell", for: indexPath) as! AnimalGroupTableViewCell
         
         // Configure the cell...
-        cell.AnimalGroupLbl.text = animalTypes[indexPath.row]
-        cell.AnimalGroupLbl.textColor = UIColor(red:0.965, green:0.737, blue:0.157, alpha:1.0)
+        cell.AnimalGroupLbl.text = animalTypes[indexPath.row].capitalized
+        cell.AnimalGroupLbl.textColor = C.Colors.buttonText
         cell.contentView.backgroundColor = UIColor.clear
         
         
-        let blueRoundedView : UIView = UIView(frame: CGRect(x: 8, y: 10, width: self.view.frame.size.width-16.0, height: 100))
-        blueRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.190, 0.297, 0.619, 1.0])
-        blueRoundedView.layer.masksToBounds = false
-        blueRoundedView.layer.cornerRadius = 10.0
+        let cellBg : UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: 100))
+        cellBg.layer.backgroundColor = C.Colors.buttonBg.cgColor
+        cellBg.layer.masksToBounds = false
+        cellBg.layer.cornerRadius = 10.0
         
-        cell.contentView.addSubview(blueRoundedView)
-        cell.contentView.sendSubview(toBack: blueRoundedView)
+        cell.contentView.addSubview(cellBg)
+        cell.contentView.sendSubview(toBack: cellBg)
         
         return cell
     }
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if animalSpecies[indexPath.row] != nil {
-            performSegue(withIdentifier: "animalSpeciesSegue", sender: nil)
+        if !editMode{
+            if animalSpecies[indexPath.row] != nil {
+                observation.animalType = animalTypes[indexPath.row]
+                observation.animalSubType_screen = animalSpecies[indexPath.row]!
+            }
+            else {
+                observation.animalType = animalTypes[indexPath.row]
+            }
         }
         else {
-            performSegue(withIdentifier: "howManySegue", sender: nil)
+            let realm = try! Realm()
+            try! realm.write {
+                if animalSpecies[indexPath.row] != nil {
+                    observation.animalType = animalTypes[indexPath.row]
+                    observation.animalSubType_screen = animalSpecies[indexPath.row]!
+                }
+                else {
+                    observation.animalType = animalTypes[indexPath.row]
+                }
+            }
         }
     }
     
@@ -119,31 +147,48 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    
+    @IBAction func didPressNextBtn(_ sender: Any) {
+        if !editMode {
+            if observation.animalSubType_screen != "" {
+                performSegue(withIdentifier: "animalSpeciesSegue", sender: self)
+            }
+            else {
+                performSegue(withIdentifier: "amountSensedSegue", sender: self)
+            }
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    
+    
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        if !editMode {
+            self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "animalSpeciesSegue" {
-            let nextScene =  segue.destination as! AnimalSpeciesViewController
+            let nextScene =  segue.destination as! AnimalSubtypeViewController
             
             // Pass the selected object to the new view controller.
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 if animalSpecies[indexPath.row] != nil {
-                    observation.animalType = animalTypes[indexPath.row]
-                    nextScene.animalSpecies = animalSpecies[indexPath.row]!
                     nextScene.observation = observation
-                    
                 }
             }
         }
-        else {
+        if segue.identifier == "amountSensedSegue" {
             let nextScene = segue.destination as! AmountSensedViewController
-            if let indexPath = self.tableView.indexPathForSelectedRow{
-                observation.animalType = animalTypes[indexPath.row]
-                nextScene.observation = observation
-            }
+            nextScene.observation = observation
         }
     }
 }

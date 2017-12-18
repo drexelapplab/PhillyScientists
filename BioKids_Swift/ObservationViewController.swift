@@ -16,15 +16,17 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var teacherProgramLbl: UILabel!
     @IBOutlet weak var observationTable: UITableView!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var statusLbl: UILabel!
     
     var observationContainer = ObservationContainer.sharedInstance
     var observationIdx = -1
     
-    let realm = try! Realm()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         submitBtn.layer.cornerRadius = 10
+        
+        groupNameLbl.text = "Group Name: \(observationContainer.groupName)"
+        teacherProgramLbl.text = "Teacher/Program: \(observationContainer.teacherID)"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +47,31 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObservationCell", for: indexPath) as! ObservationTableViewCell
         
         // Configure the cell...
-        if observationContainer.observations[indexPath.row].animalSubType != "" {
-            cell.observationLabel.text = observationContainer.observations[indexPath.row].animalSubType
+        
+        var labelText = ""
+        
+        if observationContainer.observations[indexPath.row].grassKind != "" {
+            labelText = observationContainer.observations[indexPath.row].grassKind
+        }
+        else if observationContainer.observations[indexPath.row].plantKind != ""{
+           labelText = observationContainer.observations[indexPath.row].plantKind
+        }
+        else if observationContainer.observations[indexPath.row].animalSubType != "" {
+           labelText = observationContainer.observations[indexPath.row].animalSubType
+        }
+        else if observationContainer.observations[indexPath.row].animalType != "" {
+           labelText = observationContainer.observations[indexPath.row].animalType
         }
         else {
-            cell.observationLabel.text = observationContainer.observations[indexPath.row].animalType
+            labelText = observationContainer.observations[indexPath.row].animalGroup
         }
+        
+        if !observationContainer.observations[indexPath.row].wasSubmitted {
+            labelText = labelText + " *"
+        }
+        
+        cell.observationLabel.text = labelText
+        
         return cell
     }
     
@@ -61,87 +82,101 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func didPressSubmitBtn(_ sender: Any) {
         
-        let submissionURL = "https://biokids.soe.drexel.edu/addObservation.php"
         
-        for observation in observationContainer.observations {
+        let numSubmitting = observationContainer.howManyNeedSubmitting()
+        print(numSubmitting)
+        
+        if numSubmitting < 1 {
+            statusLbl.text = "No new observations to submit."
+        }
             
-            if observation.wasSubmitted == false {
-                let dateFormatter = DateFormatter()
-                dateFormatter.timeZone = TimeZone(abbreviation: "EST")
-                dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
+        else {
+            let submissionURL = "https://app.phillyscientists.com/addObservation.php"
+            
+            for observation in observationContainer.observations {
                 
-                let parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
-                                              "howSensed": observation.howSensed,
-                                              "whatSensed": observation.whatSensed,
-                                              "plantKind": observation.plantKind,
-                                              "grassKind": observation.grassKind,
-                                              "howMuchPlant": observation.howMuchPlant,
-                                              "howManySeen": observation.howManySeen,
-                                              "animalGroup":observation.animalGroup,
-                                              "animalType": observation.animalType,
-                                              "animalSubType": observation.animalSubType,
-                                              "note": observation.note,
-                                              "howManyIsExact": observation.howManyIsExact]
-                
-                ////////////////////
-                // Send Text data //
-                ////////////////////
-                
-                Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
-                    switch response.result {
-                    case .success:
-                        print("Validation Successful...\(String(describing: response.value))")
-
-                        //                        try! realm.write {
-                        //                            observation.wasSubmitted = true
-                        //                        }
-
-                    case .failure(let error):
-                        print(error)
+                if observation.wasSubmitted == false {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.timeZone = TimeZone(abbreviation: "EST")
+                    dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
+                    
+                    var parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
+                                                  "howSensed": observation.howSensed,
+                                                  "whatSensed": observation.whatSensed,
+                                                  "plantKind": observation.plantKind,
+                                                  "grassKind": observation.grassKind,
+                                                  "howMuchPlant": observation.howMuchPlant,
+                                                  "howManySeen": observation.howManySeen,
+                                                  "animalGroup":observation.animalGroup,
+                                                  "animalType": observation.animalType,
+                                                  "animalSubType": observation.animalSubType,
+                                                  "note": observation.note,
+                                                  "howManyIsExact": observation.howManyIsExact ? 1 : 0]
+                    
+                    if observationContainer.groupID != "" {
+                        parameters["groupID"] = observationContainer.groupID
+                    }
+                    
+                    ////////////////////
+                    // Send Text data //
+                    ////////////////////
+                    
+                    Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
+                        switch response.result {
+                        case .success:
+                            print("Validation Successful...\(String(describing: response.value))")
+                            
+                            let realm = try! Realm()
+                            try! realm.write {
+                                observation.wasSubmitted = true
+                                self.observationTable.reloadData()
+                            }
+                            
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                    
+                    ////////////////
+                    // Send Photo //
+                    ////////////////
+                    
+                    if observation.photoLocation != "" {
+                        let imgFileName = observation.photoLocation
+                        let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
+                        
+                        Alamofire.upload(
+                            multipartFormData: { multipartFormData in
+                                
+                                // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
+                                
+                                multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
+                        },
+                            
+                            to: submissionURL,
+                            encodingCompletion: { encodingResult in
+                                switch encodingResult {
+                                case .success(let upload, _, _):
+                                    upload.responseString {response in
+                                        print(response)
+                                        
+                                    }
+                                case .failure(let encodingError):
+                                    print("Failure...")
+                                    print(encodingError)
+                                }
+                        }
+                        )
+                        
+                        print("Photo Uploaded")
                     }
                 }
-                
-                ////////////////
-                // Send Photo //
-                ////////////////
-                
-                let imgFileName = observation.photoLocation
-                let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
-                let image = UIImage(contentsOfFile: imgFileURL.path)
-                
-                Alamofire.upload(
-                    multipartFormData: { multipartFormData in
-                        
-                        // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
-                        
-//                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-                        multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-                    },
-                    
-                    to: submissionURL,
-                    encodingCompletion: { encodingResult in
-                        switch encodingResult {
-                        case .success(let upload, _, _):
-                            upload.responseString {response in
-                                print(response)
-                            }
-//                            upload.responseJSON { response in
-//                                print("Recieved JSON object from website")
-//                                if let jsonResponse = response.result.value as? [String: Any] {
-//                                    print("Printing JSON object from website")
-//                                    print(jsonResponse)
-//                                }
-//                            }
-                        case .failure(let encodingError):
-                            print("Failure...")
-                            print(encodingError)
-                        }
-                }
-                )
-                
-                print("Done")
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        statusLbl.text = ""
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

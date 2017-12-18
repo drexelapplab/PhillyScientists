@@ -15,29 +15,56 @@ class NotesViewController: UIViewController, UITextViewDelegate{
     var observation = Observation()
     var observationContainer = ObservationContainer.sharedInstance
     
+    
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var cancelBtn: UIButton!
     
-    let realm = try! Realm()
+    var editMode = false
+    var textViewCleared = false
     
     override func viewDidLoad() {
         doneBtn.layer.cornerRadius = 10
         cancelBtn.layer.cornerRadius = 10
         
         noteTextView.delegate = self
-        noteTextView.layer.borderColor = UIColor.black.cgColor
+        noteTextView.layer.borderColor = C.Colors.primaryColor.cgColor
         noteTextView.layer.borderWidth = 3.0
         noteTextView.layer.cornerRadius = 10
+        
+        if editMode {
+            noteTextView.text = observation.note
+            doneBtn.setTitle("Save", for: .normal)
+        }
+    }
+    
+    // To dismiss keyboard when view is touched
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if !self.textViewCleared {
+            textView.text = ""
+            self.textViewCleared = true
+        }
     }
     
     @IBAction func didPressDoneBtn(_ sender: Any) {
-        observation.note = noteTextView.text
-        observationContainer.addObservation(observation: observation)
-        
+        let realm = try! Realm()
         try! realm.write {
-            realm.add(observation)
+            observation.note = noteTextView.text
+            
+            if !editMode {
+                observationContainer.addObservation(observation: observation)
+                realm.add(observation)
+                UserDefaults.standard.set(false, forKey: "initialLoading")
+            }
         }
+        
+        self.tabBarController?.selectedIndex = 0
+        self.navigationController?.popToRootViewController(animated: false)
     }
     
     func showMessageToUser(title: String, msg: String)  {
@@ -62,7 +89,7 @@ class NotesViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
