@@ -14,6 +14,9 @@ class HowMuchGrassViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(observation)
+
         // Do any additional setup after loading the view.
     }
 
@@ -22,24 +25,29 @@ class HowMuchGrassViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func didPressAlmostNone(_ sender: Any) {
-        observation.howMuchPlant = "Almost None"
+    func showMessageToUser(title: String, msg: String)  {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+            // Return
+            print("pressed yes")
+            
+            self.observation = Observation()
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("pressed no")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func didPressLessHalfBtn(_ sender: Any) {
-        observation.howMuchPlant = "Less Than Half"
-    }
-
-    @IBAction func didPressAboutHalfBtn(_ sender: Any) {
-        observation.howMuchPlant = "About Half"
-    }
-    
-    @IBAction func didPressMoreHalfBtn(_ sender: Any) {
-        observation.howMuchPlant = "More Than Half"
-    }
-    
-    @IBAction func didPressAlmostAll(_ sender: Any) {
-        observation.howMuchPlant = "Almost All"
+    @IBAction func didPressCancelBtn(_ sender: Any) {
+        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

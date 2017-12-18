@@ -15,31 +15,59 @@ class SensedWhatViewController: UIViewController {
     @IBOutlet weak var animalBtn: UIButton!
     @IBOutlet weak var tracksBtn: UIButton!
     @IBOutlet weak var otherBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     var observation = Observation()
 
-    override func viewDidLoad() {        
+    override func viewDidLoad() {
+        
+        print(observation)
+        
         plantBtn.layer.cornerRadius = 10
         animalBtn.layer.cornerRadius = 10
         tracksBtn.layer.cornerRadius = 10
         otherBtn.layer.cornerRadius = 10
+        cancelBtn.layer.cornerRadius = 10
     }
 
     @IBAction func didPressPlantBtn(_ sender: Any) {
-        observation.whatSensed = "Plant"
-        
+        observation.whatSensed = "plant"
     }
     
     @IBAction func didPressLiveAnimalBtn(_ sender: Any) {
-        observation.whatSensed = "Live Animal"
+        observation.whatSensed = "liveAnimal"
     }
     
     @IBAction func didPressTracksBtn(_ sender: Any) {
-        observation.whatSensed = "Tracks"
+        observation.whatSensed = "tracks"
     }
     
     @IBAction func didPressOtherSignsBtn(_ sender: Any) {
-        observation.whatSensed = "Other Sign"
+        observation.whatSensed = "otherSign"
+    }
+    
+    func showMessageToUser(title: String, msg: String)  {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+            // Return
+            print("pressed yes")
+            
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("pressed no")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressCancelBtn(_ sender: Any) {
+        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,7 +77,7 @@ class SensedWhatViewController: UIViewController {
         }
         
         else {
-            let destination = segue.destination as! AnimalGroupTableViewController
+            let destination = segue.destination as! AnimalGroupViewController
             destination.observation = self.observation
         }
     }

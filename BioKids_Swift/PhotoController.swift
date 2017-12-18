@@ -9,13 +9,16 @@
 import MobileCoreServices
 import UIKit
 import RealmSwift
+import Photos
 
 class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var takePhotoBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cancelBtn: UIButton!
     
+    var fileURL: URL?
     var newMedia: Bool?
     
     let realm = try! Realm()
@@ -24,6 +27,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     override func viewDidLoad() {
         takePhotoBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
+        cancelBtn.layer.cornerRadius = 10        
     }
     
     @IBAction func useCamera(_ sender: AnyObject) {
@@ -41,66 +45,25 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         }
     }
     
-    @IBAction func useCameraRoll(_ sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
-            let imagePicker = UIImagePickerController()
-            
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = false
-            self.present(imagePicker, animated: true,
-                         completion: nil)
-            newMedia = false
-        }
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        
-        
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
-        
         self.dismiss(animated: true, completion: nil)
         
         if mediaType.isEqual(to: kUTTypeImage as String) {
-            let image = info[UIImagePickerControllerOriginalImage]
-                as! UIImage
-            
-            imageView.image = image
-            
-            let fileManager = FileManager.default
-            let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-            
-            let date = Date()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = DateFormatter.Style.long
-            dateFormatter.timeStyle = DateFormatter.Style.long
-            let dateString = dateFormatter.string(from: date)
-            let imagePath = documentsPath?.appendingPathComponent("image_\(dateString).jpg")
-            
-            // extract image from the picker and save it
-            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-                
-                do {
-                    try UIImageJPEGRepresentation(pickedImage, 0.0)?.write(to: imagePath!)
-                }
-                catch {
-                    print("Not saved")
-                }
-            }
-            
-            observation.photoLocation = "image_\(dateString).jpg"
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image,
                                                self,
                                                #selector(PhotoController.image(image:didFinishSavingWithError:contextInfo:)),
                                                nil)
-            } else if mediaType.isEqual(to: kUTTypeMovie as String) {
-                // Code to support video here
             }
-            
         }
     }
     
@@ -116,10 +79,52 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             alert.addAction(cancelAction)
             self.present(alert, animated: true, completion: nil)
         }
+        else {
+            
+            let date = Date()
+            let df = DateFormatter()
+            df.dateFormat = "yyyyMMddhhmmss"
+            
+            let fileName = "photo\(df.string(from: date)).png"
+            
+            let imageData = UIImagePNGRepresentation(image)!
+            let docDir = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let imageURL = docDir.appendingPathComponent(fileName)
+            try! imageData.write(to: imageURL)
+            
+            let newImage = UIImage(contentsOfFile: imageURL.path)!
+            imageView.image = newImage
+            
+            observation.photoLocation = fileName
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func showMessageToUser(title: String, msg: String)  {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+            // Return
+            print("pressed yes")
+            
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("pressed no")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressCancelBtn(_ sender: Any) {
+        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -128,5 +133,4 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             destination.observation = self.observation
         }
     }
-    
 }
