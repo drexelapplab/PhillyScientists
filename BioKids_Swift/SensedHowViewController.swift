@@ -22,12 +22,12 @@ class SensedHowViewController: UIViewController {
     var observation = Observation()
     var sensedHowArray = [String]()
     let observationContainer = ObservationContainer.sharedInstance
-    var initialObservation = true
+    var editMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(observation)
+    
         // Do any additional setup after loading the view, typically from a nib.
         
         seeBtn.layer.cornerRadius = 10
@@ -37,8 +37,7 @@ class SensedHowViewController: UIViewController {
         nextBtn.layer.cornerRadius = 10
         cancelBtn.layer.cornerRadius = 10
         
-        if observation.howSensed != "" {
-            initialObservation = false
+        if editMode {
             nextBtn.setTitle("Save", for: .normal)
             
             let values = observation.howSensed.split(separator: ",")
@@ -137,8 +136,8 @@ class SensedHowViewController: UIViewController {
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
         
-        if initialObservation == true {
-            self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Observations screen?")
+        if !editMode {
+            self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
         }
         else {
             self.navigationController?.popViewController(animated: true)
@@ -146,7 +145,7 @@ class SensedHowViewController: UIViewController {
     }
     
     @IBAction func didPressNextBtn(_ sender: Any) {
-        if initialObservation {
+        if !editMode {
             performSegue(withIdentifier: "whatSensedSegue", sender: self)
         }
         else {
@@ -160,7 +159,7 @@ class SensedHowViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if initialObservation {
+        if !editMode {
             if segue.identifier == "whatSensedSegue"{
                 
                 observation.howSensed = sensedHowArray.joined(separator: ",")
@@ -171,8 +170,7 @@ class SensedHowViewController: UIViewController {
         }
             
         else {
-            
+            editMode = false
         }
     }
-    
 }

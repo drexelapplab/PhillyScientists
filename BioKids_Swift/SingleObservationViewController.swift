@@ -17,7 +17,8 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     var observation: Observation?
     @IBOutlet weak var observationTableView: UITableView!
     
-    var propertyNames = Array<String>()
+    var displayStrings = [String]()
+    var propertyNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,21 +26,21 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
         observationTableView.setEditing(false, animated: false)
         
         if observationIdx > -1 {
-            print("loading observation image")
             observation = observationContainer.observations[observationIdx]
             let photoLocation = observation?.photoLocation
             let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
+
+            // TODO: Change this be returned by a function in the observation container
             
-            propertyNames = observationContainer.observations[observationIdx].propertyNames()
-            propertyNames.remove(at: propertyNames.index(where: {$0 == "photoLocation"})!)
-            propertyNames.remove(at: propertyNames.index(where: {$0 == "howManyIsExact"})!)
-            propertyNames.remove(at: propertyNames.index(where: {$0 == "wasSubmitted"})!)}
+            propertyNames = observationContainer.observations[observationIdx].getPropertyNames()            
+            displayStrings = (observation?.getDisplayStrings())!
+        }
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         observationTableView.setEditing(false, animated: false)
+        displayStrings = (observation?.getDisplayStrings())!
         self.observationTableView.reloadData()
     }
     
@@ -49,58 +50,19 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return propertyNames.count
+        return displayStrings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath) as! ObservationEntryCell
         
-        let propertyName = propertyNames[indexPath.row]
-        
-        switch propertyName {
-            case "howSensed":
-                cell.entryLbl.text = propertyName + ": \(observation!.howSensed)"
-                break
-            case "whatSensed":
-                cell.entryLbl.text = propertyName + ": \(observation!.whatSensed)"
-                break
-            case "plantKind":
-                cell.entryLbl.text = propertyName + ": \(observation!.plantKind)"
-                break
-            case "grassKind":
-                cell.entryLbl.text = propertyName + ": \(observation!.grassKind)"
-                break
-            case "howMuchPlant":
-                cell.entryLbl.text = propertyName + ": \(observation!.howMuchPlant)"
-                break
-            case "howManySeen":
-                cell.entryLbl.text = propertyName + ": \(observation!.howManySeen)"
-                break
-            case "animalGroup":
-                cell.entryLbl.text = propertyName + ": \(observation!.animalGroup)"
-                break
-            case "animalType":
-                cell.entryLbl.text = propertyName + ": \(observation!.animalType)"
-                break
-            case "animalSubType":
-                cell.entryLbl.text = propertyName + ": \(observation!.animalSubType)"
-                break
-            case "date":
-                cell.entryLbl.text = propertyName + ": \(observation!.date)"
-                break
-        case "note":
-                cell.entryLbl.text = propertyName + ": \(observation!.note)"
-                break
-            default:
-                break
-        }
+        cell.entryLbl.text = displayStrings[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
-            print("edit button tapped")
 
             let property = self.propertyNames[editActionsForRowAt.row]
             
@@ -156,46 +118,60 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             case "howSensedSegue":
                 let destination = segue.destination as! SensedHowViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             case "whatSensedSegue":
                 let destination = segue.destination as! SensedWhatViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             case "plantKindSegue":
                 let destination = segue.destination as! PlantKindViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             case "grassKindSegue":
                 let destination = segue.destination as! GrassTypeViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             case "howMuchPlantSegue":
                 let destination = segue.destination as! HowMuchGrassViewController
                 destination.observation = self.observation!
+                 destination.editMode = true
                 break
             case "howManySeenSegue":
                 let destination = segue.destination as! AmountSensedViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             case "animalGroupSegue":
                 let destination = segue.destination as! AnimalGroupViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             case "animalTypeSegue":
                 let destination = segue.destination as! AnimalTypeViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             case "animalSubTypeSegue":
-                let destination = segue.destination as! AnimalSpeciesViewController
+                let destination = segue.destination as! AnimalSubtypeViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             case "noteSegue":
                 let destination = segue.destination as! NotesViewController
                 destination.observation = self.observation!
+                destination.editMode = true
                 break
             default:
                 break
             }
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }

@@ -15,8 +15,9 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     @IBOutlet weak var checkInBtn: UIButton!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var groupTextField: UITextField!
-    @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak var statusLbl: UITextView!
     @IBOutlet weak var trackerPicker: UIPickerView!
+    @IBOutlet weak var trackerPickerLbl: UILabel!
     
     var groupName = ""
     var teacherID = ""
@@ -29,10 +30,21 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         titleLbl.adjustsFontSizeToFitWidth = true
+        
         checkInBtn.layer.cornerRadius = 10
+        
+        titleLbl.textColor = C.Colors.headingText
+        groupTextField.textColor = C.Colors.normalText
+        trackerPickerLbl.textColor = C.Colors.subheadingText
+        checkInBtn.setTitleColor(C.Colors.buttonText, for: .normal)
+        checkInBtn.backgroundColor = C.Colors.buttonBg
+        
+        checkInBtn.setTitleColor(C.Colors.buttonText, for: .normal)
+        checkInBtn.backgroundColor = C.Colors.buttonBg
+        
     }
-
     
     @IBAction func didPressCheckInBtn(_ sender: Any) {
         if groupTextField.text == "" {
@@ -67,7 +79,7 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
 
                     switch response.value {
                     case "error_none"?:
-                        self.statusLbl.text = "No matching Group Code."
+                        self.statusLbl.text = "No matching Group Code. If you are having trouble, please go to \nhttps://app.phillyscientists.com"
                         break
                     case "error_tooManyIDs"?:
                         self.statusLbl.text = "Error, please contact developer."
@@ -86,7 +98,9 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
                         self.observationContainer.teacherID = self.teacherID
                         self.observationContainer.trackerID = self.trackerNames[chosenTracker]
                         
+                        UserDefaults.standard.set(true, forKey: "loggedIn")
                         self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
+                        
                         break
                     }
                 case .failure(let error):
@@ -122,6 +136,7 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
             pickerImgView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
             
             let pickerLabel = UILabel(frame: CGRect(x: 60, y:0, width: 60, height: 50))
+            pickerLabel.textColor = C.Colors.tableText
             pickerLabel.text = trackerNames[row]
             
             pickerView.addSubview(pickerLabel)
@@ -132,6 +147,7 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         }
         else {
             let pickerView = UILabel(frame: CGRect(x: 0, y:0, width: 150, height: 50))
+            pickerView.textColor = C.Colors.tableText
             pickerView.text = trackerNames[row]
             pickerView.textAlignment = .center
             return pickerView

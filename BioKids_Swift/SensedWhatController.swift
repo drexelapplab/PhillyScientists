@@ -20,7 +20,7 @@ class SensedWhatViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     
     var observation = Observation()
-    var initialObservation = true
+    var editMode = false
     
     override func viewDidLoad() {
         
@@ -33,10 +33,9 @@ class SensedWhatViewController: UIViewController {
         cancelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         
-        if observation.whatSensed != "" {
+        if editMode {
             
-            initialObservation = false
-            cancelBtn.setTitle("Save", for: .normal)
+            nextBtn.setTitle("Save", for: .normal)
             
             switch observation.whatSensed {
             case "Live Animal":
@@ -65,7 +64,7 @@ class SensedWhatViewController: UIViewController {
         tracksBtn.isSelected = false
         otherBtn.isSelected = false
         
-        if !initialObservation {
+        if editMode {
             let realm = try! Realm()
             try! realm.write {
                 observation.whatSensed = "Plant"
@@ -82,7 +81,7 @@ class SensedWhatViewController: UIViewController {
         tracksBtn.isSelected = false
         otherBtn.isSelected = false
         
-        if !initialObservation {
+        if editMode {
             let realm = try! Realm()
             try! realm.write {
                 observation.whatSensed = "Live Animal"
@@ -100,7 +99,7 @@ class SensedWhatViewController: UIViewController {
         tracksBtn.isSelected = true
         otherBtn.isSelected = false
         
-        if !initialObservation {
+        if editMode {
             let realm = try! Realm()
             try! realm.write {
                 observation.whatSensed = "Tracks"
@@ -118,7 +117,7 @@ class SensedWhatViewController: UIViewController {
         tracksBtn.isSelected = false
         otherBtn.isSelected = true
         
-        if !initialObservation {
+        if editMode {
             let realm = try! Realm()
             try! realm.write {
                 observation.whatSensed = "Other Sign"
@@ -150,8 +149,8 @@ class SensedWhatViewController: UIViewController {
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        if initialObservation {
-            self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        if !editMode {
+            self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
         }
         else {
             self.navigationController?.popViewController(animated: true)
@@ -160,7 +159,7 @@ class SensedWhatViewController: UIViewController {
     
     
     @IBAction func didPressNextBtn(_ sender: Any) {
-        if initialObservation {
+        if !editMode {
             if plantBtn.isSelected {
                 performSegue(withIdentifier: "kindOfPlantSegue", sender: self)
             }

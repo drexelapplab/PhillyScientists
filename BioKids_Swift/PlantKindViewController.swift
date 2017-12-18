@@ -20,7 +20,7 @@ class PlantKindViewController: UIViewController {
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     
-    var initialObservation = true
+    var editMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +36,13 @@ class PlantKindViewController: UIViewController {
         cancelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         
-        if observation.plantKind != "" {
-            initialObservation = false
+        weedBtn.titleLabel?.numberOfLines = 1
+        weedBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        weedBtn.titleLabel?.lineBreakMode = .byClipping
+        weedBtn.titleLabel?.baselineAdjustment = .alignCenters
+    
+        
+        if editMode {
             nextBtn.setTitle("Save", for: .normal)
             
             switch observation.whatSensed {
@@ -74,7 +79,7 @@ class PlantKindViewController: UIViewController {
         shrubBtn.isSelected = false
         treeBtn.isSelected = false
         
-        if !initialObservation {
+        if editMode {
             let realm = try! Realm()
             try! realm.write {
                 observation.plantKind = "Grass"
@@ -92,7 +97,7 @@ class PlantKindViewController: UIViewController {
         shrubBtn.isSelected = false
         treeBtn.isSelected = false
         
-        if !initialObservation {
+        if editMode {
             let realm = try! Realm()
             try! realm.write {
                 observation.plantKind = "Weeds, Herbs, or Small Plants"
@@ -110,7 +115,7 @@ class PlantKindViewController: UIViewController {
         shrubBtn.isSelected = false
         treeBtn.isSelected = false
         
-        if !initialObservation {
+        if editMode {
             
             let realm = try! Realm()
             try! realm.write {
@@ -129,7 +134,7 @@ class PlantKindViewController: UIViewController {
         shrubBtn.isSelected = true
         treeBtn.isSelected = false
         
-        if !initialObservation {
+        if editMode {
             let realm = try! Realm()
             try! realm.write {
                 observation.plantKind = "Shrub/Bush"
@@ -147,7 +152,7 @@ class PlantKindViewController: UIViewController {
         shrubBtn.isSelected = false
         treeBtn.isSelected = true
         
-        if !initialObservation {
+        if editMode {
             let realm = try! Realm()
             try! realm.write {
                 observation.plantKind = "Tree"
@@ -159,7 +164,7 @@ class PlantKindViewController: UIViewController {
     }
     
     @IBAction func didPressNextBtn(_ sender: Any) {
-        if initialObservation {
+        if !editMode {
             if grassBtn.isSelected {
                 performSegue(withIdentifier: "kindOfGrassSegue", sender: self)
             }
@@ -193,8 +198,8 @@ class PlantKindViewController: UIViewController {
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        if initialObservation {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        if !editMode {
+            self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
         }
         else {
             self.navigationController?.popViewController(animated: true)

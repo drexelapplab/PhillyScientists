@@ -12,7 +12,6 @@ import RealmSwift
 class HowMuchGrassViewController: UIViewController {
     
     var observation = Observation()
-    var initialObservation = true
     
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
@@ -22,6 +21,8 @@ class HowMuchGrassViewController: UIViewController {
     @IBOutlet weak var aboutHalfBtn: UIButton!
     @IBOutlet weak var moreThanHalfBtn: UIButton!
     @IBOutlet weak var almostAllBtn: UIButton!
+    
+    var editMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +38,8 @@ class HowMuchGrassViewController: UIViewController {
         moreThanHalfBtn.layer.cornerRadius = 10
         almostAllBtn.layer.cornerRadius = 10
         
-        if observation.howMuchPlant != "" {
+        if editMode {
             nextBtn.setTitle("Save", for: .normal)
-            initialObservation = false
             
             switch observation.whatSensed {
             case "Almost None":
@@ -98,7 +98,7 @@ class HowMuchGrassViewController: UIViewController {
         moreThanHalfBtn.isSelected = false
         almostAllBtn.isSelected = false
         
-        if initialObservation{
+        if !editMode{
             observation.howMuchPlant = "Almost None"
         }
         else {
@@ -116,7 +116,7 @@ class HowMuchGrassViewController: UIViewController {
         moreThanHalfBtn.isSelected = false
         almostAllBtn.isSelected = false
         
-        if initialObservation{
+        if !editMode{
             observation.howMuchPlant = "Less Than Half"
         }
         else {
@@ -134,7 +134,7 @@ class HowMuchGrassViewController: UIViewController {
         moreThanHalfBtn.isSelected = false
         almostAllBtn.isSelected = false
         
-        if initialObservation{
+        if !editMode{
             observation.howMuchPlant = "About Half"
         }
         else {
@@ -152,7 +152,7 @@ class HowMuchGrassViewController: UIViewController {
         moreThanHalfBtn.isSelected = true
         almostAllBtn.isSelected = false
         
-        if initialObservation{
+        if !editMode{
             observation.howMuchPlant = "More Than Half"
         }
         else {
@@ -170,7 +170,7 @@ class HowMuchGrassViewController: UIViewController {
         moreThanHalfBtn.isSelected = false
         almostAllBtn.isSelected = true
         
-        if initialObservation{
+        if !editMode{
             observation.howMuchPlant = "Almost All"
         }
         else {
@@ -182,7 +182,7 @@ class HowMuchGrassViewController: UIViewController {
     }
     
     @IBAction func didPressNextBtn(_ sender: Any) {
-        if initialObservation{
+        if !editMode{
             performSegue(withIdentifier: "notesSegue", sender: self)
         }
         else {
@@ -191,8 +191,8 @@ class HowMuchGrassViewController: UIViewController {
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        if initialObservation {
-            self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        if !editMode {
+            self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
         }
         else {
             self.navigationController?.popViewController(animated: true)
@@ -200,7 +200,7 @@ class HowMuchGrassViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if initialObservation {
+        if !editMode {
             if segue.identifier == "notesSegue" {
                 let destination = segue.destination as! NotesViewController
                 destination.observation = self.observation

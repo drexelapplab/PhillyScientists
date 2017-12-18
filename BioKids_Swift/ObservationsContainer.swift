@@ -41,4 +41,12 @@ class ObservationContainer {
         }
         return count
     }
+    
+    func clearContainer() {
+        groupID = ""
+        groupName = ""
+        teacherID = ""
+        trackerID = ""
+        observations = []
+    }
 }

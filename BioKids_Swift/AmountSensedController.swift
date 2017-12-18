@@ -19,7 +19,7 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cancelBtn: UIButton!
     
     var observation = Observation()
-    var initialObservation = true
+    var editMode = false
     
     
     
@@ -31,10 +31,7 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
         amountField.delegate = self
         segmentBtn.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 48.0)! ], for: .normal)
         
-        print(observation)
-        
-        if observation.howManySeen != 0 {
-            initialObservation = false
+        if editMode {
             nextBtn.setTitle("Save", for: .normal)
         
             amountField.text = "\(observation.howManySeen)"
@@ -47,7 +44,7 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didPressSegmentBtn(_ sender: Any) {
-        if initialObservation {
+        if !editMode {
             observation.howManyIsExact = (segmentBtn.selectedSegmentIndex == 0)
         }
         else {
@@ -59,7 +56,7 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didChangeHowManyField(_ sender: Any) {
-        if initialObservation {
+        if !editMode {
             observation.howManySeen = Int(amountField.text!)!
         }
         else {
@@ -100,7 +97,7 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didPressNextBtn(_ sender: Any) {
-        if initialObservation {
+        if !editMode {
             performSegue(withIdentifier: "notesSegue", sender: self)
         }
         else {
@@ -109,8 +106,8 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        if initialObservation {
-            self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        if !editMode {
+            self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
         }
         else {
             self.navigationController?.popViewController(animated: true)

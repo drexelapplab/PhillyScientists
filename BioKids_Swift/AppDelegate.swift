@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Update Realm Schemas if necessary
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 1) {
                     // The enumerateObjects(ofType:_:) method iterates
@@ -28,6 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     migration.enumerateObjects(ofType: Observation.className()) { oldObject, newObject in
                         // Add new field name
                         newObject!["wasSubmitted"] = false
+                    }
+                }
+                if (oldSchemaVersion < 2) {
+                    // The enumerateObjects(ofType:_:) method iterates
+                    // over every Observation object stored in the Realm file
+                    migration.enumerateObjects(ofType: Observation.className()) { oldObject, newObject in
+                        // Add new field name
+                        newObject!["animalType_screen"] = ""
+                        newObject!["animalSubType_screen"] = ""
                     }
                 }
         })
@@ -42,9 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Change the font size of the Tab Bar Controller
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18)!], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18)!], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Montserrat", size: 18)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Montserrat", size: 18)!], for: .selected)
         
+        // Then push that view controller onto the navigation stack
+        if UserDefaults.standard.bool(forKey: "loggedIn"){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            
+            window?.rootViewController = viewController
+            window?.makeKeyAndVisible()
+        }
         
         return true
     }

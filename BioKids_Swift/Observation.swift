@@ -9,18 +9,7 @@
 import Foundation
 import RealmSwift
 
-protocol PropertyNames {
-    func propertyNames() -> [String]
-}
-
-extension PropertyNames
-{
-    func propertyNames() -> [String] {
-        return Mirror(reflecting: self).children.flatMap { $0.label }
-    }
-}
-
-class Observation: Object, PropertyNames {
+class Observation: Object {
     
     // MARK: Properties
     dynamic var date = Date()
@@ -37,4 +26,53 @@ class Observation: Object, PropertyNames {
     dynamic var note = ""
     dynamic var howManyIsExact = false
     dynamic var wasSubmitted = false
+    dynamic var animalType_screen = ""
+    dynamic var animalSubType_screen = ""
+    
+    func getDisplayStrings() -> [String] {
+        var displayStrings = [String]()
+        
+        displayStrings.append("Date: \(date)")
+        displayStrings.append("How it was sensed: \(howSensed.capitalized)")
+        displayStrings.append("What was sensed: \(whatSensed.capitalized)")
+        displayStrings.append("What kind of plant: \(plantKind.capitalized)")
+        displayStrings.append("What kind of grass: \(grassKind.capitalized)")
+        displayStrings.append("Amount of grass: \(howMuchPlant)")
+        displayStrings.append("Animal group: \(animalGroup.capitalized)")
+        displayStrings.append("Animal type: \(animalType.capitalized)")
+        displayStrings.append("Animal subtype: \(animalSubType.capitalized)")
+        
+        if howManySeen > 0 {
+            if howManyIsExact {
+                displayStrings.append("How many were seen: \(howManySeen) (Exact)")
+            }
+            else {
+                displayStrings.append("How many were seen: \(howManySeen) (Estimate)")
+            }
+        }
+        else {
+            displayStrings.append("How many were seen: ")
+        }
+        
+        
+        displayStrings.append("Note: \(note)")
+        
+        return displayStrings
+    }
+    
+    func getPropertyNames() -> [String] {
+        let propertyNames = ["date",
+                             "howSensed",
+                             "whatSensed",
+                             "plantKind",
+                             "grassKind",
+                             "howMuchPlant",
+                             "animalGroup",
+                             "animalType",
+                             "animalSubType",
+                             "howManySeen",
+                             "notes"]
+        
+        return propertyNames
+    }
 }

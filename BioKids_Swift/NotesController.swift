@@ -15,10 +15,12 @@ class NotesViewController: UIViewController, UITextViewDelegate{
     var observation = Observation()
     var observationContainer = ObservationContainer.sharedInstance
     
+    
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var cancelBtn: UIButton!
-    var initialObservation = true
+    
+    var editMode = false
     var textViewCleared = false
     
     override func viewDidLoad() {
@@ -26,14 +28,13 @@ class NotesViewController: UIViewController, UITextViewDelegate{
         cancelBtn.layer.cornerRadius = 10
         
         noteTextView.delegate = self
-        noteTextView.layer.borderColor = UIColor.black.cgColor
+        noteTextView.layer.borderColor = C.Colors.primaryColor.cgColor
         noteTextView.layer.borderWidth = 3.0
         noteTextView.layer.cornerRadius = 10
         
-        if observation.note != "" {
+        if editMode {
             noteTextView.text = observation.note
             doneBtn.setTitle("Save", for: .normal)
-            initialObservation = false
         }
     }
     
@@ -55,13 +56,14 @@ class NotesViewController: UIViewController, UITextViewDelegate{
         try! realm.write {
             observation.note = noteTextView.text
             
-            if initialObservation {
+            if !editMode {
                 observationContainer.addObservation(observation: observation)
                 realm.add(observation)
+                UserDefaults.standard.set(false, forKey: "initialLoading")
             }
         }
         
-        self.tabBarController?.selectedIndex = 1
+        self.tabBarController?.selectedIndex = 0
         self.navigationController?.popToRootViewController(animated: false)
     }
     
@@ -87,7 +89,7 @@ class NotesViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
