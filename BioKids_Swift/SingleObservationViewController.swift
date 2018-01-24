@@ -60,12 +60,12 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
         
         return cell
     }
-    
+    //****modified*****
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
 
             let property = self.propertyNames[editActionsForRowAt.row]
-            
+            // Codes needs to be modified here; add new kinds of cases to demo the viewcontroller!!
             switch property {
             case "howSensed":
                 self.performSegue(withIdentifier: "howSensedSegue", sender: self)
@@ -94,6 +94,14 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             case "animalSubType":
                 self.performSegue(withIdentifier: "animalSubTypeSegue", sender: self)
                 break
+            // Codes modified here; for animal position and animal action;** Variable name undetermined;
+            case "animalPosition":
+                self.performSegue(withIdentifier: "animalPositionSegue", sender: self)
+                break
+            // Codes modified here; for animal action and animal action;** Variable name undetermined;
+            case "animalAction":
+                self.performSegue(withIdentifier: "animalActionSegue", sender: self)
+                break
             case "note":
                 self.performSegue(withIdentifier: "noteSegue", sender: self)
                 break
@@ -110,10 +118,11 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+    //****modified*****
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let segueType = segue.identifier {
+            // Codes needs to be modified here; add new kinds of cases to demo the viewcontroller!!
             switch segueType {
             case "howSensedSegue":
                 let destination = segue.destination as! SensedHowViewController
@@ -157,6 +166,18 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
                 break
             case "animalSubTypeSegue":
                 let destination = segue.destination as! AnimalSubtypeViewController
+                destination.observation = self.observation!
+                destination.editMode = true
+                break
+            // AnimalPositionTableViewController is added here;
+            case "animalPositionSegue":
+                let destination = segue.destination as! AnimalPositionViewController
+                destination.observation = self.observation!
+                destination.editMode = true
+                break
+            // AnimalActionTableViewController is added here;
+            case "animalActionSegue":
+                let destination = segue.destination as! AnimalActionViewController
                 destination.observation = self.observation!
                 destination.editMode = true
                 break

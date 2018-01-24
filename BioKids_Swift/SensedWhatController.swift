@@ -24,7 +24,7 @@ class SensedWhatViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        print(observation)
+        print("Here0",observation)
         
         plantBtn.layer.cornerRadius = 10
         animalBtn.layer.cornerRadius = 10

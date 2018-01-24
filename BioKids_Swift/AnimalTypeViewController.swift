@@ -24,6 +24,8 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
     var editMode = false
     
     override func viewDidLoad() {
+        print("Here2:\(observation)")
+        
         super.viewDidLoad()
         
         cancelBtn.layer.cornerRadius = 10
@@ -47,6 +49,7 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
                         if let items = animalTypesDict["items"] as? Array<[String: Any]> {
                             for item in items {
                                 animalTypes.append(item["label"]! as! String)
+                                // ***What is this if doing here?!***
                                 if let next = item["next"] {
                                     animalSpecies.append(next as? String)
                                 }
@@ -62,10 +65,10 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
-            if let animalTypeIndex = animalTypes.index(of: observation.animalType) {
+            if let animalTypeIndex = animalTypes.index(of: observation.animalType) {//Group绑定group; type绑定type
                 let index = animalTypes.startIndex.distance(to: animalTypeIndex)
                 let indexPath = IndexPath(row: index, section: 0)
-                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)//What is "scrollposition"!
                 tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
             }
         }
@@ -155,7 +158,7 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
                 performSegue(withIdentifier: "animalSpeciesSegue", sender: self)
             }
             else {
-                performSegue(withIdentifier: "amountSensedSegue", sender: self)
+                performSegue(withIdentifier: "animalPositionSegue", sender: self)
             }
         }
         else {
@@ -186,9 +189,10 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         }
-        if segue.identifier == "amountSensedSegue" {
-            let nextScene = segue.destination as! AmountSensedViewController
+        if segue.identifier == "animalPositionSegue" {
+            let nextScene = segue.destination as! AnimalPositionViewController
             nextScene.observation = observation
+
         }
     }
 }

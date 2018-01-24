@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // Add new field name
                         newObject!["wasSubmitted"] = false
                     }
-                }
+                }// ***************Modifications with new added view controller's names; *************** // try to change < 2 to <4
                 if (oldSchemaVersion < 2) {
                     // The enumerateObjects(ofType:_:) method iterates
                     // over every Observation object stored in the Realm file
@@ -37,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // Add new field name
                         newObject!["animalType_screen"] = ""
                         newObject!["animalSubType_screen"] = ""
+                        // To modify the object passing issue with new added anim
+                        newObject!["animalPosition_screen"] = ""
+                        newObject!["animalAction_screen"] = ""
+                        newObject!["animalAmount_screen"] = " "
                     }
                 }
         })

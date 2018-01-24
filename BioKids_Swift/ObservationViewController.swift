@@ -47,7 +47,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObservationCell", for: indexPath) as! ObservationTableViewCell
         
         // Configure the cell...
-        
+        // ***********groups of data needs to be added here;!!!!!!****
         var labelText = ""
         
         if observationContainer.observations[indexPath.row].grassKind != "" {
@@ -61,6 +61,12 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         }
         else if observationContainer.observations[indexPath.row].animalType != "" {
            labelText = observationContainer.observations[indexPath.row].animalType
+        } // Codes modification for consistency with newly added data; this is for Position;
+        else if observationContainer.observations[indexPath.row].animalPosition != ""{
+            labelText = observationContainer.observations[indexPath.row].animalPosition
+        }// Codes modification for consistency with newly added data; this is for Action;
+        else if observationContainer.observations[indexPath.row].animalAction != ""{
+            labelText = observationContainer.observations[indexPath.row].animalAction
         }
         else {
             labelText = observationContainer.observations[indexPath.row].animalGroup
@@ -99,7 +105,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                     let dateFormatter = DateFormatter()
                     dateFormatter.timeZone = TimeZone(abbreviation: "EST")
                     dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
-                    
+                    // ***********groups of data needs to be added here;!!!!!!****
                     var parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
                                                   "howSensed": observation.howSensed,
                                                   "whatSensed": observation.whatSensed,
@@ -110,6 +116,8 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                                                   "animalGroup":observation.animalGroup,
                                                   "animalType": observation.animalType,
                                                   "animalSubType": observation.animalSubType,
+                                                  "animalPosition": observation.animalPosition,//Codes modification for consistency;
+                                                  "animalAction": observation.animalAction,//Codes modification for consistency
                                                   "note": observation.note,
                                                   "howManyIsExact": observation.howManyIsExact ? 1 : 0]
                     
@@ -178,7 +186,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillDisappear(_ animated: Bool) {
         statusLbl.text = ""
     }
-    
+    //********* Very important for segue jumping!!!!!***********
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextScene = segue.destination as! SingleObservationViewController
         

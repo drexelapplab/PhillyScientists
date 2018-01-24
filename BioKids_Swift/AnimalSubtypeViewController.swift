@@ -18,13 +18,17 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
     
     var animalSubType = String()
     var animalSubTypes = Array<String>()
+    var animalPosition = Array<String>()//New addded, next 指向的pointer;
     var observation = Observation()
     
     var editMode = false
     
     override func viewDidLoad() {
+        print("Here3:\(observation)")
+
         super.viewDidLoad()
-        
+        print("Here3:\(observation)")
+
         cancelBtn.layer.cornerRadius = 10
         cancelBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         cancelBtn.backgroundColor = C.Colors.buttonBg
@@ -122,6 +126,8 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
             let realm = try! Realm()
             try! realm.write {
                 observation.animalSubType = animalSubTypes[indexPath.row]
+                // Modified here;
+                observation.animalPosition_screen = animalSubTypes[indexPath.row]
             }
         }
     }
@@ -129,7 +135,7 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode {
             if observation.animalSubType != "" {
-                performSegue(withIdentifier: "amountSensedSegue", sender: self)
+                performSegue(withIdentifier: "animalPositionSegue", sender: self)
             }
         }
         else {
@@ -145,11 +151,11 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
+    //Codes modified here;
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "amountSensedSegue" {
-            let destination = segue.destination as! AmountSensedViewController
-            destination.observation = self.observation
+        if segue.identifier == "animalPositionSegue2" {
+            let nextScene = segue.destination as! AnimalPositionViewController
+            nextScene.observation = observation
         }
     }
 }

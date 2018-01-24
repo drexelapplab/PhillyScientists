@@ -12,7 +12,7 @@ import RealmSwift
 
 class ObservationContainer {
     static let sharedInstance = ObservationContainer()
-    
+    //Modifications needed;
     var observations: [Observation] = []
     var groupID: String = ""
     var groupName: String = ""

@@ -39,6 +39,8 @@
 		CAE4BDF91F7AA80000A6043C /* GrassKindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4BDF81F7AA80000A6043C /* GrassKindTableViewCell.swift */; };
 		CAE67EC01FCF089700C113B4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE67EBF1FCF089700C113B4 /* Constants.swift */; };
 		CAFC278E1F8FA95B00CB1363 /* SingleObservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFC278D1F8FA95B00CB1363 /* SingleObservationViewController.swift */; };
+		CB07911A2006C5B5007898D0 /* AnimalPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0791192006C5B5007898D0 /* AnimalPositionViewController.swift */; };
+		CB07911C2006CB26007898D0 /* AnimalActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB07911B2006CB26007898D0 /* AnimalActionViewController.swift */; };
 		FD5561B91F1FCEBD008D2FA2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5561B81F1FCEBD008D2FA2 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		CAE4BDF81F7AA80000A6043C /* GrassKindTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrassKindTableViewCell.swift; sourceTree = "<group>"; };
 		CAE67EBF1FCF089700C113B4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CAFC278D1F8FA95B00CB1363 /* SingleObservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleObservationViewController.swift; sourceTree = "<group>"; };
+		CB0791192006C5B5007898D0 /* AnimalPositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalPositionViewController.swift; sourceTree = "<group>"; };
+		CB07911B2006CB26007898D0 /* AnimalActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalActionViewController.swift; sourceTree = "<group>"; };
 		FD5561B81F1FCEBD008D2FA2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,8 +137,10 @@
 				CAB8FC831E24115300B6EAC4 /* AmountSensedController.swift */,
 				CAD2BB2C1E732E5000354675 /* AnimalGroupTableViewCell.swift */,
 				CA07C55C1F9E25F4004EA42F /* AnimalGroupViewController.swift */,
-				CA7704951F9E3A7100AE8FF1 /* AnimalSubtypeViewController.swift */,
 				CA07F2451F9E2EBE007B30B0 /* AnimalTypeViewController.swift */,
+				CA7704951F9E3A7100AE8FF1 /* AnimalSubtypeViewController.swift */,
+				CB0791192006C5B5007898D0 /* AnimalPositionViewController.swift */,
+				CB07911B2006CB26007898D0 /* AnimalActionViewController.swift */,
 				CAB8FC611E23F05E00B6EAC4 /* AppDelegate.swift */,
 				CAE4BDF81F7AA80000A6043C /* GrassKindTableViewCell.swift */,
 				CA5C34E11F7A9AA400D340D8 /* GrassTypeViewController.swift */,
@@ -206,7 +212,7 @@
 				TargetAttributes = {
 					CAB8FC5D1E23F05E00B6EAC4 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 38UN2K8879;
+						DevelopmentTeam = DEFGN8BCL8;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -319,6 +325,7 @@
 				CAB8FC861E24118200B6EAC4 /* NotesController.swift in Sources */,
 				CA2CB4051FCC7D360005E202 /* GroupProfileViewController.swift in Sources */,
 				CA5DC7BF1E8C3A08006B9224 /* HowMuchGrassViewController.swift in Sources */,
+				CB07911A2006C5B5007898D0 /* AnimalPositionViewController.swift in Sources */,
 				CAB8FC7E1E2410AA00B6EAC4 /* PlantTypeController.swift in Sources */,
 				CA7704961F9E3A7100AE8FF1 /* AnimalSubtypeViewController.swift in Sources */,
 				CAE67EC01FCF089700C113B4 /* Constants.swift in Sources */,
@@ -337,6 +344,7 @@
 				CAD2BB2D1E732E5000354675 /* AnimalGroupTableViewCell.swift in Sources */,
 				CAB8FC841E24115300B6EAC4 /* AmountSensedController.swift in Sources */,
 				CA2CB4071FCC807F0005E202 /* GroupRecordTableViewCell.swift in Sources */,
+				CB07911C2006CB26007898D0 /* AnimalActionViewController.swift in Sources */,
 				CA2CB4091FCC83780005E202 /* GroupBadgesCollectionViewCell.swift in Sources */,
 				CAD2BB251E72FC3300354675 /* PlantKindViewController.swift in Sources */,
 				CA39BEC11E9DA5F100B5389D /* ObservationTableViewCell.swift in Sources */,
@@ -477,7 +485,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38UN2K8879;
+				DEVELOPMENT_TEAM = DEFGN8BCL8;
 				INFOPLIST_FILE = BioKids_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -495,7 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38UN2K8879;
+				DEVELOPMENT_TEAM = DEFGN8BCL8;
 				INFOPLIST_FILE = BioKids_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -24,6 +24,9 @@ class AnimalGroupViewController: UIViewController, UITableViewDelegate, UITableV
     var editMode = false
     
     override func viewDidLoad() {
+        
+        print("Here1:\(observation)")
+        
         super.viewDidLoad()
         
         cancelBtn.layer.cornerRadius = 10

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nSO-Xp-irl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nSO-Xp-irl">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -93,7 +93,7 @@ Version 2.0.0</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc1-Ev-qjy">
-                                <rect key="frame" x="370.5" y="40" width="283" height="59"/>
+                                <rect key="frame" x="353.5" y="40" width="317" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="Ht8-ve-2r4"/>
                                 </constraints>
@@ -102,7 +102,7 @@ Version 2.0.0</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0MP-Bw-ND8">
-                                <rect key="frame" x="40" y="292" width="944" height="151"/>
+                                <rect key="frame" x="40" y="293.5" width="944" height="149.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupRecordTableCell" id="QhL-wd-0fd" customClass="GroupRecordTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
@@ -175,7 +175,7 @@ Version 2.0.0</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observation Types" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-hP-OwO">
-                                <rect key="frame" x="40" y="259" width="467" height="28"/>
+                                <rect key="frame" x="40" y="259" width="467" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -242,7 +242,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nv-VS-8e2">
-                                <rect key="frame" x="517" y="259" width="467" height="28"/>
+                                <rect key="frame" x="517" y="259" width="467" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -314,7 +314,7 @@ Version 2.0.0</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-CW-63B">
-                                <rect key="frame" x="237" y="527" width="550" height="68"/>
+                                <rect key="frame" x="237" y="527" width="550" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Take Photo">
@@ -332,7 +332,7 @@ Version 2.0.0</string>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdl-2C-TEV">
-                                <rect key="frame" x="237" y="605" width="270" height="68"/>
+                                <rect key="frame" x="237" y="608" width="270" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="CDc-hB-sHH"/>
@@ -346,7 +346,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ro-Xb-pG6">
-                                <rect key="frame" x="517" y="605" width="270" height="68"/>
+                                <rect key="frame" x="517" y="608" width="270" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Next">
@@ -691,7 +691,7 @@ Version 2.0.0</string>
             </objects>
             <point key="canvasLocation" x="3971" y="-710"/>
         </scene>
-        <!--Animal Group View Controller-->
+        <!--What Kind of Animal?-->
         <scene sceneID="Zbx-MK-drE">
             <objects>
                 <viewController id="7gk-CE-6Pi" customClass="AnimalGroupViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -789,6 +789,7 @@ Version 2.0.0</string>
                             <constraint firstItem="x66-ey-rcm" firstAttribute="leading" secondItem="ewL-rc-Hsn" secondAttribute="trailing" constant="10" id="x2u-qk-jOf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="What Kind of Animal?" id="I9p-XQ-enY"/>
                     <connections>
                         <outlet property="cancelBtn" destination="ewL-rc-Hsn" id="iEz-Vn-KOP"/>
                         <outlet property="nextBtn" destination="x66-ey-rcm" id="KjK-Pd-QQV"/>
@@ -798,7 +799,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vci-s8-RNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5147" y="230"/>
+            <point key="canvasLocation" x="4052" y="868"/>
         </scene>
         <!--What Kind of Plant?-->
         <scene sceneID="kQA-9M-hfz">
@@ -1380,7 +1381,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsN-7b-VMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8153" y="-710"/>
+            <point key="canvasLocation" x="8399" y="-297"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="WxX-rK-T7f">
@@ -1459,7 +1460,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh1-CV-a5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8976" y="-710"/>
+            <point key="canvasLocation" x="9221" y="-408"/>
         </scene>
         <!--Login View-->
         <scene sceneID="S2H-MN-9iM">
@@ -1490,7 +1491,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BF6-46-0kd">
-                                <rect key="frame" x="131" y="247.5" width="762" height="50"/>
+                                <rect key="frame" x="131" y="249" width="762" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aH9-6N-aUS"/>
                                 </constraints>
@@ -1502,7 +1503,7 @@ Version 2.0.0</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome! Enter the Unique Code of your Student Group Below:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo3-xC-nkS">
-                                <rect key="frame" x="81" y="197" width="862" height="30.5"/>
+                                <rect key="frame" x="81" y="197" width="862" height="32"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="26"/>
                                 <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1515,13 +1516,13 @@ Version 2.0.0</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Tracker: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOJ-7E-6RR">
-                                <rect key="frame" x="427.5" y="317.5" width="169" height="21"/>
+                                <rect key="frame" x="427.5" y="319" width="169" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mKs-DL-Tf4">
-                                <rect key="frame" x="352" y="349" width="320" height="198"/>
+                                <rect key="frame" x="352" y="350.5" width="320" height="196.5"/>
                                 <connections>
                                     <outlet property="dataSource" destination="nSO-Xp-irl" id="uSW-7n-bfu"/>
                                     <outlet property="delegate" destination="nSO-Xp-irl" id="WUD-Gk-X6P"/>
@@ -1818,11 +1819,13 @@ Version 2.0.0</string>
                         <segue destination="c7x-iG-uJP" kind="show" identifier="howManySeenSegue" id="Gis-1T-sGW"/>
                         <segue destination="jlU-D9-aS2" kind="show" identifier="noteSegue" id="Hr4-wp-J15"/>
                         <segue destination="uMs-Dj-Cme" kind="show" identifier="howSensedSegue" id="V3p-tT-No3"/>
+                        <segue destination="Gus-QT-LrB" kind="show" identifier="animalPositionSegue" id="inQ-y6-tnO"/>
+                        <segue destination="8gy-eE-xgO" kind="show" identifier="animalActionSegue" id="iRe-WJ-2T3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NmK-YJ-Pl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="1922"/>
+            <point key="canvasLocation" x="-326" y="2100"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oXv-JH-MZY">
@@ -1863,7 +1866,7 @@ Version 2.0.0</string>
             </objects>
             <point key="canvasLocation" x="975" y="-710"/>
         </scene>
-        <!--Animal Type View Controller-->
+        <!--What  Type of Animal?-->
         <scene sceneID="4Nk-K0-X5n">
             <objects>
                 <viewController id="qUg-Dq-mxb" customClass="AnimalTypeViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -1962,19 +1965,21 @@ Version 2.0.0</string>
                             <constraint firstItem="M9n-qE-Lm1" firstAttribute="leading" secondItem="XKI-pO-2Gb" secondAttribute="leading" id="t1q-0m-6Ol"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="What  Type of Animal?" id="wsw-xc-EHl"/>
                     <connections>
                         <outlet property="cancelBtn" destination="M9n-qE-Lm1" id="Qbf-CW-eGI"/>
                         <outlet property="nextBtn" destination="XHb-zs-Xpw" id="BXk-9w-p0Q"/>
                         <outlet property="tableView" destination="XKI-pO-2Gb" id="Xsw-gn-37C"/>
-                        <segue destination="c7x-iG-uJP" kind="show" identifier="amountSensedSegue" id="xjc-L5-nGL"/>
+                        <segue destination="c7x-iG-uJP" kind="show" identifier="amountSensedSegue1" id="xjc-L5-nGL"/>
                         <segue destination="wdh-7G-Izl" kind="show" identifier="animalSpeciesSegue" id="xEE-H4-4Bt"/>
+                        <segue destination="Gus-QT-LrB" kind="show" identifier="animalPositionSegue" id="02F-WQ-TJO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDW-U0-gLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6098" y="230"/>
+            <point key="canvasLocation" x="4876" y="868"/>
         </scene>
-        <!--Animal Subtype View Controller-->
+        <!--What Subtype of Animal?-->
         <scene sceneID="vhT-d5-HJF">
             <objects>
                 <viewController id="wdh-7G-Izl" customClass="AnimalSubtypeViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -2072,16 +2077,18 @@ Version 2.0.0</string>
                             <constraint firstItem="JQH-ZB-vBr" firstAttribute="top" secondItem="R5h-Ff-Moi" secondAttribute="bottom" constant="40" id="oTz-ph-UxD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="What Subtype of Animal?" id="JUd-V5-mmE"/>
                     <connections>
                         <outlet property="cancelBtn" destination="KDz-Wt-aFy" id="akb-nc-cRq"/>
                         <outlet property="nextBtn" destination="45b-q3-AeY" id="xYE-TB-IoG"/>
                         <outlet property="tableView" destination="JQH-ZB-vBr" id="9uE-7Z-A7c"/>
-                        <segue destination="c7x-iG-uJP" kind="show" identifier="amountSensedSegue" id="I80-p6-4Kt"/>
+                        <segue destination="c7x-iG-uJP" kind="show" identifier="amountSensedSegue2" id="I80-p6-4Kt"/>
+                        <segue destination="Gus-QT-LrB" kind="show" id="TSv-Yv-Y2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="055-rb-FlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7153" y="229"/>
+            <point key="canvasLocation" x="5622" y="1455"/>
         </scene>
         <!--Observations-->
         <scene sceneID="yFa-gW-u3Z">
@@ -2102,21 +2109,246 @@ Version 2.0.0</string>
             </objects>
             <point key="canvasLocation" x="-326" y="230"/>
         </scene>
+        <!--Where Is the Animal?-->
+        <scene sceneID="h1j-2x-JMg">
+            <objects>
+                <viewController id="Gus-QT-LrB" customClass="AnimalPositionViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uov-04-jeo"/>
+                        <viewControllerLayoutGuide type="bottom" id="9fd-mb-Ahp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iFw-Ba-s5e">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v6J-4M-Qh5">
+                                <rect key="frame" x="109" y="104" width="806" height="450"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="Tq8-eg-bMM"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="Xxp-sv-zWe" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="806" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xxp-sv-zWe" id="8lM-vf-IFc">
+                                            <rect key="frame" x="0.0" y="0.0" width="806" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VGN-Tn-rO5">
+                                                    <rect key="frame" x="35" y="20.5" width="736" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" id="SAo-rn-G1x"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VGN-Tn-rO5" firstAttribute="centerY" secondItem="8lM-vf-IFc" secondAttribute="centerY" id="8JT-cO-esY"/>
+                                                <constraint firstItem="VGN-Tn-rO5" firstAttribute="centerX" secondItem="8lM-vf-IFc" secondAttribute="centerX" id="Q5A-vq-Trn"/>
+                                                <constraint firstItem="VGN-Tn-rO5" firstAttribute="leading" secondItem="8lM-vf-IFc" secondAttribute="leadingMargin" constant="20" id="T4k-OE-K7M"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="AnimalGroupLbl" destination="VGN-Tn-rO5" id="bSK-eu-dmP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gus-QT-LrB" id="Fmn-8x-CRl"/>
+                                    <outlet property="delegate" destination="Gus-QT-LrB" id="vUx-Lz-Jjb"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YY-rX-Zhn">
+                                <rect key="frame" x="109" y="568" width="398" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="aib-yg-eJA"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="fXE-Ab-HHq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressCancelBtn:" destination="Gus-QT-LrB" eventType="touchUpInside" id="GN6-p8-yfk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkl-oN-T5i">
+                                <rect key="frame" x="517" y="568" width="398" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="awa-Ju-Utx"/>
+                                    <constraint firstAttribute="height" constant="71" id="gxw-Q0-3j3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressNextBtn:" destination="Gus-QT-LrB" eventType="touchUpInside" id="DM5-dB-r4R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v6J-4M-Qh5" firstAttribute="top" secondItem="uov-04-jeo" secondAttribute="bottom" constant="40" id="BYz-kk-6x5"/>
+                            <constraint firstItem="Mkl-oN-T5i" firstAttribute="trailing" secondItem="v6J-4M-Qh5" secondAttribute="trailing" id="J8H-PW-VBT"/>
+                            <constraint firstItem="Mkl-oN-T5i" firstAttribute="leading" secondItem="3YY-rX-Zhn" secondAttribute="trailing" constant="10" id="Peo-9L-rJX"/>
+                            <constraint firstItem="Mkl-oN-T5i" firstAttribute="width" secondItem="3YY-rX-Zhn" secondAttribute="width" id="TDY-4Y-SZj"/>
+                            <constraint firstItem="3YY-rX-Zhn" firstAttribute="top" secondItem="v6J-4M-Qh5" secondAttribute="bottom" constant="14" id="XRx-nK-0hq"/>
+                            <constraint firstItem="Mkl-oN-T5i" firstAttribute="top" secondItem="v6J-4M-Qh5" secondAttribute="bottom" constant="14" id="Yv4-5e-1uW"/>
+                            <constraint firstItem="Mkl-oN-T5i" firstAttribute="height" secondItem="3YY-rX-Zhn" secondAttribute="height" id="fFv-H0-MgH"/>
+                            <constraint firstItem="v6J-4M-Qh5" firstAttribute="leading" secondItem="iFw-Ba-s5e" secondAttribute="leadingMargin" constant="89" id="h4Y-YW-Zwy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v6J-4M-Qh5" secondAttribute="trailing" constant="89" id="ije-Kj-86q"/>
+                            <constraint firstItem="3YY-rX-Zhn" firstAttribute="leading" secondItem="v6J-4M-Qh5" secondAttribute="leading" id="mCc-g4-6Yo"/>
+                            <constraint firstItem="3YY-rX-Zhn" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="v6J-4M-Qh5" secondAttribute="trailing" constant="408" id="wy7-Nd-FVg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Where Is the Animal?" id="R2N-ic-XZJ"/>
+                    <connections>
+                        <outlet property="cancelBtn" destination="3YY-rX-Zhn" id="GV6-T2-QiS"/>
+                        <outlet property="nextBtn" destination="Mkl-oN-T5i" id="n0B-26-18h"/>
+                        <outlet property="positionTableView" destination="v6J-4M-Qh5" id="Kdk-KC-uVQ"/>
+                        <segue destination="c7x-iG-uJP" kind="show" identifier="amountSensedSegue3" id="SXJ-Pt-SPE"/>
+                        <segue destination="8gy-eE-xgO" kind="show" identifier="animalActionSegue" id="wen-ed-3h7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TZo-LQ-Y33" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6676" y="920"/>
+        </scene>
+        <!--What Is the Animal Doing?-->
+        <scene sceneID="clK-wX-8cH">
+            <objects>
+                <viewController id="8gy-eE-xgO" customClass="AnimalActionViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ium-ph-NJq"/>
+                        <viewControllerLayoutGuide type="bottom" id="wJf-1j-r42"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hem-pg-jqU">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yta-YO-9qf">
+                                <rect key="frame" x="109" y="104" width="806" height="450"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="Ko5-B2-4ms"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="eCd-4w-Q8G" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="806" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eCd-4w-Q8G" id="uh0-r7-wdq">
+                                            <rect key="frame" x="0.0" y="0.0" width="806" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NcT-wN-7sS">
+                                                    <rect key="frame" x="35" y="20.5" width="736" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" id="6h5-Z8-vl1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NcT-wN-7sS" firstAttribute="leading" secondItem="uh0-r7-wdq" secondAttribute="leadingMargin" constant="20" id="1xK-38-pGr"/>
+                                                <constraint firstItem="NcT-wN-7sS" firstAttribute="centerY" secondItem="uh0-r7-wdq" secondAttribute="centerY" id="6lV-Lj-gWm"/>
+                                                <constraint firstItem="NcT-wN-7sS" firstAttribute="centerX" secondItem="uh0-r7-wdq" secondAttribute="centerX" id="NgX-Lu-tIf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="AnimalGroupLbl" destination="NcT-wN-7sS" id="H5B-LI-Jzk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8gy-eE-xgO" id="C7X-kM-lmO"/>
+                                    <outlet property="delegate" destination="8gy-eE-xgO" id="vJz-HI-H3k"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Api-z1-Epj">
+                                <rect key="frame" x="109" y="568" width="398" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="cPh-Gf-dZd"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="l6V-9H-aue"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressCancelBtn:" destination="8gy-eE-xgO" eventType="touchUpInside" id="ofZ-5f-DAd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba6-1d-mlj">
+                                <rect key="frame" x="517" y="568" width="398" height="71"/>
+                                <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="9eB-fa-Odu"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="l8W-6x-S6W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressNextBtn:" destination="8gy-eE-xgO" eventType="touchUpInside" id="KaS-oB-GUU"/>
+                                    <action selector="didPressNextBtn:" destination="4Ye-nv-0AX" eventType="touchUpInside" id="ckO-SY-wLW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ba6-1d-mlj" firstAttribute="leading" secondItem="Api-z1-Epj" secondAttribute="trailing" constant="10" id="CUJ-Jq-JME"/>
+                            <constraint firstItem="Api-z1-Epj" firstAttribute="leading" secondItem="yta-YO-9qf" secondAttribute="leading" id="JnE-Zq-fTc"/>
+                            <constraint firstItem="yta-YO-9qf" firstAttribute="leading" secondItem="hem-pg-jqU" secondAttribute="leadingMargin" constant="89" id="WE0-YJ-mEp"/>
+                            <constraint firstItem="Api-z1-Epj" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="yta-YO-9qf" secondAttribute="trailing" constant="408" id="cxn-9k-Dn0"/>
+                            <constraint firstItem="yta-YO-9qf" firstAttribute="top" secondItem="ium-ph-NJq" secondAttribute="bottom" constant="40" id="d9C-A1-Zri"/>
+                            <constraint firstItem="ba6-1d-mlj" firstAttribute="height" secondItem="Api-z1-Epj" secondAttribute="height" id="eVz-Oj-v5g"/>
+                            <constraint firstItem="ba6-1d-mlj" firstAttribute="top" secondItem="yta-YO-9qf" secondAttribute="bottom" constant="14" id="iyt-S1-ZWt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yta-YO-9qf" secondAttribute="trailing" constant="89" id="jvu-OU-wt2"/>
+                            <constraint firstItem="ba6-1d-mlj" firstAttribute="trailing" secondItem="yta-YO-9qf" secondAttribute="trailing" id="nv5-tr-ntH"/>
+                            <constraint firstItem="Api-z1-Epj" firstAttribute="top" secondItem="yta-YO-9qf" secondAttribute="bottom" constant="14" id="qXN-OA-X4P"/>
+                            <constraint firstItem="ba6-1d-mlj" firstAttribute="width" secondItem="Api-z1-Epj" secondAttribute="width" id="zMi-na-VOf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="What Is the Animal Doing?" id="JHk-Mh-zE7"/>
+                    <connections>
+                        <outlet property="actionTableView" destination="yta-YO-9qf" id="EI5-cA-O8S"/>
+                        <outlet property="cancelBtn" destination="Api-z1-Epj" id="Kv1-v4-R2v"/>
+                        <outlet property="nextBtn" destination="ba6-1d-mlj" id="5Mh-Tl-kj4"/>
+                        <segue destination="c7x-iG-uJP" kind="show" identifier="amountSensedSegue4" id="tWM-ji-fWA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCT-eN-fmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4Ye-nv-0AX" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="7678" y="1227"/>
+        </scene>
     </scenes>
     <resources>
         <image name="NSF-Philly-Scientists-logo-final" width="1000" height="400"/>
         <image name="PhotoImageBackground" width="570" height="646"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wen-ed-3h7"/>
+        <segue reference="TSv-Yv-Y2L"/>
         <segue reference="xEE-H4-4Bt"/>
-        <segue reference="H9a-A8-dRd"/>
+        <segue reference="QSM-nS-LJt"/>
         <segue reference="Hr4-wp-J15"/>
-        <segue reference="xjc-L5-nGL"/>
+        <segue reference="SXJ-Pt-SPE"/>
         <segue reference="P9R-dw-xzB"/>
         <segue reference="bTG-ob-7cF"/>
         <segue reference="N9H-dv-szl"/>
-        <segue reference="BkB-pT-zHo"/>
-        <segue reference="s9o-bj-wUL"/>
+        <segue reference="R1p-Re-bYy"/>
+        <segue reference="cfi-3j-ESE"/>
         <segue reference="V3p-tT-No3"/>
     </inferredMetricsTieBreakers>
 </document>
