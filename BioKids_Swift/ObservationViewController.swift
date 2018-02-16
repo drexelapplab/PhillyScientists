@@ -94,90 +94,100 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         
         if numSubmitting < 1 {
             statusLbl.text = "No new observations to submit."
+        } else {
+// Submit button
+//            AlertControllerTool.showAlert(currentVC: self, msg: "You can't edit anything once you submit data! ", otherBtn: "submit", otherHandler: { (action) in
+//                // Submit data to server;
+//                self.sumbitData()
+//            })
+            // Two buttons, deal with one event
+            AlertControllerTool.showAlert(currentVC: self, meg: "You can't edit anything once you submit data!", cancelBtn: "cancel", otherBtn: "submit", handler: { (action) in
+                 self.sumbitData()
+            })
         }
+    }
+    
+    func sumbitData() {
+        let submissionURL = "https://app.phillyscientists.com/addObservation.php"
+        
+        for observation in observationContainer.observations {
             
-        else {
-            let submissionURL = "https://app.phillyscientists.com/addObservation.php"
-            
-            for observation in observationContainer.observations {
+            if observation.wasSubmitted == false {
+                let dateFormatter = DateFormatter()
+                dateFormatter.timeZone = TimeZone(abbreviation: "EST")
+                dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
+                // ***********groups of data needs to be added here;!!!!!!****
+                var parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
+                                              "howSensed": observation.howSensed,
+                                              "whatSensed": observation.whatSensed,
+                                              "plantKind": observation.plantKind,
+                                              "grassKind": observation.grassKind,
+                                              "howMuchPlant": observation.howMuchPlant,
+                                              "howManySeen": observation.howManySeen,
+                                              "animalGroup":observation.animalGroup,
+                                              "animalType": observation.animalType,
+                                              "animalSubType": observation.animalSubType,
+                                              "animalPosition": observation.animalPosition,//Codes modification for consistency;
+                    "animalAction": observation.animalAction,//Codes modification for consistency
+                    "note": observation.note,
+                    "howManyIsExact": observation.howManyIsExact ? 1 : 0]
                 
-                if observation.wasSubmitted == false {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.timeZone = TimeZone(abbreviation: "EST")
-                    dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
-                    // ***********groups of data needs to be added here;!!!!!!****
-                    var parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
-                                                  "howSensed": observation.howSensed,
-                                                  "whatSensed": observation.whatSensed,
-                                                  "plantKind": observation.plantKind,
-                                                  "grassKind": observation.grassKind,
-                                                  "howMuchPlant": observation.howMuchPlant,
-                                                  "howManySeen": observation.howManySeen,
-                                                  "animalGroup":observation.animalGroup,
-                                                  "animalType": observation.animalType,
-                                                  "animalSubType": observation.animalSubType,
-                                                  "animalPosition": observation.animalPosition,//Codes modification for consistency;
-                                                  "animalAction": observation.animalAction,//Codes modification for consistency
-                                                  "note": observation.note,
-                                                  "howManyIsExact": observation.howManyIsExact ? 1 : 0]
-                    
-                    if observationContainer.groupID != "" {
-                        parameters["groupID"] = observationContainer.groupID
-                    }
-                    
-                    ////////////////////
-                    // Send Text data //
-                    ////////////////////
-                    
-                    Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
-                        switch response.result {
-                        case .success:
-                            print("Validation Successful...\(String(describing: response.value))")
-                            
-                            let realm = try! Realm()
-                            try! realm.write {
-                                observation.wasSubmitted = true
-                                self.observationTable.reloadData()
-                            }
-                            
-                        case .failure(let error):
-                            print(error)
-                        }
-                    }
-                    
-                    ////////////////
-                    // Send Photo //
-                    ////////////////
-                    
-                    if observation.photoLocation != "" {
-                        let imgFileName = observation.photoLocation
-                        let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
+                if observationContainer.groupID != "" {
+                    parameters["groupID"] = observationContainer.groupID
+                }
+                
+                ////////////////////
+                // Send Text data //
+                ////////////////////
+                
+                Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { response in
+                    switch response.result {
+                    case .success:
+                        print("Validation Successful...\(String(describing: response.value))")
                         
-                        Alamofire.upload(
-                            multipartFormData: { multipartFormData in
-                                
-                                // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
-                                
-                                multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-                        },
+                        let realm = try! Realm()
+                        try! realm.write {
+                            observation.wasSubmitted = true
+                            self.observationTable.reloadData()
+                        }
+                        
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+                
+                ////////////////
+                // Send Photo //
+                ////////////////
+                
+                if observation.photoLocation != "" {
+                    let imgFileName = observation.photoLocation
+                    let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
+                    
+                    Alamofire.upload(
+                        multipartFormData: { multipartFormData in
                             
-                            to: submissionURL,
-                            encodingCompletion: { encodingResult in
-                                switch encodingResult {
-                                case .success(let upload, _, _):
-                                    upload.responseString {response in
-                                        print(response)
-                                        
-                                    }
-                                case .failure(let encodingError):
-                                    print("Failure...")
-                                    print(encodingError)
+                            // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
+                            
+                            multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
+                    },
+                        
+                        to: submissionURL,
+                        encodingCompletion: { encodingResult in
+                            switch encodingResult {
+                            case .success(let upload, _, _):
+                                upload.responseString {response in
+                                    print(response)
+                                    
                                 }
-                        }
-                        )
-                        
-                        print("Photo Uploaded")
+                            case .failure(let encodingError):
+                                print("Failure...")
+                                print(encodingError)
+                            }
                     }
+                    )
+                    
+                    print("Photo Uploaded")
                 }
             }
         }

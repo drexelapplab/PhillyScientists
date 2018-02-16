@@ -38,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         newObject!["animalType_screen"] = ""
                         newObject!["animalSubType_screen"] = ""
                         // To modify the object passing issue with new added anim
-                        newObject!["animalPosition_screen"] = ""
-                        newObject!["animalAction_screen"] = ""
-                        newObject!["animalAmount_screen"] = " "
+                        //newObject!["animalPosition_screen"] = ""
+                        //newObject!["animalAction_screen"] = ""
+                        //newObject!["animalAmount_screen"] = " "
                     }
                 }
         })

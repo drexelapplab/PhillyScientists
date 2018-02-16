@@ -52,6 +52,7 @@ class NotesViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func didPressDoneBtn(_ sender: Any) {
+        
         let realm = try! Realm()
         try! realm.write {
             observation.note = noteTextView.text
@@ -60,11 +61,13 @@ class NotesViewController: UIViewController, UITextViewDelegate{
                 observationContainer.addObservation(observation: observation)
                 realm.add(observation)
                 UserDefaults.standard.set(false, forKey: "initialLoading")
+                self.tabBarController?.selectedIndex = 0
+                self.navigationController?.popToRootViewController(animated: false)
+            } else {
+                self.navigationController?.popViewController(animated: true)
             }
         }
         
-        self.tabBarController?.selectedIndex = 0
-        self.navigationController?.popToRootViewController(animated: false)
     }
     
     func showMessageToUser(title: String, msg: String)  {

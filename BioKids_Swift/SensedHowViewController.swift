@@ -27,7 +27,6 @@ class SensedHowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
         // Do any additional setup after loading the view, typically from a nib.
         
         seeBtn.layer.cornerRadius = 10
@@ -147,8 +146,7 @@ class SensedHowViewController: UIViewController {
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode {
             performSegue(withIdentifier: "whatSensedSegue", sender: self)
-        }
-        else {
+        } else {
             let realm = try! Realm()
             try! realm.write {
                 observation.howSensed = sensedHowArray.joined(separator: ",")
@@ -163,13 +161,10 @@ class SensedHowViewController: UIViewController {
             if segue.identifier == "whatSensedSegue"{
                 
                 observation.howSensed = sensedHowArray.joined(separator: ",")
-                
                 let destination = segue.destination as! SensedWhatViewController
                 destination.observation = self.observation
             }
-        }
-            
-        else {
+        } else {
             editMode = false
         }
     }

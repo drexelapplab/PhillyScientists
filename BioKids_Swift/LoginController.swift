@@ -49,10 +49,12 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     @IBAction func didPressCheckInBtn(_ sender: Any) {
         if groupTextField.text == "" {
             statusLbl.text = "Please Enter A Group Code"
+            AlertControllerTool.showAlert(currentVC: self, cancelBtn: "Cancel", meg: "Oops! You forget to input a group code or select a group tracker, continue to login?")
         }
             
         else if trackerPicker.selectedRow(inComponent: 0) == 0 {
             statusLbl.text = "Please select a tracker"
+            AlertControllerTool.showAlert(currentVC: self, cancelBtn: "Cancel", meg: "Oops! You forget to input a group code or select a group tracker, continue to login?")
         }
             
         else {

@@ -8,13 +8,19 @@
 
 import Foundation
 import UIKit
+import MobileCoreServices
+import Photos
+import RealmSwift
 
-class SingleObservationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SingleObservationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var observationImgView: UIImageView!
+    @IBOutlet weak var editPhotoBtn: UIButton!
     var observationIdx = -1
     let observationContainer = ObservationContainer.sharedInstance
     var observation: Observation?
+    var newMedia: Bool?
+    
     @IBOutlet weak var observationTableView: UITableView!
     
     var displayStrings = [String]()
@@ -30,9 +36,13 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             let photoLocation = observation?.photoLocation
             let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
-
-            // TODO: Change this be returned by a function in the observation container
             
+            if photoLocation == "" {
+                editPhotoBtn.setTitle("Add Photo", for: .normal)
+            } else {
+                editPhotoBtn.setTitle("Edit Photo", for: .normal)
+            }
+            // TODO: Change this be returned by a function in the observation container
             propertyNames = observationContainer.observations[observationIdx].getPropertyNames()            
             displayStrings = (observation?.getDisplayStrings())!
         }
@@ -42,6 +52,25 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
         observationTableView.setEditing(false, animated: false)
         displayStrings = (observation?.getDisplayStrings())!
         self.observationTableView.reloadData()
+    }
+    
+    @IBAction func editPhoto(_ sender: UIButton) {
+        // The method to add new or edit photos
+        if observationIdx > -1 {
+            observation = observationContainer.observations[observationIdx]
+            let photoLocation = observation?.photoLocation
+            let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
+            observationImgView.image = UIImage(contentsOfFile: photoURL.path)
+            // Judge if there is a photo, a alert will pop out if there is a photo, then the camera will be connected; if there isn't a photo, connect the camera directly!
+            if photoLocation == "" {
+                editPhotoBtn.setTitle("Add Photo", for: .normal)
+                useCamera()
+            } else {
+                AlertControllerTool.showAlert(currentVC: self, meg: "This photo will replace your old photo, are you sure?", cancelBtn: "Cancel", otherBtn: "Yes", handler: { (action) in
+                    self.useCamera()
+                })
+            }
+        }
     }
     
     func getDocumentsDirectory() -> URL {
@@ -102,7 +131,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             case "animalAction":
                 self.performSegue(withIdentifier: "animalActionSegue", sender: self)
                 break
-            case "note":
+            case "notes":
                 self.performSegue(withIdentifier: "noteSegue", sender: self)
                 break
             default:
@@ -193,6 +222,80 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        self.navigationController?.popToRootViewController(animated: false)
+        // viewdiddisapper ||this controller will be called after current pictures disapper, if this one wants to be edited, it will return to last page
+//        self.navigationController?.popToRootViewController(animated: false)
+    }
+    
+    // MARK: PHOTO SELECT
+    // This is what PhotoController have!
+    func useCamera() {
+        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
+            let imagePicker = UIImagePickerController()
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.mediaTypes = [kUTTypeImage as String]
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+            newMedia = true
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+        if mediaType.isEqual(to: kUTTypeImage as String) {
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
+            if (newMedia == true) {
+                UIImageWriteToSavedPhotosAlbum(image,
+                                               self,
+                                               #selector(SingleObservationViewController.image(image:didFinishSavingWithError:contextInfo:)),
+                                               nil)
+            }
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
+        
+        if error != nil {
+            let alert = UIAlertController(title: "Save Failed",
+                                          message: "Failed to save image",
+                                          preferredStyle: UIAlertControllerStyle.alert)
+            
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            
+            let date = Date()
+            let df = DateFormatter()
+            df.dateFormat = "yyyyMMddhhmmss"
+            // The photo name format, this is an example：photo20180212160522.png（Photo name can be self-defined）
+            let fileName = "photo\(df.string(from: date)).png"
+            // Get the decimal file of the photo, this parameter will be used if it wants to be submitted to server!
+            let imageData = UIImagePNGRepresentation(image)!
+            let docDir = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let imageURL = docDir.appendingPathComponent(fileName)
+            // write into the file;
+            try! imageData.write(to: imageURL)
+            // This is to give the imageView a new value after the photo is choosen
+            let newImage = UIImage(contentsOfFile: imageURL.path)!
+            observationImgView.image = newImage
+            editPhotoBtn.setTitle("Edit Photo", for: .normal)
+            
+            // Save it to the database after edit the photo
+            let realm = try! Realm()
+            try! realm.write {
+                 observation?.photoLocation = fileName
+            }
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

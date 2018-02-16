@@ -41,6 +41,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     
     @IBAction func useCamera(_ sender: AnyObject) {
+        
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
             let imagePicker = UIImagePickerController()
             
@@ -63,7 +64,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
-        self.dismiss(animated: true, completion: nil)
+        
         
         if mediaType.isEqual(to: kUTTypeImage as String) {
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -75,6 +76,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
                                                nil)
             }
         }
+        self.dismiss(animated: true, completion: nil)
     }
     
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {

@@ -140,7 +140,7 @@ class AnimalPositionViewController: UIViewController, UITableViewDelegate, UITab
     
     // *** Problem needs to be resolved here;
     @IBAction func didPressNextBtn(_ sender: Any) {
-        if !editMode{
+        if !editMode {
             if observation.animalPosition != "" {
                 performSegue(withIdentifier:"animalActionSegue", sender:self)
             }
