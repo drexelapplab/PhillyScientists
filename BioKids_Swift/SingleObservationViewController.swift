@@ -29,7 +29,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editReminderLbl.textColor = C.Colors.subheadingText
+        //editReminderLbl.textColor = C.Colors.subheadingText
 
         observationTableView.setEditing(false, animated: false)
         
