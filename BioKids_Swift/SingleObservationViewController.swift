@@ -14,6 +14,7 @@ import RealmSwift
 
 class SingleObservationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var editReminderLbl: UILabel!
     @IBOutlet weak var observationImgView: UIImageView!
     @IBOutlet weak var editPhotoBtn: UIButton!
     var observationIdx = -1
@@ -28,7 +29,8 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        editReminderLbl.textColor = C.Colors.subheadingText
+
         observationTableView.setEditing(false, animated: false)
         
         if observationIdx > -1 {

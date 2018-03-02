@@ -35,6 +35,8 @@ class SensedHowViewController: UIViewController {
         feelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         cancelBtn.layer.cornerRadius = 10
+        //***This line of codes fixes the second time add object flash out problem!!*****
+        observation = Observation()
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)

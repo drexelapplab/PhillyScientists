@@ -18,7 +18,7 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
     
     var animalSubType = String()
     var animalSubTypes = Array<String>()
-    var animalPosition = Array<String>()//New addded, next 指向的pointer;
+    var animalPosition = Array<String>()//New addded, next pointer;
     var observation = Observation()
     
     var editMode = false
