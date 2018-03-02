@@ -14,7 +14,6 @@ import RealmSwift
 
 class SingleObservationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var editReminderLbl: UILabel!
     @IBOutlet weak var observationImgView: UIImageView!
     @IBOutlet weak var editPhotoBtn: UIButton!
     var observationIdx = -1
@@ -29,8 +28,6 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //editReminderLbl.textColor = C.Colors.subheadingText
-
         observationTableView.setEditing(false, animated: false)
         
         if observationIdx > -1 {
@@ -38,7 +35,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             let photoLocation = observation?.photoLocation
             let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
-            
+            // 跟下面一条备注是一样的原理
             if photoLocation == "" {
                 editPhotoBtn.setTitle("Add Photo", for: .normal)
             } else {
@@ -57,13 +54,13 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func editPhoto(_ sender: UIButton) {
-        // The method to add new or edit photos
+        // 新增加的编辑照片或者添加照片的方法
         if observationIdx > -1 {
             observation = observationContainer.observations[observationIdx]
             let photoLocation = observation?.photoLocation
             let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
-            // Judge if there is a photo, a alert will pop out if there is a photo, then the camera will be connected; if there isn't a photo, connect the camera directly!
+            // 根据路径判断是否有图片，如果有图片弹出alert，然后在调用相机，没有图片那就直接调用相机
             if photoLocation == "" {
                 editPhotoBtn.setTitle("Add Photo", for: .normal)
                 useCamera()
@@ -96,7 +93,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
 
             let property = self.propertyNames[editActionsForRowAt.row]
-            // Codes needs to be modified here; add new kinds of cases to demo the viewcontroller!!
+            // Codes needs to be modified here; add new switch cases to demo the viewcontroller!!
             switch property {
             case "howSensed":
                 self.performSegue(withIdentifier: "howSensedSegue", sender: self)
@@ -224,12 +221,12 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        // viewdiddisapper ||this controller will be called after current pictures disapper, if this one wants to be edited, it will return to last page
+        // viewdiddisapper will be called after current view disappear, if it wants to be modified, it can't pop back to last page!
 //        self.navigationController?.popToRootViewController(animated: false)
     }
     
     // MARK: PHOTO SELECT
-    // This is what PhotoController have!
+    // This is similar to the Photocontroller method
     func useCamera() {
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
             let imagePicker = UIImagePickerController()
@@ -276,20 +273,20 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             let date = Date()
             let df = DateFormatter()
             df.dateFormat = "yyyyMMddhhmmss"
-            // The photo name format, this is an example：photo20180212160522.png（Photo name can be self-defined）
+            // Name of the photo, the pattern follows: photo20180212160522.png( Name can be self-defined)
             let fileName = "photo\(df.string(from: date)).png"
-            // Get the decimal file of the photo, this parameter will be used if it wants to be submitted to server!
+            // Get a picture's decimal file, this index will be used if it wants to be submmited to the server
             let imageData = UIImagePNGRepresentation(image)!
             let docDir = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let imageURL = docDir.appendingPathComponent(fileName)
-            // write into the file;
+            // Write the file data
             try! imageData.write(to: imageURL)
-            // This is to give the imageView a new value after the photo is choosen
+            // Give the imageview a new value after the photo is selected!
             let newImage = UIImage(contentsOfFile: imageURL.path)!
             observationImgView.image = newImage
             editPhotoBtn.setTitle("Edit Photo", for: .normal)
             
-            // Save it to the database after edit the photo
+            // Write it to the database after being modified
             let realm = try! Realm()
             try! realm.write {
                  observation?.photoLocation = fileName
