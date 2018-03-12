@@ -11,8 +11,6 @@ import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let realm = try! Realm()
     
     let observationContainer = ObservationContainer.sharedInstance
     var window: UIWindow?
@@ -20,10 +18,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Update Realm Schemas if necessary
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                    // The enumerateObjects(ofType:_:) method iterates
+                    // over every Observation object stored in the Realm file
+                    migration.enumerateObjects(ofType: Observation.className()) { oldObject, newObject in
+                        // Add new field name
+                        newObject!["wasSubmitted"] = false
+                    }
+                }// ***************Modifications with new added view controller's names; *************** // try to change < 2 to <4
+                if (oldSchemaVersion < 2) {
+                    // The enumerateObjects(ofType:_:) method iterates
+                    // over every Observation object stored in the Realm file
+                    migration.enumerateObjects(ofType: Observation.className()) { oldObject, newObject in
+                        // Add new field name
+                        newObject!["animalType_screen"] = ""
+                        newObject!["animalSubType_screen"] = ""
+                        // To modify the object passing issue with new added anim
+                        //newObject!["animalPosition_screen"] = ""
+                        //newObject!["animalAction_screen"] = ""
+                        //newObject!["animalAmount_screen"] = " "
+                    }
+                }
+        })
+        
+        // Now that we've told Realm how to handle the schema change, opening the file
+        // will automatically perform the migration
+        let realm = try! Realm()
         
         let results = realm.objects(Observation.self)
         for result in results {
             observationContainer.observations.append(result)
+        }
+        
+        // Change the font size of the Tab Bar Controller
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Montserrat", size: 18)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Montserrat", size: 18)!], for: .selected)
+        
+        // Then push that view controller onto the navigation stack
+        if UserDefaults.standard.bool(forKey: "loggedIn"){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            
+            window?.rootViewController = viewController
+            window?.makeKeyAndVisible()
         }
         
         return true

@@ -12,9 +12,12 @@ import RealmSwift
 
 class ObservationContainer {
     static let sharedInstance = ObservationContainer()
-    
+    //Modifications needed;
     var observations: [Observation] = []
-    
+    var groupID: String = ""
+    var groupName: String = ""
+    var teacherID: String = ""
+    var trackerID: String = ""
     // MARK: Initializer
     private init () {
         
@@ -37,5 +40,13 @@ class ObservationContainer {
             }
         }
         return count
+    }
+    
+    func clearContainer() {
+        groupID = ""
+        groupName = ""
+        teacherID = ""
+        trackerID = ""
+        observations = []
     }
 }

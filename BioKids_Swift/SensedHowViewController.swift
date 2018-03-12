@@ -21,13 +21,12 @@ class SensedHowViewController: UIViewController {
     
     var observation = Observation()
     var sensedHowArray = [String]()
-    let realm = try! Realm()
     let observationContainer = ObservationContainer.sharedInstance
+    var editMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(observation)
         // Do any additional setup after loading the view, typically from a nib.
         
         seeBtn.layer.cornerRadius = 10
@@ -36,8 +35,12 @@ class SensedHowViewController: UIViewController {
         feelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         cancelBtn.layer.cornerRadius = 10
+        //***This line of codes fixes the second time add object flash out problem!!*****
+        observation = Observation()
         
-        if observation.howSensed != "" {
+        if editMode {
+            nextBtn.setTitle("Save", for: .normal)
+            
             let values = observation.howSensed.split(separator: ",")
             
             for val in values{
@@ -58,7 +61,6 @@ class SensedHowViewController: UIViewController {
                     break
                 }
             }
-            
         }
     }
     
@@ -119,7 +121,6 @@ class SensedHowViewController: UIViewController {
         
         let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
             // Return
-            print("pressed yes")
             
             _ = self.navigationController?.popToRootViewController(animated: true)
         }
@@ -135,19 +136,38 @@ class SensedHowViewController: UIViewController {
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        
+        if !editMode {
+            self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "whatSensedSegue"{
+    @IBAction func didPressNextBtn(_ sender: Any) {
+        if !editMode {
+            performSegue(withIdentifier: "whatSensedSegue", sender: self)
+        } else {
             let realm = try! Realm()
             try! realm.write {
                 observation.howSensed = sensedHowArray.joined(separator: ",")
             }
-            
-            let destination = segue.destination as! SensedWhatViewController
-            destination.observation = self.observation
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if !editMode {
+            if segue.identifier == "whatSensedSegue"{
+                
+                observation.howSensed = sensedHowArray.joined(separator: ",")
+                let destination = segue.destination as! SensedWhatViewController
+                destination.observation = self.observation
+            }
+        } else {
+            editMode = false
+        }
+    }
 }

@@ -8,30 +8,35 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class AnimalGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
     
     var animalGroups = Array<String>()
     var animalTypes = Array<String>()
     var observation = Observation()
     
+    var editMode = false
+    
     override func viewDidLoad() {
+        
+        print("Here1:\(observation)")
+        
         super.viewDidLoad()
         
-        print(observation)
-        
         cancelBtn.layer.cornerRadius = 10
+        cancelBtn.setTitleColor(C.Colors.buttonText, for: .normal)
+        cancelBtn.backgroundColor = C.Colors.buttonBg
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        nextBtn.layer.cornerRadius = 10
+        nextBtn.setTitleColor(C.Colors.buttonText, for: .normal)
+        nextBtn.backgroundColor = C.Colors.buttonBg
+                
         self.tableView.rowHeight = 120.0
         
         if let path = Bundle.main.path(forResource: "sequencePhilly", ofType: "plist") {
@@ -48,6 +53,16 @@ class AnimalGroupViewController: UIViewController, UITableViewDelegate, UITableV
                         }
                     }
                 }
+            }
+        }
+        
+        if editMode {
+            nextBtn.setTitle("Save", for: .normal)
+            if let animalGroupIndex = animalGroups.index(of: observation.animalGroup) {
+                let index = animalGroups.startIndex.distance(to: animalGroupIndex)
+                let indexPath = IndexPath(row: index, section: 0)
+                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+                tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
             }
         }
     }
@@ -68,20 +83,34 @@ class AnimalGroupViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalGroupCell", for: indexPath) as! AnimalGroupTableViewCell
 
         // Configure the cell...
-        cell.AnimalGroupLbl.text = animalGroups[indexPath.row]
-        cell.AnimalGroupLbl.textColor = UIColor(red:0.965, green:0.737, blue:0.157, alpha:1.0)
+        cell.AnimalGroupLbl.text = animalGroups[indexPath.row].capitalized
+        cell.AnimalGroupLbl.textColor = C.Colors.buttonText
         cell.contentView.backgroundColor = UIColor.clear
 
 
-        let blueRoundedView : UIView = UIView(frame: CGRect(x: 8, y: 10, width: self.view.frame.size.width-16.0, height: 100))
-        blueRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.190, 0.297, 0.619, 1.0])
-        blueRoundedView.layer.masksToBounds = false
-        blueRoundedView.layer.cornerRadius = 10.0
+        let cellBg : UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: 100))
+        cellBg.layer.backgroundColor = C.Colors.buttonBg.cgColor
+        cellBg.layer.masksToBounds = false
+        cellBg.layer.cornerRadius = 10.0
 
-        cell.contentView.addSubview(blueRoundedView)
-        cell.contentView.sendSubview(toBack: blueRoundedView)
+        cell.contentView.addSubview(cellBg)
+        cell.contentView.sendSubview(toBack: cellBg)
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !editMode {
+            observation.animalGroup = animalGroups[indexPath.row]
+            observation.animalType_screen = animalTypes[indexPath.row]
+        }
+        else {
+            let realm = try! Realm()
+            try! realm.write {
+                observation.animalGroup = animalGroups[indexPath.row]
+                observation.animalType_screen = animalTypes[indexPath.row]
+            }
+        }
     }
     
     func showMessageToUser(title: String, msg: String)  {
@@ -105,17 +134,28 @@ class AnimalGroupViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func didPressCancelBtn(_ sender: Any) {
-        self.showMessageToUser(title: "Alert", msg: "You are about to erase this observation. Would you like to delete this observation and return to the Home screen?")
+        if !editMode {
+            self.showMessageToUser(title: "Alert", msg: C.Strings.observationCancel)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
+    @IBAction func didPressNextBtn(_ sender: Any) {
+        if !editMode {
+            performSegue(withIdentifier: "animalTypeSegue", sender: self)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextScene =  segue.destination as! AnimalTypeViewController
         
-        // Pass the selected object to the new view controller.
-        if let indexPath = self.tableView.indexPathForSelectedRow {
-            let animalType = animalTypes[indexPath.row]
-            observation.animalGroup = animalType
-            nextScene.animalType = animalType
+        if segue.identifier == "animalTypeSegue" {
+            let nextScene =  segue.destination as! AnimalTypeViewController
             nextScene.observation = observation
         }
     }

@@ -16,15 +16,17 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var teacherProgramLbl: UILabel!
     @IBOutlet weak var observationTable: UITableView!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var statusLbl: UILabel!
     
     var observationContainer = ObservationContainer.sharedInstance
     var observationIdx = -1
     
-    let realm = try! Realm()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         submitBtn.layer.cornerRadius = 10
+        
+        groupNameLbl.text = "Group Name: \(observationContainer.groupName)"
+        teacherProgramLbl.text = "Teacher/Program: \(observationContainer.teacherID)"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +47,37 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObservationCell", for: indexPath) as! ObservationTableViewCell
         
         // Configure the cell...
-        if observationContainer.observations[indexPath.row].animalSubType != "" {
-            cell.observationLabel.text = observationContainer.observations[indexPath.row].animalSubType
+        // ***********groups of data needs to be added here;!!!!!!****
+        var labelText = ""
+        
+        if observationContainer.observations[indexPath.row].grassKind != "" {
+            labelText = observationContainer.observations[indexPath.row].grassKind
+        }
+        else if observationContainer.observations[indexPath.row].plantKind != ""{
+           labelText = observationContainer.observations[indexPath.row].plantKind
+        }
+        else if observationContainer.observations[indexPath.row].animalSubType != "" {
+           labelText = observationContainer.observations[indexPath.row].animalSubType
+        }
+        else if observationContainer.observations[indexPath.row].animalType != "" {
+           labelText = observationContainer.observations[indexPath.row].animalType
+        } // Codes modification for consistency with newly added data; this is for Position;
+        else if observationContainer.observations[indexPath.row].animalPosition != ""{
+            labelText = observationContainer.observations[indexPath.row].animalPosition
+        }// Codes modification for consistency with newly added data; this is for Action;
+        else if observationContainer.observations[indexPath.row].animalAction != ""{
+            labelText = observationContainer.observations[indexPath.row].animalAction
         }
         else {
-            cell.observationLabel.text = observationContainer.observations[indexPath.row].animalType
+            labelText = observationContainer.observations[indexPath.row].animalGroup
         }
+        
+        if !observationContainer.observations[indexPath.row].wasSubmitted {
+            labelText = labelText + " *"
+        }
+        
+        cell.observationLabel.text = labelText
+        
         return cell
     }
     
@@ -61,7 +88,27 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func didPressSubmitBtn(_ sender: Any) {
         
-        let submissionURL = "https://biokids.soe.drexel.edu/addObservation.php"
+        
+        let numSubmitting = observationContainer.howManyNeedSubmitting()
+        print(numSubmitting)
+        
+        if numSubmitting < 1 {
+            statusLbl.text = "No new observations to submit."
+        } else {
+// Submit button
+//            AlertControllerTool.showAlert(currentVC: self, msg: "You can't edit anything once you submit data! ", otherBtn: "submit", otherHandler: { (action) in
+//                // Submit data to server;
+//                self.sumbitData()
+//            })
+            // Two buttons, deal with one event
+            AlertControllerTool.showAlert(currentVC: self, meg: "You can't edit anything once you submit data!", cancelBtn: "cancel", otherBtn: "submit", handler: { (action) in
+                 self.sumbitData()
+            })
+        }
+    }
+    
+    func sumbitData() {
+        let submissionURL = "https://app.phillyscientists.com/addObservation.php"
         
         for observation in observationContainer.observations {
             
@@ -69,8 +116,8 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                 let dateFormatter = DateFormatter()
                 dateFormatter.timeZone = TimeZone(abbreviation: "EST")
                 dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
-                
-                let parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
+                // ***********groups of data needs to be added here;!!!!!!****
+                var parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
                                               "howSensed": observation.howSensed,
                                               "whatSensed": observation.whatSensed,
                                               "plantKind": observation.plantKind,
@@ -80,8 +127,14 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                                               "animalGroup":observation.animalGroup,
                                               "animalType": observation.animalType,
                                               "animalSubType": observation.animalSubType,
-                                              "note": observation.note,
-                                              "howManyIsExact": observation.howManyIsExact]
+                                              "animalPosition": observation.animalPosition,//Codes modification for consistency;
+                    "animalAction": observation.animalAction,//Codes modification for consistency
+                    "note": observation.note,
+                    "howManyIsExact": observation.howManyIsExact ? 1 : 0]
+                
+                if observationContainer.groupID != "" {
+                    parameters["groupID"] = observationContainer.groupID
+                }
                 
                 ////////////////////
                 // Send Text data //
@@ -91,11 +144,13 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                     switch response.result {
                     case .success:
                         print("Validation Successful...\(String(describing: response.value))")
-
-                        //                        try! realm.write {
-                        //                            observation.wasSubmitted = true
-                        //                        }
-
+                        
+                        let realm = try! Realm()
+                        try! realm.write {
+                            observation.wasSubmitted = true
+                            self.observationTable.reloadData()
+                        }
+                        
                     case .failure(let error):
                         print(error)
                     }
@@ -105,45 +160,43 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                 // Send Photo //
                 ////////////////
                 
-                let imgFileName = observation.photoLocation
-                let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
-                let image = UIImage(contentsOfFile: imgFileURL.path)
-                
-                Alamofire.upload(
-                    multipartFormData: { multipartFormData in
-                        
-                        // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
-                        
-//                        multipartFormData.append(data!, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-                        multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
-                    },
+                if observation.photoLocation != "" {
+                    let imgFileName = observation.photoLocation
+                    let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
                     
-                    to: submissionURL,
-                    encodingCompletion: { encodingResult in
-                        switch encodingResult {
-                        case .success(let upload, _, _):
-                            upload.responseString {response in
-                                print(response)
+                    Alamofire.upload(
+                        multipartFormData: { multipartFormData in
+                            
+                            // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
+                            
+                            multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
+                    },
+                        
+                        to: submissionURL,
+                        encodingCompletion: { encodingResult in
+                            switch encodingResult {
+                            case .success(let upload, _, _):
+                                upload.responseString {response in
+                                    print(response)
+                                    
+                                }
+                            case .failure(let encodingError):
+                                print("Failure...")
+                                print(encodingError)
                             }
-//                            upload.responseJSON { response in
-//                                print("Recieved JSON object from website")
-//                                if let jsonResponse = response.result.value as? [String: Any] {
-//                                    print("Printing JSON object from website")
-//                                    print(jsonResponse)
-//                                }
-//                            }
-                        case .failure(let encodingError):
-                            print("Failure...")
-                            print(encodingError)
-                        }
+                    }
+                    )
+                    
+                    print("Photo Uploaded")
                 }
-                )
-                
-                print("Done")
             }
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        statusLbl.text = ""
+    }
+    //********* Very important for segue jumping!!!!!***********
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextScene = segue.destination as! SingleObservationViewController
         
