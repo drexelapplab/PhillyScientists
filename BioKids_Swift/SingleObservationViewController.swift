@@ -35,7 +35,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             let photoLocation = observation?.photoLocation
             let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
-            // 跟下面一条备注是一样的原理
+            // Same as the comments below
             if photoLocation == "" {
                 editPhotoBtn.setTitle("Add Photo", for: .normal)
             } else {
@@ -54,13 +54,14 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func editPhoto(_ sender: UIButton) {
-        // 新增加的编辑照片或者添加照片的方法
+        // Add new method to edit or add new photos
         if observationIdx > -1 {
             observation = observationContainer.observations[observationIdx]
             let photoLocation = observation?.photoLocation
             let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
-            // 根据路径判断是否有图片，如果有图片弹出alert，然后在调用相机，没有图片那就直接调用相机
+            // Judge if there was a photo by path, pop up an alert if there was a photo, then open up the camera
+            // If there was not a photo, use the camera directly
             if photoLocation == "" {
                 editPhotoBtn.setTitle("Add Photo", for: .normal)
                 useCamera()
