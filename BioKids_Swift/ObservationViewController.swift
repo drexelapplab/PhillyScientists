@@ -189,6 +189,16 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                     
                     print("Photo Uploaded")
                 }
+                
+                for observation in observationContainer.observations{
+                    var count = 0;
+                    if(observation.wasSubmitted == true&&count<observationContainer.observations.count){
+                        observationContainer.removeObservation(index: count)
+                        count += 1
+                        print ("Removed observation");
+                    }
+                }
+
             }
         }
     }
