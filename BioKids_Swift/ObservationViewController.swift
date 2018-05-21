@@ -95,11 +95,11 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         if numSubmitting < 1 {
             statusLbl.text = "No new observations to submit."
         } else {
-// Submit button
-//            AlertControllerTool.showAlert(currentVC: self, msg: "You can't edit anything once you submit data! ", otherBtn: "submit", otherHandler: { (action) in
-//                // Submit data to server;
-//                self.sumbitData()
-//            })
+            // Submit button
+            //            AlertControllerTool.showAlert(currentVC: self, msg: "You can't edit anything once you submit data! ", otherBtn: "submit", otherHandler: { (action) in
+            //                // Submit data to server;
+            //                self.sumbitData()
+            //            })
             // Two buttons, deal with one event
             AlertControllerTool.showAlert(currentVC: self, meg: "You can't edit anything once you submit data!", cancelBtn: "cancel", otherBtn: "submit", handler: { (action) in
                  self.sumbitData()
@@ -190,14 +190,9 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                     print("Photo Uploaded")
                 }
                 
-                for observation in observationContainer.observations{
-                    var count = 0;
-                    if(observation.wasSubmitted == true&&count<observationContainer.observations.count){
-                        observationContainer.removeObservation(index: count)
-                        count += 1
-                        print ("Removed observation");
-                    }
-                }
+                
+                observationContainer.removeAllObservations();
+                
 
             }
         }

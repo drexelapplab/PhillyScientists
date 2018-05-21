@@ -9,7 +9,7 @@
 			<key>dataField</key>
 			<string>ImagePath</string>
 			<key>next</key>
-			<string>how-sensed</string>
+			<string>what-sensed</string>
 			<key>title</key>
 			<string>What do you see?</string>
 			<key>type</key>
@@ -1707,6 +1707,8 @@
 		</dict>
 		<key>what-sensed</key>
 		<dict>
+			<key>next</key>
+			<string>how-sensed</string>
 			<key>dataField</key>
 			<string>WhatSensed</string>
 			<key>items</key>

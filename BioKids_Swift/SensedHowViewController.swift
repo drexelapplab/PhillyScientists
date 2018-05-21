@@ -19,12 +19,15 @@ class SensedHowViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
+    var chosenSegue:String?
     var observation = Observation()
     var sensedHowArray = [String]()
     let observationContainer = ObservationContainer.sharedInstance
     var editMode = false
     
     override func viewDidLoad() {
+        print(chosenSegue)
+        print("In sensedHowViewController")
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -147,7 +150,14 @@ class SensedHowViewController: UIViewController {
     
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode {
-            performSegue(withIdentifier: "whatSensedSegue", sender: self)
+            if chosenSegue == "kindOfPlantSegue"{
+                performSegue(withIdentifier: "kindOfPlantSegue", sender: self)
+            }
+            else
+            {
+                performSegue(withIdentifier: "kindOfAnimalSegue", sender: self)
+            }
+            
         } else {
             let realm = try! Realm()
             try! realm.write {
@@ -160,13 +170,19 @@ class SensedHowViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if !editMode {
-            if segue.identifier == "whatSensedSegue"{
-                
+            if segue.identifier == "kindOfPlantSegue"{
                 observation.howSensed = sensedHowArray.joined(separator: ",")
-                let destination = segue.destination as! SensedWhatViewController
+                let destination = segue.destination as! PlantKindViewController
                 destination.observation = self.observation
             }
-        } else {
+                
+            else {
+                observation.howSensed = sensedHowArray.joined(separator: ",")
+                let destination = segue.destination as! AnimalGroupViewController
+                destination.observation = self.observation
+            }
+        }
+        else {
             editMode = false
         }
     }

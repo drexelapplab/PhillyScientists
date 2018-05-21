@@ -25,6 +25,7 @@ class SensedWhatViewController: UIViewController {
     override func viewDidLoad() {
         
         print("Here0",observation)
+        print("In sensedWhat Controller")
         
         plantBtn.layer.cornerRadius = 10
         animalBtn.layer.cornerRadius = 10
@@ -161,10 +162,11 @@ class SensedWhatViewController: UIViewController {
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode {
             if plantBtn.isSelected {
-                performSegue(withIdentifier: "kindOfPlantSegue", sender: self)
+                performSegue(withIdentifier: "howSensedSegue", sender: plantBtn)
+                print("plant btn selected")
             }
             else {
-                performSegue(withIdentifier: "kindOfAnimalSegue", sender: self)
+                performSegue(withIdentifier: "howSensedSegue", sender: self)
             }
         }
         else {
@@ -173,13 +175,18 @@ class SensedWhatViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "kindOfPlantSegue"{
-            let destination = segue.destination as! PlantKindViewController
-            destination.observation = self.observation
+        if segue.identifier == "howSensedSegue"{
+            if (sender as AnyObject? === plantBtn){
+                let destination = segue.destination as! SensedHowViewController
+                destination.chosenSegue = "kindOfPlantSegue"
+                print("chosen segue happened")
+                destination.observation = self.observation
+            }
         }
             
         else {
-            let destination = segue.destination as! AnimalGroupViewController
+            let destination = segue.destination as! SensedHowViewController
+            destination.chosenSegue = "kindOfAnimalSegue"
             destination.observation = self.observation
         }
     }

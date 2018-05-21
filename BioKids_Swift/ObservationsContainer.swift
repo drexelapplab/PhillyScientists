@@ -32,6 +32,10 @@ class ObservationContainer {
         self.observations.remove(at: index)
     }
     
+    func removeAllObservations(){
+        self.observations.removeAll()
+    }
+    
     func howManyNeedSubmitting() -> Int {
         var count = 0
         for observation in observations {

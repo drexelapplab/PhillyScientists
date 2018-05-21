@@ -353,7 +353,7 @@ Version 2.0.0</string>
                                     <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uMs-Dj-Cme" kind="show" identifier="howSensedSegue" id="ddd-gq-hXr"/>
+                                    <segue destination="8de-Pa-lNH" kind="show" identifier="whatSensedSegue" id="pdi-Fx-Taa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -496,6 +496,7 @@ Version 2.0.0</string>
                                 </state>
                                 <connections>
                                     <action selector="didPressNextBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="yLT-o9-uDm"/>
+                                    <segue destination="aex-uM-6AU" kind="show" id="3ug-0s-vd1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -534,12 +535,11 @@ Version 2.0.0</string>
                         <outlet property="nextBtn" destination="k3V-Wr-4JF" id="7Iu-LY-5uH"/>
                         <outlet property="seeBtn" destination="HbH-Rc-PRw" id="2np-ws-bsx"/>
                         <outlet property="smellBtn" destination="DkC-nz-f3p" id="v0W-3Z-dQ2"/>
-                        <segue destination="8de-Pa-lNH" kind="show" identifier="whatSensedSegue" id="s9o-bj-wUL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1g1-D5-nfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2969.53125" y="-710.15625"/>
+            <point key="canvasLocation" x="3496" y="-1773"/>
         </scene>
         <!--What Do You Sense?-->
         <scene sceneID="rXy-cU-7jV">
@@ -648,6 +648,7 @@ Version 2.0.0</string>
                                 </state>
                                 <connections>
                                     <action selector="didPressNextBtn:" destination="8de-Pa-lNH" eventType="touchUpInside" id="lTe-lW-Bhu"/>
+                                    <segue destination="uMs-Dj-Cme" kind="show" identifier="howSensedSegue" id="uaJ-5Y-Pc6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -683,13 +684,11 @@ Version 2.0.0</string>
                         <outlet property="otherBtn" destination="58Q-kh-bHj" id="Yp7-xp-Ocu"/>
                         <outlet property="plantBtn" destination="Tqz-DU-sBn" id="eCP-zc-hvY"/>
                         <outlet property="tracksBtn" destination="b0Y-EO-nMs" id="5u9-4r-fTv"/>
-                        <segue destination="aex-uM-6AU" kind="show" identifier="kindOfPlantSegue" id="N9H-dv-szl"/>
-                        <segue destination="7gk-CE-6Pi" kind="show" identifier="kindOfAnimalSegue" id="BkB-pT-zHo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwE-vk-f5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3971" y="-710"/>
+            <point key="canvasLocation" x="2736" y="-1814"/>
         </scene>
         <!--What Kind of Animal?-->
         <scene sceneID="Zbx-MK-drE">
@@ -799,7 +798,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vci-s8-RNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4052" y="868"/>
+            <point key="canvasLocation" x="4352" y="-941"/>
         </scene>
         <!--What Kind of Plant?-->
         <scene sceneID="kQA-9M-hfz">
@@ -809,12 +808,12 @@ Version 2.0.0</string>
                         <viewControllerLayoutGuide type="top" id="sn6-Ge-g4T"/>
                         <viewControllerLayoutGuide type="bottom" id="m5y-ME-rHd"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Kyp-xM-Mt2">
+                    <view key="view" contentMode="scaleToFill" id="Kyp-xM-Mt2">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9d-1O-ht5">
-                                <rect key="frame" x="109" y="104" width="550" height="71"/>
+                                <rect key="frame" x="109" y="104" width="806" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="KKV-Wy-H2u"/>
@@ -832,7 +831,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-5J-mT4">
-                                <rect key="frame" x="109" y="266" width="550" height="71"/>
+                                <rect key="frame" x="109" y="266" width="806" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="90f-Os-pTw"/>
@@ -851,7 +850,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cav-ml-zVK">
-                                <rect key="frame" x="109" y="347" width="550" height="71"/>
+                                <rect key="frame" x="109" y="347" width="806" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="dUy-4F-81A"/>
@@ -870,7 +869,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apk-pP-Zxf">
-                                <rect key="frame" x="109" y="185" width="550" height="71"/>
+                                <rect key="frame" x="109" y="185" width="806" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="cX5-2o-f8y"/>
@@ -889,7 +888,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tf-X9-0vX">
-                                <rect key="frame" x="109" y="428" width="550" height="71"/>
+                                <rect key="frame" x="109" y="428" width="806" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="MzZ-wY-nnX"/>
@@ -908,7 +907,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-P3-iWv">
-                                <rect key="frame" x="109" y="513" width="270" height="71"/>
+                                <rect key="frame" x="109" y="513" width="398" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="T3h-2u-cYY"/>
@@ -923,7 +922,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFx-Ap-6mf">
-                                <rect key="frame" x="389" y="513" width="270" height="71"/>
+                                <rect key="frame" x="517" y="513" width="398" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="qnT-mh-cLw"/>
@@ -984,7 +983,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgc-yn-KR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5528" y="-1484"/>
+            <point key="canvasLocation" x="4352" y="-1814"/>
         </scene>
         <!--Grass Type View Controller-->
         <scene sceneID="7vk-Al-gxY">
@@ -1322,7 +1321,7 @@ Version 2.0.0</string>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uP7-3d-Jb3">
-                                <rect key="frame" x="252" y="356" width="255" height="71"/>
+                                <rect key="frame" x="252" y="356" width="255" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="255" id="zTV-yW-GMj"/>
@@ -1336,7 +1335,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuJ-BQ-TRW">
-                                <rect key="frame" x="517" y="356" width="255" height="71"/>
+                                <rect key="frame" x="517" y="356" width="255" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Next">
@@ -1491,7 +1490,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BF6-46-0kd">
-                                <rect key="frame" x="131" y="249" width="762" height="50"/>
+                                <rect key="frame" x="131" y="247.5" width="762" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aH9-6N-aUS"/>
                                 </constraints>
@@ -1503,7 +1502,7 @@ Version 2.0.0</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome! Enter the Unique Code of your Student Group Below:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo3-xC-nkS">
-                                <rect key="frame" x="81" y="197" width="862" height="32"/>
+                                <rect key="frame" x="81" y="197" width="862" height="30.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="26"/>
                                 <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1516,13 +1515,13 @@ Version 2.0.0</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Tracker: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOJ-7E-6RR">
-                                <rect key="frame" x="427.5" y="319" width="169" height="21"/>
+                                <rect key="frame" x="427.5" y="317.5" width="169" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mKs-DL-Tf4">
-                                <rect key="frame" x="352" y="387" width="320" height="216"/>
+                                <rect key="frame" x="352" y="385.5" width="320" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="nSO-Xp-irl" id="uSW-7n-bfu"/>
                                     <outlet property="delegate" destination="nSO-Xp-irl" id="WUD-Gk-X6P"/>
@@ -1549,7 +1548,7 @@ Version 2.0.0</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a group tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4b-0l-JFA">
-                                <rect key="frame" x="337" y="350" width="351" height="27"/>
+                                <rect key="frame" x="337" y="348.5" width="351" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26.5" id="1IM-JS-F4Y"/>
                                     <constraint firstAttribute="width" constant="351" id="8Ss-5O-5rf"/>
@@ -2389,14 +2388,13 @@ Version 2.0.0</string>
         <segue reference="iRe-WJ-2T3"/>
         <segue reference="inQ-y6-tnO"/>
         <segue reference="J2s-J4-PQO"/>
-        <segue reference="QSM-nS-LJt"/>
+        <segue reference="H9a-A8-dRd"/>
         <segue reference="Hr4-wp-J15"/>
-        <segue reference="Gis-1T-sGW"/>
+        <segue reference="t4o-Ku-a8d"/>
         <segue reference="P9R-dw-xzB"/>
-        <segue reference="bTG-ob-7cF"/>
-        <segue reference="GZF-ol-zgk"/>
-        <segue reference="R1p-Re-bYy"/>
-        <segue reference="cfi-3j-ESE"/>
-        <segue reference="V3p-tT-No3"/>
+        <segue reference="Kxy-JS-7hi"/>
+        <segue reference="3ug-0s-vd1"/>
+        <segue reference="pdi-Fx-Taa"/>
+        <segue reference="uaJ-5Y-Pc6"/>
     </inferredMetricsTieBreakers>
 </document>

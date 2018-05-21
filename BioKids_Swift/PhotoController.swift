@@ -140,8 +140,8 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "howSensedSegue"{
-            let destination = segue.destination as! SensedHowViewController
+        if segue.identifier == "whatSensedSeque"{
+            let destination = segue.destination as! SensedWhatViewController
             destination.observation = self.observation
         }
     }
