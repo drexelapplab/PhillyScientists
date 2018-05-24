@@ -73,7 +73,7 @@ Version 2.0.0</string>
                             <constraint firstItem="pAm-a0-pPJ" firstAttribute="top" secondItem="fiG-xq-VTB" secondAttribute="bottom" constant="33.5" id="zjs-Gg-y5d"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" id="uTz-oI-pmV"/>
+                    <tabBarItem key="tabBarItem" title="About" image="about" selectedImage="about" id="uTz-oI-pmV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxO-NV-w5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -282,7 +282,7 @@ Version 2.0.0</string>
                             <constraint firstItem="c3h-Mc-Cbi" firstAttribute="leading" secondItem="0o2-pn-pfn" secondAttribute="leadingMargin" constant="20" id="xoC-C2-QzR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Group Profile" id="Uxc-rv-aIV"/>
+                    <tabBarItem key="tabBarItem" title="Group Profile" image="people" selectedImage="people" id="Uxc-rv-aIV"/>
                     <connections>
                         <outlet property="badgesCollectionView" destination="MJG-LV-x6v" id="NJE-oM-g9T"/>
                         <outlet property="badgesTableHeadingLbl" destination="Vv7-Mz-ISx" id="JN9-DW-ERF"/>
@@ -627,7 +627,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qA3-Rc-Gqn">
-                                <rect key="frame" x="109" y="432" width="398" height="71"/>
+                                <rect key="frame" x="109" y="432" width="398" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="M9n-4E-m70"/>
@@ -641,7 +641,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slv-Hp-sZu">
-                                <rect key="frame" x="517" y="432" width="398" height="71"/>
+                                <rect key="frame" x="517" y="432" width="398" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Next">
@@ -1092,7 +1092,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5c-jn-t3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6099" y="-2512"/>
+            <point key="canvasLocation" x="5871" y="-2127"/>
         </scene>
         <!--How Much Grass Is In Your Zone?-->
         <scene sceneID="xpo-p9-iLQ">
@@ -1267,7 +1267,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxN-dB-LQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6721" y="-1484"/>
+            <point key="canvasLocation" x="6067" y="-1384"/>
         </scene>
         <!--How Many?-->
         <scene sceneID="989-KG-wXT">
@@ -1381,7 +1381,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsN-7b-VMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8399" y="-297"/>
+            <point key="canvasLocation" x="5080" y="-303"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="WxX-rK-T7f">
@@ -1396,7 +1396,7 @@ Version 2.0.0</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvg-EG-kpr">
-                                <rect key="frame" x="443" y="104" width="138.5" height="71"/>
+                                <rect key="frame" x="448.5" y="104" width="127.5" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="cgH-1m-1mp"/>
                                 </constraints>
@@ -1405,7 +1405,7 @@ Version 2.0.0</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xv-Lv-KHk">
-                                <rect key="frame" x="517" y="595" width="348" height="71"/>
+                                <rect key="frame" x="517" y="595" width="348" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Done">
@@ -1425,7 +1425,7 @@ Version 2.0.0</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fed-pr-kEz">
-                                <rect key="frame" x="159" y="595" width="348" height="71"/>
+                                <rect key="frame" x="159" y="595" width="348" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Cancel">
@@ -1460,7 +1460,7 @@ Version 2.0.0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh1-CV-a5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9681" y="-330"/>
+            <point key="canvasLocation" x="6067" y="-303"/>
         </scene>
         <!--Login View-->
         <scene sceneID="S2H-MN-9iM">
@@ -1899,7 +1899,7 @@ Version 2.0.0</string>
         <scene sceneID="4T1-IN-JbF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B6Z-4q-kfY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add Observations" id="5WG-IU-S0c"/>
+                    <tabBarItem key="tabBarItem" title="Add Observations" image="visible" selectedImage="visible" id="5WG-IU-S0c"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ITb-zk-Hus">
                         <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
@@ -2142,7 +2142,7 @@ Version 2.0.0</string>
         <scene sceneID="yFa-gW-u3Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sy5-ek-LlT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Observations" id="l5S-g9-UbW"/>
+                    <tabBarItem key="tabBarItem" title="Observations" image="search" id="l5S-g9-UbW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q7X-6M-MoH">
                         <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
@@ -2384,19 +2384,23 @@ Version 2.0.0</string>
     <resources>
         <image name="NSF-Philly-Scientists-logo-final" width="1000" height="400"/>
         <image name="PhotoImageBackground" width="570" height="646"/>
+        <image name="about" width="30" height="30"/>
+        <image name="people" width="30" height="30"/>
+        <image name="search" width="30" height="30"/>
+        <image name="visible" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iRe-WJ-2T3"/>
         <segue reference="inQ-y6-tnO"/>
         <segue reference="J2s-J4-PQO"/>
-        <segue reference="H9a-A8-dRd"/>
-        <segue reference="Hr4-wp-J15"/>
-        <segue reference="t4o-Ku-a8d"/>
-        <segue reference="P9R-dw-xzB"/>
-        <segue reference="Kxy-JS-7hi"/>
-        <segue reference="THH-Gk-puL"/>
-        <segue reference="iUN-u4-fQh"/>
-        <segue reference="pdi-Fx-Taa"/>
-        <segue reference="fGi-ng-nwX"/>
+        <segue reference="QSM-nS-LJt"/>
+        <segue reference="7fy-Iw-5eJ"/>
+        <segue reference="Gis-1T-sGW"/>
+        <segue reference="Gga-4K-hsC"/>
+        <segue reference="bTG-ob-7cF"/>
+        <segue reference="GZF-ol-zgk"/>
+        <segue reference="R1p-Re-bYy"/>
+        <segue reference="cfi-3j-ESE"/>
+        <segue reference="V3p-tT-No3"/>
     </inferredMetricsTieBreakers>
 </document>
