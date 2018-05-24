@@ -474,7 +474,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGJ-gK-gYe">
-                                <rect key="frame" x="109" y="438" width="398" height="71"/>
+                                <rect key="frame" x="109" y="438" width="398" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="gJd-Lz-hZk"/>
@@ -488,7 +488,7 @@ Version 2.0.0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3V-Wr-4JF">
-                                <rect key="frame" x="517" y="438" width="398" height="71"/>
+                                <rect key="frame" x="517" y="438" width="398" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Next">
@@ -496,7 +496,6 @@ Version 2.0.0</string>
                                 </state>
                                 <connections>
                                     <action selector="didPressNextBtn:" destination="uMs-Dj-Cme" eventType="touchUpInside" id="yLT-o9-uDm"/>
-                                    <segue destination="aex-uM-6AU" kind="show" id="3ug-0s-vd1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -535,6 +534,8 @@ Version 2.0.0</string>
                         <outlet property="nextBtn" destination="k3V-Wr-4JF" id="7Iu-LY-5uH"/>
                         <outlet property="seeBtn" destination="HbH-Rc-PRw" id="2np-ws-bsx"/>
                         <outlet property="smellBtn" destination="DkC-nz-f3p" id="v0W-3Z-dQ2"/>
+                        <segue destination="aex-uM-6AU" kind="show" identifier="kindOfPlantSegue" id="THH-Gk-puL"/>
+                        <segue destination="7gk-CE-6Pi" kind="show" identifier="kindOfAnimalSegue" id="iUN-u4-fQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1g1-D5-nfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -648,7 +649,6 @@ Version 2.0.0</string>
                                 </state>
                                 <connections>
                                     <action selector="didPressNextBtn:" destination="8de-Pa-lNH" eventType="touchUpInside" id="lTe-lW-Bhu"/>
-                                    <segue destination="uMs-Dj-Cme" kind="show" identifier="howSensedSegue" id="uaJ-5Y-Pc6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -684,6 +684,7 @@ Version 2.0.0</string>
                         <outlet property="otherBtn" destination="58Q-kh-bHj" id="Yp7-xp-Ocu"/>
                         <outlet property="plantBtn" destination="Tqz-DU-sBn" id="eCP-zc-hvY"/>
                         <outlet property="tracksBtn" destination="b0Y-EO-nMs" id="5u9-4r-fTv"/>
+                        <segue destination="uMs-Dj-Cme" kind="show" identifier="howSensedSegue" id="fGi-ng-nwX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwE-vk-f5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2393,8 +2394,9 @@ Version 2.0.0</string>
         <segue reference="t4o-Ku-a8d"/>
         <segue reference="P9R-dw-xzB"/>
         <segue reference="Kxy-JS-7hi"/>
-        <segue reference="3ug-0s-vd1"/>
+        <segue reference="THH-Gk-puL"/>
+        <segue reference="iUN-u4-fQh"/>
         <segue reference="pdi-Fx-Taa"/>
-        <segue reference="uaJ-5Y-Pc6"/>
+        <segue reference="fGi-ng-nwX"/>
     </inferredMetricsTieBreakers>
 </document>
