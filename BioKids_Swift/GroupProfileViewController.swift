@@ -17,12 +17,12 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var groupTrackerLbl: UILabel!
     @IBOutlet weak var groupTeacherLbl: UILabel!
     @IBOutlet weak var viewHeadingLbl: UILabel!
-    @IBOutlet weak var recordsTableHeadingLbl: UILabel!
-    @IBOutlet weak var countsTableHeadingLbl: UILabel!
-    @IBOutlet weak var badgesTableHeadingLbl: UILabel!
+//    @IBOutlet weak var recordsTableHeadingLbl: UILabel!
+//    @IBOutlet weak var countsTableHeadingLbl: UILabel!
+//    @IBOutlet weak var badgesTableHeadingLbl: UILabel!
     
-    @IBOutlet weak var recordsTableView: UITableView!
-    @IBOutlet weak var badgesCollectionView: UICollectionView!
+//    @IBOutlet weak var recordsTableView: UITableView!
+//    @IBOutlet weak var badgesCollectionView: UICollectionView!
     
     @IBOutlet weak var logoutBtn: UIButton!
     
@@ -37,9 +37,9 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         groupCodeLbl.textColor = C.Colors.subheadingText
         groupTrackerLbl.textColor = C.Colors.subheadingText
         groupTeacherLbl.textColor = C.Colors.subheadingText
-        recordsTableHeadingLbl.textColor = C.Colors.subheadingText
-        countsTableHeadingLbl.textColor = C.Colors.subheadingText
-        badgesTableHeadingLbl.textColor = C.Colors.subheadingText
+//        recordsTableHeadingLbl.textColor = C.Colors.subheadingText
+//        countsTableHeadingLbl.textColor = C.Colors.subheadingText
+//        badgesTableHeadingLbl.textColor = C.Colors.subheadingText
         
         logoutBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         logoutBtn.backgroundColor = C.Colors.buttonBg

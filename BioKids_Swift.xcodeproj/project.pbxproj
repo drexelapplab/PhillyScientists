@@ -43,6 +43,13 @@
 		CB07911A2006C5B5007898D0 /* AnimalPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0791192006C5B5007898D0 /* AnimalPositionViewController.swift */; };
 		CB07911C2006CB26007898D0 /* AnimalActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB07911B2006CB26007898D0 /* AnimalActionViewController.swift */; };
 		FD5561B91F1FCEBD008D2FA2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5561B81F1FCEBD008D2FA2 /* LoginController.swift */; };
+		FE19A51D20DC741D0028EA75 /* SensedWhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19A51C20DC741D0028EA75 /* SensedWhereViewController.swift */; };
+		FE215DFE20D9AEC900277F2A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE215DFD20D9AEC900277F2A /* SwiftyJSON.framework */; };
+		FE215E0020D9AED000277F2A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE215DFF20D9AED000277F2A /* Realm.framework */; };
+		FE215E0220D9AEDA00277F2A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE215E0120D9AEDA00277F2A /* Alamofire.framework */; };
+		FE215E0420D9AEE000277F2A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE215E0320D9AEE000277F2A /* RealmSwift.framework */; };
+		FE7874A420F007BD008909E9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7874A320F007BD008909E9 /* AboutViewController.swift */; };
+		FEC1B3AE20C74D8B007CD2F5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC1B3AD20C74D8B007CD2F5 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +94,13 @@
 		CB0791192006C5B5007898D0 /* AnimalPositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalPositionViewController.swift; sourceTree = "<group>"; };
 		CB07911B2006CB26007898D0 /* AnimalActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalActionViewController.swift; sourceTree = "<group>"; };
 		FD5561B81F1FCEBD008D2FA2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		FE19A51C20DC741D0028EA75 /* SensedWhereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensedWhereViewController.swift; sourceTree = "<group>"; };
+		FE215DFD20D9AEC900277F2A /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE215DFF20D9AED000277F2A /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE215E0120D9AEDA00277F2A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE215E0320D9AEE000277F2A /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE7874A320F007BD008909E9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		FEC1B3AD20C74D8B007CD2F5 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +108,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE215E0420D9AEE000277F2A /* RealmSwift.framework in Frameworks */,
+				FE215E0220D9AEDA00277F2A /* Alamofire.framework in Frameworks */,
+				FE215E0020D9AED000277F2A /* Realm.framework in Frameworks */,
+				FE215DFE20D9AEC900277F2A /* SwiftyJSON.framework in Frameworks */,
 				6E0DE50F52C921FAFBF6DB1C /* Pods_BioKids_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +186,9 @@
 				CAB8FC681E23F05E00B6EAC4 /* Assets.xcassets */,
 				CAB8FC6A1E23F05E00B6EAC4 /* LaunchScreen.storyboard */,
 				CAB8FC651E23F05E00B6EAC4 /* Main.storyboard */,
+				FEC1B3AD20C74D8B007CD2F5 /* Location.swift */,
+				FE19A51C20DC741D0028EA75 /* SensedWhereViewController.swift */,
+				FE7874A320F007BD008909E9 /* AboutViewController.swift */,
 			);
 			path = BioKids_Swift;
 			sourceTree = "<group>";
@@ -175,6 +196,10 @@
 		FFF2A0B3D0302D819BD84EBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE215E0320D9AEE000277F2A /* RealmSwift.framework */,
+				FE215E0120D9AEDA00277F2A /* Alamofire.framework */,
+				FE215DFF20D9AED000277F2A /* Realm.framework */,
+				FE215DFD20D9AEC900277F2A /* SwiftyJSON.framework */,
 				247792A69BEB773FB3155D41 /* Pods_BioKids_Swift.framework */,
 			);
 			name = Frameworks;
@@ -289,12 +314,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -337,14 +364,17 @@
 				CA5C34E21F7A9AA400D340D8 /* GrassTypeViewController.swift in Sources */,
 				CAB8FC641E23F05E00B6EAC4 /* ObservationViewController.swift in Sources */,
 				FD5561B91F1FCEBD008D2FA2 /* LoginController.swift in Sources */,
+				FE7874A420F007BD008909E9 /* AboutViewController.swift in Sources */,
 				CAFC278E1F8FA95B00CB1363 /* SingleObservationViewController.swift in Sources */,
 				CA5DC7BB1E8C2832006B9224 /* ObservationsContainer.swift in Sources */,
 				CAE4BDF91F7AA80000A6043C /* GrassKindTableViewCell.swift in Sources */,
 				CA3C7CED1F9E83CF0040EF3E /* ObservationEntryCell.swift in Sources */,
 				CAB8FC621E23F05E00B6EAC4 /* AppDelegate.swift in Sources */,
+				FE19A51D20DC741D0028EA75 /* SensedWhereViewController.swift in Sources */,
 				CA5DC7BD1E8C2BD6006B9224 /* Observation.swift in Sources */,
 				102033112030131C002418E1 /* AlertControllerTool.swift in Sources */,
 				CA07C55D1F9E25F4004EA42F /* AnimalGroupViewController.swift in Sources */,
+				FEC1B3AE20C74D8B007CD2F5 /* Location.swift in Sources */,
 				CAD2BB2D1E732E5000354675 /* AnimalGroupTableViewCell.swift in Sources */,
 				CAB8FC841E24115300B6EAC4 /* AmountSensedController.swift in Sources */,
 				CA2CB4071FCC807F0005E202 /* GroupRecordTableViewCell.swift in Sources */,

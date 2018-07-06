@@ -18,6 +18,7 @@ class ObservationContainer {
     var groupName: String = ""
     var teacherID: String = ""
     var trackerID: String = ""
+    var locations: [Location] = []
     // MARK: Initializer
     private init () {
         
@@ -52,5 +53,6 @@ class ObservationContainer {
         teacherID = ""
         trackerID = ""
         observations = []
+        locations = []
     }
 }

@@ -34,6 +34,7 @@ class Observation: Object {
     dynamic var animalPosition_screen = ""
     dynamic var animalAction_screen = ""
     dynamic var animalAmount_screen = ""
+    //dynamic var locationID = 0;
     
     func getDisplayStrings() -> [String] {
         var displayStrings = [String]()

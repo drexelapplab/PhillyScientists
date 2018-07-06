@@ -5,6 +5,7 @@ use_frameworks!
 target 'BioKids_Swift' do
     pod 'Alamofire', '~> 4.5'
     pod 'RealmSwift'
+    pod 'SwiftyJSON', '~> 4.0'
 end
 
 post_install do |installer|

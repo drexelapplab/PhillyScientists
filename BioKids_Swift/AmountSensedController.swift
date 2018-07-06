@@ -98,7 +98,7 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode {
-            performSegue(withIdentifier: "notesSegue", sender: self)
+            performSegue(withIdentifier: "locationSegue", sender: self)
         }
         else {
             self.navigationController?.popViewController(animated: true)
@@ -115,8 +115,8 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "notesSegue" {
-            let destination = segue.destination as! NotesViewController
+        if segue.identifier == "locationSegue" {
+            let destination = segue.destination as! SensedWhereViewController
             destination.observation = self.observation
         }
     }
