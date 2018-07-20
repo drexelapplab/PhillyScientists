@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Update Realm Schemas if necessary
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 2,
+            schemaVersion: 3,
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 1) {
                     // The enumerateObjects(ofType:_:) method iterates
@@ -37,6 +37,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // Add new field name
                         newObject!["animalType_screen"] = ""
                         newObject!["animalSubType_screen"] = ""
+                        // To modify the object passing issue with new added anim
+                        //newObject!["animalPosition_screen"] = ""
+                        //newObject!["animalAction_screen"] = ""
+                        //newObject!["animalAmount_screen"] = " "
+                    }
+                }
+                if (oldSchemaVersion < 3) {
+                    // The enumerateObjects(ofType:_:) method iterates
+                    // over every Observation object stored in the Realm file
+                    migration.enumerateObjects(ofType: Observation.className()) { oldObject, newObject in
+                        // Add new field name
+                        newObject!["locationID"] = 0
                         // To modify the object passing issue with new added anim
                         //newObject!["animalPosition_screen"] = ""
                         //newObject!["animalAction_screen"] = ""

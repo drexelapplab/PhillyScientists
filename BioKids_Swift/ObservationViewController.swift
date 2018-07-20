@@ -108,7 +108,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func sumbitData() {
-        let submissionURL = "https://app.phillyscientists.com/addObservation.php"
+        let submissionURL = "https://app.phillyscientists.com/addObservationDev.php"
         
         for observation in observationContainer.observations {
             

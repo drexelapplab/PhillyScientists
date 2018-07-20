@@ -7,15 +7,14 @@
 //
 
 import Foundation
-import RealmSwift
 
-class Location : Object {
-    var locationName = ""
-    var locationID = 0
+class Location{
+    var locationName: String?
+    var locationID: Int?
     
-//    init (locationNamePassed: String, locationIDPassed: Int) {
-//        self.locationID = locationIDPassed
-//        self.locationName = locationNamePassed
-//    }
+    init(LocationName: String, LocationID:Int){
+        self.locationID=LocationID
+        self.locationName=LocationName
+    }
     
 }

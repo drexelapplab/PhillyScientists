@@ -26,7 +26,8 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
         cancelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         
-        locationPicker.dataSource = (observationContainer.locations as! UIPickerViewDataSource)
+        locationPicker.dataSource = self //(observationContainer.locations[0].locationID as! UIPickerViewDataSource)
+        locationPicker.delegate = self
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
@@ -46,8 +47,9 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return observationContainer.locations.count;
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("The chosen location is: ")
         print(observationContainer.locations[row].locationName)
-        //observation.locationID = 9999;
+        observation.locationID = observationContainer.locations[row].locationID!;
     }
     
     func showMessageToUser(title: String, msg: String)  {

@@ -34,7 +34,7 @@ class Observation: Object {
     dynamic var animalPosition_screen = ""
     dynamic var animalAction_screen = ""
     dynamic var animalAmount_screen = ""
-    //dynamic var locationID = 0;
+    dynamic var locationID = 0 //// New added by Shiv
     
     func getDisplayStrings() -> [String] {
         var displayStrings = [String]()
@@ -82,6 +82,7 @@ class Observation: Object {
                              "animalPosition", //New added;
                              "animalAction", //New added
                              "howManySeen",
+                             "locationID", //new added Shiv
                              "notes"]
         
         return propertyNames

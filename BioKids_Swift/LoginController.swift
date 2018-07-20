@@ -9,7 +9,16 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Foundation
 
+//struct userData : Codable {
+//    let groupName: String
+//    let groupID: String
+//    let teacher: String
+//    let locations: [Location]
+//    let trackerNames = ["Select A Tracker", "Alem", "Aren", "Faraji", "Ghele", "Isoke", "Miniya", "Mkali", "Rakanja", "Sanjo", "Zahra"]
+//    let trackerImgs = ["none", "tracker-alem", "tracker-aren", "tracker-faraji", "tracker-ghele", "tracker-isoke","tracker-miniya", "tracker-mkali", "tracker-rakanja", "tracker-sanjo", "tracker-zahra"]
+//}
 
 class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -28,7 +37,7 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     var locations = [Location]()
     let trackerNames = ["Select A Tracker", "Alem", "Aren", "Faraji", "Ghele", "Isoke", "Miniya", "Mkali", "Rakanja", "Sanjo", "Zahra"]
     let trackerImgs = ["none", "tracker-alem", "tracker-aren", "tracker-faraji", "tracker-ghele", "tracker-isoke","tracker-miniya", "tracker-mkali", "tracker-rakanja", "tracker-sanjo", "tracker-zahra"]
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,70 +103,14 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
                         self.statusLbl.text = "Try Again."
                         break
                     default:
-//
-//
-//                        let val = response.value?.split(separator: ",")
-//                        self.groupID = String(val![0])
-//                        self.groupName = String(val![1])
-//                        self.teacherID = String(val![2])
-//
-//                        let locjson = String(val![3])
-//
-//                        print("=================<JSON RESP>=================");
-//                        print(val)
-//                        print("=================</JSON RESP/>=================");
-//
-//                        print("=================<LOCJSON>=================");
-//                        print(locjson)
-//                        print("=================</LOCJSON/>=================");
                         
-                        let json = JSON(response.result.value ?? "error")
-                        //let jsonError = json["Error"]
-                        print("=================<JSON RESPONSE>=================");
-                        print(json)
-                        print("=================</JSON RESPONSE/>=================");
-
-                        self.groupID = json["groupID"].stringValue
-                        self.groupName = json["groupName"].stringValue
-                        self.teacherID = json["teacherID"].stringValue
-                        let locjson = json["Locations"].arrayValue
-
-
-                        print("Entering LocJSON Loop")
-                        print("=================<LOCJSON >=================");
-                        print("GNAME:" +  self.groupID)
-                        print("TID: " + json["teacherID"].stringValue)
-
-                        //print("LocationJSON" + json["Locations"]);
-                        print("=================</LOCJSON/>=================");
+                        let JSONResponse : JSON = JSON.init(parseJSON: response.result.value!)
                         
-                        for location in locjson {
-                            print("In LocJSON Loop")
-                            let locID:Int? = Int(location["locationID"].stringValue);
-                            let locName = location["locationName"].stringValue;
-                            print(locID, locName);
-                            
-                            var locationToAdd : Location
-                            locationToAdd = Location();
-                            locationToAdd.locationID = locID!;
-                            locationToAdd.locationName = locName;
-                            self.locations.append(locationToAdd);
-                        }
-
-//                        for (key, object) in locjson {
-//                            print("In LocJSON Loop")
-//                            let locationIDVar: Int? = Int(key)
-//                            self.locations[locationIDVar!].locationID = locationIDVar!
-//                            self.locations[locationIDVar!].locationName = object.stringValue
-//                            print(self.locations[locationIDVar!].locationName)
-//                            print(object);
-//                        }
-
-                        self.observationContainer.groupID = self.groupID
-                        self.observationContainer.groupName = self.groupName
-                        self.observationContainer.teacherID = self.teacherID
-                        self.observationContainer.trackerID = self.trackerNames[chosenTracker]
-                        self.observationContainer.locations = self.locations
+                        print("=================<JSON RESP>=================");
+                        print(JSONResponse)
+                        print("=================</JSON RESP/>=================");
+                        
+                        self.parseJSONData(json: JSONResponse, trackerPicker: chosenTracker)
                         
                         UserDefaults.standard.set(true, forKey: "loggedIn")
                         self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
@@ -170,6 +123,33 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
                 }
             }
         }
+    }
+    
+    func parseJSONData(json : JSON, trackerPicker : Int){
+        self.groupID = json["groupID"].stringValue
+        self.teacherID = json["teacherID"].stringValue
+        self.groupName = json["groupName"].stringValue
+        self.teacher = json["teacher"].stringValue
+        
+        
+        let locjson = json["Locations"].arrayValue
+        for location in locjson {
+            let locID = Int(location["locationID"].stringValue)
+            let locName = location["locationName"].stringValue
+            let locationToAdd = Location(LocationName: locName, LocationID: locID!)
+            self.locations.append(locationToAdd)
+            print(locID, locName)
+        }
+        
+        self.observationContainer.trackerID = self.trackerNames[trackerPicker]
+        self.observationContainer.groupID = self.groupID
+        self.observationContainer.groupName = self.groupName
+        self.observationContainer.teacherID = self.teacherID
+        
+        //self.observationContainer.teacher = self.teacher
+        
+        self.observationContainer.locations = self.locations
+
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
