@@ -8,13 +8,86 @@
 
 import UIKit
 import RealmSwift
+import Alamofire
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let observationContainer = ObservationContainer.sharedInstance
     var window: UIWindow?
-
+    
+    var groupName = ""
+    var teacherID = ""
+    var groupID = ""
+    var teacher = ""
+    var locations = [Location]()
+    let trackerNames = ["Select A Tracker", "Alem", "Aren", "Faraji", "Ghele", "Isoke", "Miniya", "Mkali", "Rakanja", "Sanjo", "Zahra"]
+    let trackerImgs = ["none", "tracker-alem", "tracker-aren", "tracker-faraji", "tracker-ghele", "tracker-isoke","tracker-miniya", "tracker-mkali", "tracker-rakanja", "tracker-sanjo", "tracker-zahra"]
+    
+    
+    func parseJSONData(json : JSON, trackerValuePassed : String){
+        self.groupID = json["groupID"].stringValue
+        self.teacherID = json["teacherID"].stringValue
+        self.groupName = json["groupName"].stringValue
+        self.teacher = json["teacher"].stringValue
+        
+        
+        let locjson = json["Locations"].arrayValue
+        for location in locjson {
+            let locID = Int(location["locationID"].stringValue)
+            let locName = location["locationName"].stringValue
+            let locationToAdd = Location(LocationName: locName, LocationID: locID!)
+            self.locations.append(locationToAdd)
+            print(locID, locName)
+        }
+        
+        self.observationContainer.trackerID = trackerValuePassed
+        self.observationContainer.groupID = self.groupID
+        self.observationContainer.groupName = self.groupName
+        self.observationContainer.teacherID = self.teacherID
+        self.observationContainer.locations = self.locations
+        
+    }
+    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTracker: String){
+        Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() {
+            response in
+            switch response.result {
+            case .success:
+                print("Validation Successful...\(String(describing: response.value))")
+                
+                switch response.value {
+                case "error_none":
+                    print("No matching Group Code. If you are having trouble, please go to \nhttps://app.phillyscientists.com")
+                    break
+                case "error_tooManyIDs":
+                    print("Error, please contact developer.")
+                    break
+                case "error_noGroupIDReceived":
+                    print("Try Again.")
+                    break
+                default:
+                    
+                    let JSONResponse : JSON = JSON.init(parseJSON: response.result.value!)
+                    
+                    //uncomment this section for debugging
+                    //                        print("=================<JSON RESP>=================");
+                    //                        print(JSONResponse)
+                    //                        print("=================</JSON RESP/>=================");
+                    //
+                    self.parseJSONData(json: JSONResponse, trackerValuePassed: chosenTracker)
+                    //self.saveJSONDataToUserDefaults()
+                    //self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
+                    break
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -75,11 +148,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Then push that view controller onto the navigation stack
         if UserDefaults.standard.bool(forKey: "loggedIn"){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if UserDefaults.standard.string(forKey: "groupID") != nil{
+                observationContainer.groupID = UserDefaults.standard.string(forKey: "groupID")!
+                
+                if UserDefaults.standard.string(forKey: "tracker") != nil{
+                    observationContainer.trackerID = UserDefaults.standard.string(forKey: "chosenTracker")!
+                    
+                    let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php");
+                    
+                    let parameters: Parameters = ["uniqueCode": observationContainer.groupID,
+                                                  "trackerID": observationContainer.trackerID
+                    ]
+                    self.sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTracker: observationContainer.trackerID)
+                }
+                
+            }
+            
+            
             let viewController: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             
             window?.rootViewController = viewController
             window?.makeKeyAndVisible()
         }
+        
         
         return true
     }

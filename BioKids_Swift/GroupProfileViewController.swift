@@ -85,7 +85,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
             
             self.observationContainer.clearContainer()
             let domain = Bundle.main.bundleIdentifier!
-            UserDefaults.standard.removePersistentDomain(forName: domain)
+            (forName: domain)
             UserDefaults.standard.synchronize()
             self.performSegue(withIdentifier: "loginSegue", sender: self)
             

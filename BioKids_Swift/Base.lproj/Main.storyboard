@@ -540,7 +540,7 @@
                                     <constraint firstAttribute="height" constant="450" id="Cpb-DP-Gqz"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="36v-Cg-asW" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="36v-Cg-asW" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="806" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="36v-Cg-asW" id="eFu-fJ-wzN">
@@ -865,7 +865,7 @@
                                     <constraint firstAttribute="height" constant="450" id="Aql-FU-OnC"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GrassKindCell" rowHeight="100" id="8Or-EX-3fg" customClass="GrassKindTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GrassKindCell" rowHeight="100" id="8Or-EX-3fg" customClass="GrassKindTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="806" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Or-EX-3fg" id="5BO-ie-Cpp">
@@ -1538,7 +1538,7 @@
                                 <rect key="frame" x="47" y="291" width="929" height="259"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="51" id="Nav-48-NuU" customClass="ObservationTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="51" id="Nav-48-NuU" customClass="ObservationTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="929" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nav-48-NuU" id="T7u-DL-tCA">
@@ -1690,7 +1690,7 @@
                                     <constraint firstAttribute="width" constant="342" id="w3r-bb-ITq"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryCell" id="UdI-nj-UKf" customClass="ObservationEntryCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryCell" id="UdI-nj-UKf" customClass="ObservationEntryCell" customModule="BioKids_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="342" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UdI-nj-UKf" id="XNc-jl-cvj">
@@ -1698,7 +1698,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide Field To Edit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aD-iN-SgY">
-                                                    <rect key="frame" x="15" y="11" width="568" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="312" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1846,7 +1846,7 @@
                                     <constraint firstAttribute="height" constant="450" id="0oQ-Bj-fOO"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="yGe-bb-9tO" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="yGe-bb-9tO" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="806" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yGe-bb-9tO" id="wjO-Yt-onR">
@@ -1959,7 +1959,7 @@
                                     <constraint firstAttribute="height" constant="450" id="33w-Yb-gHX"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="SJh-P8-TFg" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="SJh-P8-TFg" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="806" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SJh-P8-TFg" id="CJY-NK-cDC">
@@ -2089,7 +2089,7 @@
                                     <constraint firstAttribute="height" constant="450" id="Tq8-eg-bMM"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="Xxp-sv-zWe" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="Xxp-sv-zWe" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="806" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xxp-sv-zWe" id="8lM-vf-IFc">
@@ -2200,7 +2200,7 @@
                                     <constraint firstAttribute="height" constant="450" id="Ko5-B2-4ms"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="eCd-4w-Q8G" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalGroupCell" rowHeight="100" id="eCd-4w-Q8G" customClass="AnimalGroupTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="806" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eCd-4w-Q8G" id="uh0-r7-wdq">

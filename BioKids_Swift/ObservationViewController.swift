@@ -128,6 +128,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                                               "animalType": observation.animalType,
                                               "animalSubType": observation.animalSubType,
                                               "animalPosition": observation.animalPosition,//Codes modification for consistency;
+                    "locationID": observation.locationID,
                     "animalAction": observation.animalAction,//Codes modification for consistency
                     "note": observation.note,
                     "howManyIsExact": observation.howManyIsExact ? 1 : 0]
@@ -190,7 +191,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                     print("Photo Uploaded")
                 }
                 
-                
+                print(observation)
                 observationContainer.removeAllObservations();
                 
 

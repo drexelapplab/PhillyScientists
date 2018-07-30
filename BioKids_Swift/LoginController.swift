@@ -80,47 +80,51 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
                                           "trackerID": self.trackerNames[chosenTracker]
             ]
             
+            let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php")
+            
             ////////////////////
             // Send Text data //
             ////////////////////
+            sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTrackerRow: chosenTracker)
             
-            let submissionURL = "https://app.phillyscientists.com/verifyGroupDev.php"
-            
-            Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() {
-                response in
-                switch response.result {
-                case .success:
-                    print("Validation Successful...\(String(describing: response.value))")
+        }
+    }
+    
+    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTrackerRow: Int){
+        Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() {
+            response in
+            switch response.result {
+            case .success:
+                print("Validation Successful...\(String(describing: response.value))")
+                
+                switch response.value {
+                case "error_none":
+                    self.statusLbl.text = "No matching Group Code. If you are having trouble, please go to \nhttps://app.phillyscientists.com"
+                    break
+                case "error_tooManyIDs":
+                    self.statusLbl.text = "Error, please contact developer."
+                    break
+                case "error_noGroupIDReceived":
+                    self.statusLbl.text = "Try Again."
+                    break
+                default:
                     
-                    switch response.value {
-                    case "error_none":
-                        self.statusLbl.text = "No matching Group Code. If you are having trouble, please go to \nhttps://app.phillyscientists.com"
-                        break
-                    case "error_tooManyIDs":
-                        self.statusLbl.text = "Error, please contact developer."
-                        break
-                    case "error_noGroupIDReceived":
-                        self.statusLbl.text = "Try Again."
-                        break
-                    default:
-                        
-                        let JSONResponse : JSON = JSON.init(parseJSON: response.result.value!)
-                        
-                        print("=================<JSON RESP>=================");
-                        print(JSONResponse)
-                        print("=================</JSON RESP/>=================");
-                        
-                        self.parseJSONData(json: JSONResponse, trackerPicker: chosenTracker)
-                        
-                        UserDefaults.standard.set(true, forKey: "loggedIn")
-                        self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
-                        
-                        break
-                    }
+                    let JSONResponse : JSON = JSON.init(parseJSON: response.result.value!)
                     
-                case .failure(let error):
-                    print(error)
+                    //uncomment this section for debugging
+                    //                        print("=================<JSON RESP>=================");
+                    //                        print(JSONResponse)
+                    //                        print("=================</JSON RESP/>=================");
+                    //
+                    self.parseJSONData(json: JSONResponse, trackerPicker: chosenTrackerRow)
+                    self.saveJSONDataToUserDefaults()
+                    
+                    self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
+                    break
                 }
+                
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -145,11 +149,16 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         self.observationContainer.groupID = self.groupID
         self.observationContainer.groupName = self.groupName
         self.observationContainer.teacherID = self.teacherID
-        
-        //self.observationContainer.teacher = self.teacher
-        
         self.observationContainer.locations = self.locations
 
+    }
+    
+    func saveJSONDataToUserDefaults(){
+        let defaults = UserDefaults.standard
+        
+        defaults.set(true, forKey: "loggedIn")
+        defaults.set(self.observationContainer.groupID, forKey: "groupID")
+        defaults.set(self.observationContainer.trackerID, forKey: "chosenTracker")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

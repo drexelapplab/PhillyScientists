@@ -37,6 +37,8 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // Do any additional setup after loading the view.
     }
     
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
     }
@@ -49,7 +51,9 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("The chosen location is: ")
         print(observationContainer.locations[row].locationName)
-        observation.locationID = observationContainer.locations[row].locationID!;
+        print("The location ID is: ")
+        observation.locationID = observationContainer.locations[row].locationID!
+        print(observation.locationID)
     }
     
     func showMessageToUser(title: String, msg: String)  {
@@ -90,6 +94,7 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "notesSegue"{
