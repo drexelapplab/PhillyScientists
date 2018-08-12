@@ -28,11 +28,26 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        groupCodeLbl.text = "Group Code: \(observationContainer.groupID)"
-        groupTrackerLbl.text = "Group Tracker: \(observationContainer.trackerID)"
-        groupTeacherLbl.text = "Teacher ID: \(observationContainer.teacherID)"
         
+        if let object = UserDefaults.standard.string(forKey: "groupID") {
+            print(object);
+            groupCodeLbl.text = "Group Code: \(String(object) ?? "Group Code not found!")"
+        }
+
+        if let object = UserDefaults.standard.string(forKey: "trackerID") {
+            print(object);
+            groupTrackerLbl.text = "Group Tracker:\(String(object) ?? "Teacher not found!")"
+        }
+
+        if let object = UserDefaults.standard.string(forKey: "teacherID") {
+            print(object);
+            groupTeacherLbl.text = "Teacher ID: \(String(object) ?? "TeacherID not found!")"
+        }
+        
+//        groupCodeLbl.text = "Group Code: \(observationContainer.groupID)"
+//        groupTrackerLbl.text = "Group Tracker: \(observationContainer.trackerID)"
+//        groupTeacherLbl.text = "Teacher ID: \(observationContainer.teacherID)"
+//        
         viewHeadingLbl.textColor = C.Colors.headingText
         groupCodeLbl.textColor = C.Colors.subheadingText
         groupTrackerLbl.textColor = C.Colors.subheadingText

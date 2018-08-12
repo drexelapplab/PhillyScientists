@@ -25,8 +25,20 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         submitBtn.layer.cornerRadius = 10
         
-        groupNameLbl.text = "Group Name: \(observationContainer.groupName)"
-        teacherProgramLbl.text = "Teacher/Program: \(observationContainer.teacherID)"
+        if let object = UserDefaults.standard.string(forKey: "groupName") {
+            print(object);
+            groupNameLbl.text = "Group Name: \(String(object) ?? "Group Name not found!")"
+        }
+        //groupNameLbl.text = "Group Name: \(observationContainer.groupName)"
+        if let object = UserDefaults.standard.string(forKey: "teacher") {
+            print(object);
+            teacherProgramLbl.text = "Teacher/Program: \(String(object) ?? "Teacher not found!")"
+        }
+//        else{
+//            teacherProgramLbl.text = "Teacher/Program: Teacher not found!"
+//
+//        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -30,13 +30,14 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     @IBOutlet weak var trackerPicker: UIPickerView!
     @IBOutlet weak var trackerPickerLbl: UILabel!
     
-    var groupName = ""
-    var teacherID = ""
-    var groupID = ""
-    var teacher = ""
-    var locations = [Location]()
+//    var groupName = ""
+//    var teacherID = ""
+//    var groupID = ""
+//    var teacher = ""
+//    var locations = [Location]()
     let trackerNames = ["Select A Tracker", "Alem", "Aren", "Faraji", "Ghele", "Isoke", "Miniya", "Mkali", "Rakanja", "Sanjo", "Zahra"]
     let trackerImgs = ["none", "tracker-alem", "tracker-aren", "tracker-faraji", "tracker-ghele", "tracker-isoke","tracker-miniya", "tracker-mkali", "tracker-rakanja", "tracker-sanjo", "tracker-zahra"]
+    let chosenTracker = ""
 
     
     override func viewDidLoad() {
@@ -74,92 +75,101 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
             
             let groupCode = groupTextField.text!
             let chosenTracker = self.trackerPicker.selectedRow(inComponent: 0)
+            let chosenTrackerString = trackerNames[chosenTracker]
             
             // Verify that it is a valid group ID
-            let parameters: Parameters = ["uniqueCode": groupCode,
-                                          "trackerID": self.trackerNames[chosenTracker]
-            ]
             
-            let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php")
+            
+            //let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php")
             
             ////////////////////
             // Send Text data //
             ////////////////////
-            sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTrackerRow: chosenTracker)
+            
+            observationContainer.populateObservationContainerInstance(groupCode: groupCode, chosenTrackerString: chosenTrackerString)
+            
+            self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
+            
+            //let parameters: Parameters = ["uniqueCode": groupCode, "trackerID": self.trackerNames[chosenTracker]]
+            //sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTrackerRow: chosenTracker)
             
         }
     }
     
-    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTrackerRow: Int){
-        Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() {
-            response in
-            switch response.result {
-            case .success:
-                print("Validation Successful...\(String(describing: response.value))")
-                
-                switch response.value {
-                case "error_none":
-                    self.statusLbl.text = "No matching Group Code. If you are having trouble, please go to \nhttps://app.phillyscientists.com"
-                    break
-                case "error_tooManyIDs":
-                    self.statusLbl.text = "Error, please contact developer."
-                    break
-                case "error_noGroupIDReceived":
-                    self.statusLbl.text = "Try Again."
-                    break
-                default:
-                    
-                    let JSONResponse : JSON = JSON.init(parseJSON: response.result.value!)
-                    
-                    //uncomment this section for debugging
-                    //                        print("=================<JSON RESP>=================");
-                    //                        print(JSONResponse)
-                    //                        print("=================</JSON RESP/>=================");
-                    //
-                    self.parseJSONData(json: JSONResponse, trackerPicker: chosenTrackerRow)
-                    self.saveJSONDataToUserDefaults()
-                    
-                    self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
-                    break
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+//    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTrackerRow: Int){
+//        Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() {
+//            response in
+//            switch response.result {
+//            case .success:
+//                print("Validation Successful...\(String(describing: response.value))")
+//
+//                switch response.value {
+//                case "error_none":
+//                    self.statusLbl.text = "No matching Group Code. If you are having trouble, please go to \nhttps://app.phillyscientists.com"
+//                    break
+//                case "error_tooManyIDs":
+//                    self.statusLbl.text = "Error, please contact developer."
+//                    break
+//                case "error_noGroupIDReceived":
+//                    self.statusLbl.text = "Try Again."
+//                    break
+//                default:
+//
+//                    let JSONResponse : JSON = JSON.init(parseJSON: response.result.value!)
+//
+//                    //uncomment this section for debugging
+//                    //                        print("=================<JSON RESP>=================");
+//                    //                        print(JSONResponse)
+//                    //                        print("=================</JSON RESP/>=================");
+//                    //
+//                    self.parseJSONData(json: JSONResponse, trackerPicker: chosenTrackerRow)
+//                    self.saveJSONDataToUserDefaults()
+//
+//                    self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
+//                    break
+//                }
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
     
-    func parseJSONData(json : JSON, trackerPicker : Int){
-        self.groupID = json["groupID"].stringValue
-        self.teacherID = json["teacherID"].stringValue
-        self.groupName = json["groupName"].stringValue
-        self.teacher = json["teacher"].stringValue
-        
-        
-        let locjson = json["Locations"].arrayValue
-        for location in locjson {
-            let locID = Int(location["locationID"].stringValue)
-            let locName = location["locationName"].stringValue
-            let locationToAdd = Location(LocationName: locName, LocationID: locID!)
-            self.locations.append(locationToAdd)
-            print(locID, locName)
-        }
-        
-        self.observationContainer.trackerID = self.trackerNames[trackerPicker]
-        self.observationContainer.groupID = self.groupID
-        self.observationContainer.groupName = self.groupName
-        self.observationContainer.teacherID = self.teacherID
-        self.observationContainer.locations = self.locations
-
-    }
-    
-    func saveJSONDataToUserDefaults(){
-        let defaults = UserDefaults.standard
-        
-        defaults.set(true, forKey: "loggedIn")
-        defaults.set(self.observationContainer.groupID, forKey: "groupID")
-        defaults.set(self.observationContainer.trackerID, forKey: "chosenTracker")
-    }
+//    func parseJSONData(json : JSON, trackerPicker : Int){
+//        self.groupID = json["groupID"].stringValue
+//        self.teacherID = json["teacherID"].stringValue
+//        self.groupName = json["groupName"].stringValue
+//        self.teacher = json["teacher"].stringValue
+//
+//
+//        let locjson = json["Locations"].arrayValue
+//        for location in locjson {
+//            let locID = Int(location["locationID"].stringValue)
+//            let locName = location["locationName"].stringValue
+//            let locationToAdd = Location(LocationName: locName, LocationID: locID!)
+//            self.locations.append(locationToAdd)
+//            print(locID, locName)
+//        }
+//
+//        self.observationContainer.trackerID = self.trackerNames[trackerPicker]
+//        self.observationContainer.groupID = self.groupID
+//        self.observationContainer.groupName = self.groupName
+//        self.observationContainer.teacherID = self.teacherID
+//        self.observationContainer.locations = self.locations
+//
+//    }
+//
+//    func saveJSONDataToUserDefaults(){
+//        let defaults = UserDefaults.standard
+//
+//        defaults.set(true, forKey: "loggedIn")
+//        defaults.set(self.observationContainer.groupID, forKey: "groupID")
+//        defaults.set(self.observationContainer.trackerID, forKey: "chosenTracker")
+//        defaults.set(self.teacher, forKey: "teacher")
+//        defaults.set(self.groupName, forKey: "groupName")
+//        defaults.set(self.observationContainer.trackerID, forKey: "trackerID")
+//        defaults.set(self.teacherID, forKey: "teacherID")
+//    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
