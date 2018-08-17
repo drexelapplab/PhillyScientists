@@ -29,19 +29,28 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let object = UserDefaults.standard.string(forKey: "groupID") {
+        if let object = UserDefaults.standard.string(forKey: "groupName") {
             print(object);
-            groupCodeLbl.text = "Group Code: \(String(object) ?? "Group Code not found!")"
+            groupCodeLbl.text = "Group Name: \(String(object) ?? "Group Name not found!")"
+        }
+        else{
+            print("GroupProfileViewController.swift: GroupName not found in userDefaults.standard")
         }
 
         if let object = UserDefaults.standard.string(forKey: "trackerID") {
             print(object);
             groupTrackerLbl.text = "Group Tracker:\(String(object) ?? "Teacher not found!")"
         }
+        else{
+            print("GroupProfileViewController.swift: trackerID not found in userDefaults.standard")
+        }
 
-        if let object = UserDefaults.standard.string(forKey: "teacherID") {
+        if let object = UserDefaults.standard.string(forKey: "teacherName") {
             print(object);
-            groupTeacherLbl.text = "Teacher ID: \(String(object) ?? "TeacherID not found!")"
+            groupTeacherLbl.text = "Teacher Name: \(String(object) ?? "Teacher's name not found!")"
+        }
+        else{
+            print("GroupProfileViewController.swift: teacherName not found in userDefaults.standard")
         }
         
 //        groupCodeLbl.text = "Group Code: \(observationContainer.groupID)"
@@ -100,7 +109,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
             
             self.observationContainer.clearContainer()
             let domain = Bundle.main.bundleIdentifier!
-            (forName: domain)
+            UserDefaults.standard.removePersistentDomain(forName: domain)
             UserDefaults.standard.synchronize()
             self.performSegue(withIdentifier: "loginSegue", sender: self)
             

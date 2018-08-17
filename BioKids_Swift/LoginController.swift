@@ -58,6 +58,8 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         checkInBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         checkInBtn.backgroundColor = C.Colors.buttonBg
         
+        print("inside loginController")
+        
     }
     
     @IBAction func didPressCheckInBtn(_ sender: Any) {

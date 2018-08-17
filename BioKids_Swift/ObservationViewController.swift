@@ -29,10 +29,16 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
             print(object);
             groupNameLbl.text = "Group Name: \(String(object) ?? "Group Name not found!")"
         }
-        //groupNameLbl.text = "Group Name: \(observationContainer.groupName)"
-        if let object = UserDefaults.standard.string(forKey: "teacher") {
+        else{
+            print("ObservationViewController.swift: GroupName not found in userDefaults.standard")
+        }
+        
+        if let object = UserDefaults.standard.string(forKey: "teacherName") {
             print(object);
-            teacherProgramLbl.text = "Teacher/Program: \(String(object) ?? "Teacher not found!")"
+            teacherProgramLbl.text = "Teacher Name: \(String(object) ?? "Teacher's name not found!")"
+        }
+        else{
+            print("ObservationViewController.swift: teacherName not found in userDefaults.standard")
         }
 //        else{
 //            teacherProgramLbl.text = "Teacher/Program: Teacher not found!"
