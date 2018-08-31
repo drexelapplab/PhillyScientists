@@ -50,6 +50,22 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(_ animated: Bool) {
         observationTable.reloadData()
         print ("Need to submit \(observationContainer.howManyNeedSubmitting()) observations")
+        
+        if let object = UserDefaults.standard.string(forKey: "groupName") {
+            print(object);
+            groupNameLbl.text = "Group Name: \(String(object) ?? "Group Name not found!")"
+        }
+        else{
+            print("ObservationViewController.swift: GroupName not found in userDefaults.standard")
+        }
+        
+        if let object = UserDefaults.standard.string(forKey: "teacherName") {
+            print(object);
+            teacherProgramLbl.text = "Teacher Name: \(String(object) ?? "Teacher's name not found!")"
+        }
+        else{
+            print("ObservationViewController.swift: teacherName not found in userDefaults.standard")
+        }
     }
     
     override func didReceiveMemoryWarning() {

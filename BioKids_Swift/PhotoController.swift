@@ -3,6 +3,7 @@
 //  BioKids_Swift
 //
 //  Created by Brandon Morton on 1/9/17. noah helped
+//  Modified by Shiv
 //  Copyright © 2017 App Lab. All rights reserved.
 //
 
@@ -64,6 +65,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+        
         
         
         if mediaType.isEqual(to: kUTTypeImage as String) {

@@ -186,24 +186,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = viewController
             window?.makeKeyAndVisible()
         }
-        else{
-            print("not logged in already!")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if UserDefaults.standard.string(forKey: "groupName") != nil{
-                observationContainer.groupID = UserDefaults.standard.string(forKey: "groupID")!
-                
-                if UserDefaults.standard.string(forKey: "trackerID") != nil{
-                    observationContainer.trackerID = UserDefaults.standard.string(forKey: "trackerID")!
-                    observationContainer.populateObservationContainerInstance(groupCode: UserDefaults.standard.string(forKey: "groupName")!, chosenTrackerString: UserDefaults.standard.string(forKey: "trackerID")!)
-                }
-            }
-            
-            
-            let viewController: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            
-            window?.rootViewController = viewController
-            window?.makeKeyAndVisible()
-        }
+//        else{
+//            print("not logged in already!")
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            if UserDefaults.standard.string(forKey: "groupName") != nil{
+//                observationContainer.groupID = UserDefaults.standard.string(forKey: "groupID")!
+//
+//                if UserDefaults.standard.string(forKey: "trackerID") != nil{
+//                    observationContainer.trackerID = UserDefaults.standard.string(forKey: "trackerID")!
+//                    observationContainer.populateObservationContainerInstance(groupCode: UserDefaults.standard.string(forKey: "groupName")!, chosenTrackerString: UserDefaults.standard.string(forKey: "trackerID")!)
+//                }
+//            }
+//
+//
+//            let viewController: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+//
+//            window?.rootViewController = viewController
+//            window?.makeKeyAndVisible()
+//        }
         
         
         
