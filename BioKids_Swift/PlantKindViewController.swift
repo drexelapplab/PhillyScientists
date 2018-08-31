@@ -25,7 +25,8 @@ class PlantKindViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(observation)
+        print("In PlantKindViewController, ", observation)
+        
         // Do any additional setup after loading the view.
         
         grassBtn.layer.cornerRadius = 10

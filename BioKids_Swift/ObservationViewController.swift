@@ -198,6 +198,8 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                 if observation.photoLocation != "" {
                     let imgFileName = observation.photoLocation
                     let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
+                    let image = UIImage(contentsOfFile: imgFileURL.path)
+                    let data = UIImagePNGRepresentation(image!)
                     
                     Alamofire.upload(
                         multipartFormData: { multipartFormData in
@@ -205,6 +207,9 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                             // On the PHP side you can retrive the image using $_FILES["image"]["tmp_name"]
                             
                             multipartFormData.append(imgFileURL, withName: "photo", fileName: imgFileName, mimeType: "image/png")
+                            print("imagePath:")
+                            print(imgFileURL)
+                            multipartFormData.append(imgFileURL, withName: "photo")
                     },
                         
                         to: submissionURL,
@@ -223,6 +228,9 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                     )
                     
                     print("Photo Uploaded")
+                }
+                else {
+                    print("observation.photoLocation is blank or doesn't exist -_-")
                 }
                 
                 print(observation)

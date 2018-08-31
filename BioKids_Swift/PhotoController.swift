@@ -110,6 +110,13 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             imageView.image = newImage
             
             observation.photoLocation = fileName
+            print("The imageURL just saved is: ")
+            print(fileName)
+            print("the imageURL that we're trying to save is ")
+            print(observation.photoLocation)
+            
+            print("the observation is")
+            print("photoController", observation)
         }
     }
     
@@ -142,7 +149,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "whatSensedSeque"{
+        if segue.identifier == "whatSensedSegue"{
             let destination = segue.destination as! SensedWhatViewController
             destination.observation = self.observation
         }

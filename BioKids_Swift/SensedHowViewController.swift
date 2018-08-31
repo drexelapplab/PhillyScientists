@@ -3,6 +3,7 @@
 //  BioKids_Swift
 //
 //  Created by Brandon Morton on 1/9/17.
+//  Edited by Shiv on 8/31/18
 //  Copyright © 2017 App Lab. All rights reserved.
 //
 
@@ -27,7 +28,7 @@ class SensedHowViewController: UIViewController {
     
     override func viewDidLoad() {
         print(chosenSegue)
-        print("In sensedHowViewController")
+        print("In sensedHowViewController,", observation)
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,8 +39,10 @@ class SensedHowViewController: UIViewController {
         feelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         cancelBtn.layer.cornerRadius = 10
+        
+        
         //***This line of codes fixes the second time add object flash out problem!!*****
-        observation = Observation()
+        //observation = Observation()           //this line reinstantiates the object -_- meaning that the information saved until here is lost -_-
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
@@ -152,6 +155,7 @@ class SensedHowViewController: UIViewController {
         if !editMode {
             if chosenSegue == "kindOfPlantSegue"{
                 performSegue(withIdentifier: "kindOfPlantSegue", sender: self)
+                print("testing: Inside didPresNextButton of sensedHowViewController", self.observation)
             }
             else
             {

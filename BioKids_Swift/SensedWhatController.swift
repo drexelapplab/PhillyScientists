@@ -24,8 +24,7 @@ class SensedWhatViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        print("Here0",observation)
-        print("In sensedWhat Controller")
+        print("In sensedWhatViewController, ", observation)
         
         plantBtn.layer.cornerRadius = 10
         animalBtn.layer.cornerRadius = 10
@@ -179,11 +178,10 @@ class SensedWhatViewController: UIViewController {
             if (sender as AnyObject? === plantBtn){
                 let destination = segue.destination as! SensedHowViewController
                 destination.chosenSegue = "kindOfPlantSegue"
-                print("chosen segue happened")
+                print("chose: kindOfPlantSegue")
                 destination.observation = self.observation
             }
         }
-            
         else {
             let destination = segue.destination as! SensedHowViewController
             destination.chosenSegue = "kindOfAnimalSegue"
