@@ -179,12 +179,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 }
             }
-            
-            
             let viewController: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             
             window?.rootViewController = viewController
             window?.makeKeyAndVisible()
+        }
+        else{
+            print("Not logged in currently")
         }
 //        else{
 //            print("not logged in already!")

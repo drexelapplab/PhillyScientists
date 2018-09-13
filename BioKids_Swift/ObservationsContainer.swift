@@ -52,8 +52,8 @@ class ObservationContainer {
         return count
     }
     
-    func populateObservationContainerInstance(groupCode: String, chosenTrackerString: String){
-        
+    func populateObservationContainerInstance(groupCode: String, chosenTrackerString: String)->String{
+        var outputMessage = ""
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available! Downloading and loading data from the server...")
             //loading json Data from Server Response
@@ -65,7 +65,9 @@ class ObservationContainer {
             //loading data from UserDefaults (i.e. local storage)
             let jsonFromLocalStorage = loadJSON()
             parseJSONFromStorage(json: jsonFromLocalStorage)
+            outputMessage = "Logged In. Welcome :) "
         }
+        return outputMessage
     }
     
     func clearContainer() {
@@ -76,11 +78,6 @@ class ObservationContainer {
         observations = []
         locations = []
     }
-    
-    
-    
-    
-    
     
     
     
@@ -105,14 +102,19 @@ class ObservationContainer {
         }
     }
     
-    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTracker: String){
-        Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() {
-            response in
+    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTracker: String) {
+        
+        Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { (response) in
+            
+            let outputResponseJSON : JSON = JSON.init(parseJSON: response.result.value!)
+            let outputResponseText = JSON(outputResponseJSON)["Error"].stringValue
+            
             switch response.result {
             case .success:
                 print("Validation Successful...\(String(describing: response.value))")
                 
-                switch response.value {
+                print("response value: \(String(describing: String(outputResponseText)))")
+                switch outputResponseText {
                 case "error_none":
                     print("No matching Group Code. If you are having trouble, please go to \nhttps://app.phillyscientists.com")
                     break
@@ -134,12 +136,13 @@ class ObservationContainer {
                     let teacherNameGot = self.parseJSONData(json: JSONResponse, trackerValuePassed: chosenTracker)
                     self.saveJSONDataToUserDefaults(teacher: teacherNameGot)
                     
+                    print("Logged In Successfully!")
                     
                     break
                 }
                 
             case .failure(let error):
-                print(error)
+                print("Failure case. Maybe internet connection is not available")
             }
         }
     }
