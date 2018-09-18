@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc1-Ev-qjy">
-                                <rect key="frame" x="353.5" y="40" width="317" height="59"/>
+                                <rect key="frame" x="370.5" y="40" width="283" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="Ht8-ve-2r4"/>
                                 </constraints>
@@ -455,7 +455,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qA3-Rc-Gqn">
-                                <rect key="frame" x="109" y="438" width="398" height="71"/>
+                                <rect key="frame" x="109" y="438" width="398" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="M9n-4E-m70"/>
@@ -469,7 +469,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slv-Hp-sZu">
-                                <rect key="frame" x="517" y="438" width="398" height="71"/>
+                                <rect key="frame" x="517" y="438" width="398" height="68"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Next">
@@ -1090,12 +1090,12 @@
                         <outlet property="lessThanHalfBtn" destination="tK9-mx-z6c" id="iLN-OT-Oxp"/>
                         <outlet property="moreThanHalfBtn" destination="nwo-Wx-Qrd" id="non-7V-ZU6"/>
                         <outlet property="nextBtn" destination="iwW-cM-uTl" id="UQG-ZN-fgW"/>
-                        <segue destination="jlU-D9-aS2" kind="show" identifier="notesSegue" id="zfZ-vU-2df"/>
+                        <segue destination="KeF-AR-zPE" kind="show" identifier="locationsSegue" id="Z73-eM-8AB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxN-dB-LQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6067" y="-1384"/>
+            <point key="canvasLocation" x="6066.796875" y="-1384.375"/>
         </scene>
         <!--How Many?-->
         <scene sceneID="989-KG-wXT">
@@ -1292,7 +1292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOF-6C-i8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5852.9296875" y="-694.53125"/>
+            <point key="canvasLocation" x="7338" y="-1084"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="WxX-rK-T7f">
@@ -1544,7 +1544,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VH-Tc-r7i">
-                                                    <rect key="frame" x="15" y="11" width="899" height="34.5"/>
+                                                    <rect key="frame" x="15" y="11" width="900" height="34.5"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="28"/>
                                                     <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1676,13 +1676,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="li0-br-C3c">
-                                <rect key="frame" x="367" y="90" width="290.5" height="59"/>
+                                <rect key="frame" x="382" y="90" width="260.5" height="56"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soP-sx-gcP">
-                                <rect key="frame" x="637" y="174" width="342" height="369"/>
+                                <rect key="frame" x="637" y="171" width="342" height="372"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="342" id="w3r-bb-ITq"/>
@@ -1721,7 +1721,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCE-cX-wSn">
-                                <rect key="frame" x="62" y="174" width="550" height="505"/>
+                                <rect key="frame" x="62" y="171" width="550" height="508"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AHI-Qi-Jmq">
                                         <rect key="frame" x="0.0" y="0.0" width="550" height="425"/>
@@ -1730,7 +1730,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bK-qg-K1Y">
-                                        <rect key="frame" x="260" y="432" width="30" height="71"/>
+                                        <rect key="frame" x="260" y="432" width="30" height="68"/>
                                         <color key="backgroundColor" red="0.19215686269999999" green="0.29803921570000003" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                         <state key="normal">
@@ -2047,7 +2047,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="055-rb-FlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5622" y="1455"/>
+            <point key="canvasLocation" x="5645" y="1768"/>
         </scene>
         <!--Observations-->
         <scene sceneID="yFa-gW-u3Z">
@@ -2302,15 +2302,16 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iRe-WJ-2T3"/>
-        <segue reference="inQ-y6-tnO"/>
+        <segue reference="TSv-Yv-Y2L"/>
         <segue reference="J2s-J4-PQO"/>
-        <segue reference="H9a-A8-dRd"/>
+        <segue reference="QSM-nS-LJt"/>
         <segue reference="ifK-c6-FJt"/>
-        <segue reference="Gis-1T-sGW"/>
+        <segue reference="Z73-eM-8AB"/>
+        <segue reference="tWM-ji-fWA"/>
         <segue reference="P9R-dw-xzB"/>
         <segue reference="bTG-ob-7cF"/>
-        <segue reference="THH-Gk-puL"/>
-        <segue reference="iUN-u4-fQh"/>
+        <segue reference="GZF-ol-zgk"/>
+        <segue reference="R1p-Re-bYy"/>
         <segue reference="cfi-3j-ESE"/>
         <segue reference="fGi-ng-nwX"/>
     </inferredMetricsTieBreakers>

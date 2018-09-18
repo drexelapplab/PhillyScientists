@@ -21,7 +21,7 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         
         print("Here at SensedWhereViewController: ",observation)
-        super.viewDidLoad()
+        
         
         cancelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10

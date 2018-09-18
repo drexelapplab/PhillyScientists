@@ -183,7 +183,7 @@ class HowMuchGrassViewController: UIViewController {
     
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode{
-            performSegue(withIdentifier: "notesSegue", sender: self)
+            performSegue(withIdentifier: "locationsSegue", sender: self)
         }
         else {
             self.navigationController?.popViewController(animated: true)
@@ -201,8 +201,8 @@ class HowMuchGrassViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if !editMode {
-            if segue.identifier == "notesSegue" {
-                let destination = segue.destination as! NotesViewController
+            if segue.identifier == "locationsSegue" {
+                let destination = segue.destination as! SensedWhereViewController
                 destination.observation = self.observation
             }
         }

@@ -193,6 +193,7 @@ class ObservationContainer {
         defaults.setValue(j.rawString()!, forKey: "serverJson")
         // here I save my JSON as a string
     }
+    
 
 
     

@@ -78,12 +78,8 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
             
             let groupCode = groupTextField.text!
             let chosenTracker = self.trackerPicker.selectedRow(inComponent: 0)
-            let chosenTrackerString = trackerNames[chosenTracker]
             
             // Verify that it is a valid group ID
-            
-            
-            let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php")
             
             ////////////////////
             // Send Text data //
@@ -99,7 +95,10 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
 //                 self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
 //            }
 //
+            let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php")
             let parameters: Parameters = ["uniqueCode": groupCode, "trackerID": self.trackerNames[chosenTracker]]
+            let chosenTrackerString = trackerNames[chosenTracker]
+            
             sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTrackerStr: chosenTrackerString)
             
         }
@@ -148,17 +147,31 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     
     func parseJSONData(json : JSON, trackerValuePassed : String) -> String {
         self.groupID = json["groupID"].stringValue
+        observationContainer.groupID = self.groupID
+        
         self.teacherID = json["teacherID"].stringValue
+        observationContainer.teacherID = self.teacherID
+        
         self.groupName = json["groupName"].stringValue
+        observationContainer.groupName = self.groupName
+        
         self.trackerID = trackerValuePassed
+        observationContainer.trackerID = self.trackerID
+        
         let teacher = json["teacher"].stringValue
         
         let locjson = json["Locations"].arrayValue
+        
         for location in locjson {
+            
             let locID = Int(location["locationID"].stringValue)
+            
             let locName = location["locationName"].stringValue
+            
             let locationToAdd = Location(LocationName: locName, LocationID: locID!)
             self.locations.append(locationToAdd)
+            observationContainer.locations = self.locations
+            
             print(locID!, locName)
         }
         
@@ -173,14 +186,6 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         defaults.set(teacher, forKey: "teacherName")
         defaults.set(self.groupName, forKey: "groupName")
         defaults.set(self.trackerID, forKey: "trackerID")
-    }
-    
-    public func loadJSON() -> JSON {
-        let defaults = UserDefaults.standard
-        let returnJSON = JSON.init(parseJSON: defaults.value(forKey: "serverJson") as! String)
-        print(returnJSON)
-        return returnJSON
-        // JSON from string must be initialized using .parse()
     }
     
     public func saveJSON(j: JSON) {
