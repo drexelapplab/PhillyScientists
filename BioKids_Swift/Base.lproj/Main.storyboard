@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc1-Ev-qjy">
-                                <rect key="frame" x="370.5" y="40" width="283" height="59"/>
+                                <rect key="frame" x="353.5" y="40" width="317" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="Ht8-ve-2r4"/>
                                 </constraints>
@@ -81,16 +81,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-pu-RWZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-pu-RWZ">
                                 <rect key="frame" x="377" y="635" width="270" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="Bmv-Sg-Vtb"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="UuH-dx-wKi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
-                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                <state key="normal" title="Logout">
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
+                                <state key="normal" title="Logout" image="exit">
                                     <color key="titleColor" red="0.96044379469999996" green="0.73467916249999998" blue="0.19775494930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -455,7 +455,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qA3-Rc-Gqn">
-                                <rect key="frame" x="109" y="438" width="398" height="68"/>
+                                <rect key="frame" x="109" y="438" width="398" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="M9n-4E-m70"/>
@@ -469,7 +469,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slv-Hp-sZu">
-                                <rect key="frame" x="517" y="438" width="398" height="68"/>
+                                <rect key="frame" x="517" y="438" width="398" height="71"/>
                                 <color key="backgroundColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <state key="normal" title="Next">
@@ -1292,7 +1292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOF-6C-i8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7338" y="-1084"/>
+            <point key="canvasLocation" x="2350" y="3033"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="WxX-rK-T7f">
@@ -1533,7 +1533,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xfd-fs-9I1">
-                                <rect key="frame" x="47" y="297" width="930" height="252"/>
+                                <rect key="frame" x="47" y="297" width="930" height="270"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="51" id="Nav-48-NuU" customClass="ObservationTableViewCell" customModule="BioKids_Swift" customModuleProvider="target">
@@ -1592,14 +1592,15 @@
                                 <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVN-hf-L2o">
-                                <rect key="frame" x="349.5" y="604" width="325" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVN-hf-L2o">
+                                <rect key="frame" x="410" y="621" width="206" height="54"/>
                                 <color key="backgroundColor" red="0.19215686274509802" green="0.29803921568627451" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="325" id="ZAC-5C-mUF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
-                                <state key="normal" title="Submit Data">
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
+                                <state key="normal" title="Submit Data" image="checked">
                                     <color key="titleColor" red="0.96078431372549022" green="0.73333333333333328" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -1607,7 +1608,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" An asterisk(*) indicates an observation that needs to be submitted." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUR-cX-pRT">
-                                <rect key="frame" x="47" y="554" width="930" height="20.5"/>
+                                <rect key="frame" x="47" y="572" width="930" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1661,7 +1662,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wIt-dF-knS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="1062"/>
+            <point key="canvasLocation" x="-326.3671875" y="1061.71875"/>
         </scene>
         <!--Single Observation View Controller-->
         <scene sceneID="SeV-Zr-i9a">
@@ -1676,13 +1677,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="li0-br-C3c">
-                                <rect key="frame" x="382" y="90" width="260.5" height="56"/>
+                                <rect key="frame" x="367" y="90" width="290.5" height="59"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                 <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soP-sx-gcP">
-                                <rect key="frame" x="637" y="171" width="342" height="372"/>
+                                <rect key="frame" x="637" y="174" width="342" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="342" id="w3r-bb-ITq"/>
@@ -1721,7 +1722,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCE-cX-wSn">
-                                <rect key="frame" x="62" y="171" width="550" height="508"/>
+                                <rect key="frame" x="62" y="174" width="550" height="505"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AHI-Qi-Jmq">
                                         <rect key="frame" x="0.0" y="0.0" width="550" height="425"/>
@@ -1730,7 +1731,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bK-qg-K1Y">
-                                        <rect key="frame" x="260" y="432" width="30" height="68"/>
+                                        <rect key="frame" x="260" y="432" width="30" height="71"/>
                                         <color key="backgroundColor" red="0.19215686269999999" green="0.29803921570000003" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
                                         <state key="normal">
@@ -1780,6 +1781,7 @@
                         <segue destination="uMs-Dj-Cme" kind="show" identifier="howSensedSegue" id="V3p-tT-No3"/>
                         <segue destination="Gus-QT-LrB" kind="show" identifier="animalPositionSegue" id="inQ-y6-tnO"/>
                         <segue destination="8gy-eE-xgO" kind="show" identifier="animalActionSegue" id="iRe-WJ-2T3"/>
+                        <segue destination="KeF-AR-zPE" kind="show" identifier="locationEditSeque" id="R4N-bG-FSk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NmK-YJ-Pl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2296,23 +2298,25 @@
         <image name="NSF-Philly-Scientists-logo-final" width="1000" height="400"/>
         <image name="PhotoImageBackground" width="570" height="646"/>
         <image name="about" width="30" height="30"/>
+        <image name="checked" width="30" height="30"/>
+        <image name="exit" width="30" height="30"/>
         <image name="people" width="30" height="30"/>
         <image name="search" width="30" height="30"/>
         <image name="visible" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iRe-WJ-2T3"/>
-        <segue reference="TSv-Yv-Y2L"/>
+        <segue reference="inQ-y6-tnO"/>
         <segue reference="J2s-J4-PQO"/>
         <segue reference="QSM-nS-LJt"/>
-        <segue reference="ifK-c6-FJt"/>
-        <segue reference="Z73-eM-8AB"/>
-        <segue reference="tWM-ji-fWA"/>
+        <segue reference="Hr4-wp-J15"/>
+        <segue reference="R4N-bG-FSk"/>
+        <segue reference="Gis-1T-sGW"/>
         <segue reference="P9R-dw-xzB"/>
         <segue reference="bTG-ob-7cF"/>
         <segue reference="GZF-ol-zgk"/>
         <segue reference="R1p-Re-bYy"/>
         <segue reference="cfi-3j-ESE"/>
-        <segue reference="fGi-ng-nwX"/>
+        <segue reference="V3p-tT-No3"/>
     </inferredMetricsTieBreakers>
 </document>

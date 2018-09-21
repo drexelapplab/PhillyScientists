@@ -133,6 +133,8 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             case "animalAction":
                 self.performSegue(withIdentifier: "animalActionSegue", sender: self)
                 break
+            case "location":                                                                                //WUT??
+                self.performSegue(withIdentifier: "locationEditSeque", sender: self)
             case "notes":
                 self.performSegue(withIdentifier: "noteSegue", sender: self)
                 break
@@ -209,6 +211,11 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             // AnimalActionTableViewController is added here;
             case "animalActionSegue":
                 let destination = segue.destination as! AnimalActionViewController
+                destination.observation = self.observation!
+                destination.editMode = true
+                break
+            case "locationEditSeque":
+                let destination = segue.destination as! SensedWhereViewController
                 destination.observation = self.observation!
                 destination.editMode = true
                 break

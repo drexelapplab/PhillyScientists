@@ -51,6 +51,8 @@ class Observation: Object {
         displayStrings.append("Animal position: \(animalPosition.capitalized)") //New added; make it consistant with above variables
         displayStrings.append("Animal action: \(animalAction.capitalized)") //New added; make it consistant with above variables
         
+        
+        
         if howManySeen > 0 {
             if howManyIsExact {
                 displayStrings.append("How many were seen: \(howManySeen) (Exact)")
@@ -63,9 +65,9 @@ class Observation: Object {
             displayStrings.append("How many were seen: ")
         }
         
-        
+        displayStrings.append("Location: \(locationID)")
         displayStrings.append("Note: \(note)")
-        
+
         return displayStrings
     }
     
@@ -82,7 +84,7 @@ class Observation: Object {
                              "animalPosition", //New added;
                              "animalAction", //New added
                              "howManySeen",
-                             "locationID", //new added Shiv
+                             "location", //new added Shiv
                              "notes"]
         
         return propertyNames

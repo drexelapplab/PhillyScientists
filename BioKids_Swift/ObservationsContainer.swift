@@ -143,6 +143,7 @@ class ObservationContainer {
                 
             case .failure(let error):
                 print("Failure case. Maybe internet connection is not available")
+                print(error)
             }
         }
     }

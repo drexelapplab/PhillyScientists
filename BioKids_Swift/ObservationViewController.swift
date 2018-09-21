@@ -45,6 +45,15 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
 //
 //        }
         
+        let origImage = UIImage(named: "checked");
+        let tintedImage = origImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        submitBtn.setImage(tintedImage, for: [])
+        submitBtn.contentMode = .center
+        submitBtn.imageView?.contentMode = .scaleAspectFit
+        //tintedImage.contentEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 100.0)
+        submitBtn.tintColor = UIColor.init(red: (245/255), green: (187/255), blue: (50/255), alpha: 1.0)
+        //rgb(245, 187, 50)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

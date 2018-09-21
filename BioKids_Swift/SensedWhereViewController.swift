@@ -32,7 +32,7 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
             
-            locationPicker.dataSource = (observationContainer.locations as! UIPickerViewDataSource)
+            locationPicker.dataSource = self //(observationContainer.locations as! UIPickerViewDataSource)             //THROWING ERRORRORROR
         }
         // Do any additional setup after loading the view.
     }
@@ -50,7 +50,7 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("The chosen location is: ")
-        print(observationContainer.locations[row].locationName)
+        print(observationContainer.locations[row].locationName!)
         print("The location ID is: ")
         observation.locationID = observationContainer.locations[row].locationID!
         print(observation.locationID)

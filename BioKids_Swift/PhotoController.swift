@@ -33,7 +33,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         // If this is not initial loading change view to observation view
         
         print(defaults.bool(forKey: "initialLoading"))
-
+        print("In PhotoController.swift")
         if !defaults.bool(forKey: "initialLoading") {
             if ObservationContainer.sharedInstance.observations.count > 0 {
                 self.tabBarController?.selectedIndex = 0

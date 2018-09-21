@@ -67,8 +67,16 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         
         logoutBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         logoutBtn.backgroundColor = C.Colors.buttonBg
-        
         logoutBtn.layer.cornerRadius = 10
+        
+        let origImage = UIImage(named: "exit");
+        let tintedImage = origImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        
+        logoutBtn.setImage(tintedImage, for: [])
+        logoutBtn.contentMode = .center
+        logoutBtn.imageView?.contentMode = .scaleAspectFit
+        //tintedImage.contentEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 100.0)
+        logoutBtn.tintColor = UIColor.init(red: (245/255), green: (187/255), blue: (50/255), alpha: 1.0)
         
     }
     
