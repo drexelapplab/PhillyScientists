@@ -24,6 +24,8 @@
 	<string>For taking photos while using the Philly Scientists App</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>For storing photos taken using the Philly Scientists App</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>For storing photos taken using the Philly Scientists App</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Regular.otf</string>
@@ -36,11 +38,11 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 </dict>
 </plist>

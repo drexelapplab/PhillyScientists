@@ -24,7 +24,7 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
     var editMode = false
     
     override func viewDidLoad() {
-        print("Here2:\(observation)")
+        print("AnimalTypeView:\(observation)")
         
         super.viewDidLoad()
         
@@ -35,6 +35,8 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
         nextBtn.layer.cornerRadius = 10
         nextBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         nextBtn.backgroundColor = C.Colors.buttonBg
+        
+        nextBtn.isEnabled = false
         
         self.tableView.rowHeight = 120.0
         
@@ -65,6 +67,7 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
+            nextBtn.isEnabled = true
             if let animalTypeIndex = animalTypes.index(of: observation.animalType) {//Group绑定group; type绑定type
                 let index = animalTypes.startIndex.distance(to: animalTypeIndex)
                 let indexPath = IndexPath(row: index, section: 0)
@@ -108,6 +111,11 @@ class AnimalTypeViewController: UIViewController, UITableViewDelegate, UITableVi
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !editMode{
+            
+            if !animalTypes[indexPath.row].isEmpty {
+                nextBtn.isEnabled = true
+            }
+            
             if animalSpecies[indexPath.row] != nil {
                 observation.animalType = animalTypes[indexPath.row]
                 observation.animalSubType_screen = animalSpecies[indexPath.row]!

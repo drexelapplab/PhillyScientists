@@ -52,6 +52,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         submitBtn.imageView?.contentMode = .scaleAspectFit
         //tintedImage.contentEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 100.0)
         submitBtn.tintColor = UIColor.init(red: (245/255), green: (187/255), blue: (50/255), alpha: 1.0)
+        submitBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 50);
         //rgb(245, 187, 50)
         
     }
@@ -131,7 +132,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func didPressSubmitBtn(_ sender: Any) {
         
-        
+
         let numSubmitting = observationContainer.howManyNeedSubmitting()
         print(numSubmitting)
         
@@ -144,14 +145,23 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
             //                self.sumbitData()
             //            })
             // Two buttons, deal with one event
-            AlertControllerTool.showAlert(currentVC: self, meg: "You can't edit anything once you submit data!", cancelBtn: "cancel", otherBtn: "submit", handler: { (action) in
+            if !observationContainer.isConnected() {
+                AlertControllerTool.showAlert(currentVC: self, cancelBtn: "OK", meg: "You must be connected to the Internet to submit data.")
+            }
+            else {
+                AlertControllerTool.showAlert(currentVC: self, meg: "You can't edit anything once you submit data!", cancelBtn: "cancel", otherBtn: "submit", handler: { (action) in
                  self.sumbitData()
-            })
+                })
+            }
         }
     }
     
     func sumbitData() {
-        let submissionURL = "https://app.phillyscientists.com/addObservationDev.php"
+        //PRODUCTION
+        let submissionURL = "https://app.phillyscientists.com/addObservation.php"
+        
+        //TEST
+        //let submissionURL = "https://app.phillyscientists.com/addObservationDev.php"
         
         for observation in observationContainer.observations {
             
@@ -161,6 +171,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                 dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
                 // ***********groups of data needs to be added here;!!!!!!****
                 var parameters: Parameters = ["date": dateFormatter.string(from: observation.date),
+                                              "photoLocation":observation.photoLocation,
                                               "howSensed": observation.howSensed,
                                               "whatSensed": observation.whatSensed,
                                               "plantKind": observation.plantKind,
@@ -207,8 +218,8 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
                 if observation.photoLocation != "" {
                     let imgFileName = observation.photoLocation
                     let imgFileURL = getDocumentsDirectory().appendingPathComponent(imgFileName)
-                    let image = UIImage(contentsOfFile: imgFileURL.path)
-                    let data = UIImagePNGRepresentation(image!)
+                    //let image = UIImage(contentsOfFile: imgFileURL.path)
+                    //let data = UIImagePNGRepresentation(image!)
                     
                     Alamofire.upload(
                         multipartFormData: { multipartFormData in

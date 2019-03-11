@@ -38,7 +38,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             let photoLocation = observation?.photoLocation
             let photoURL = getDocumentsDirectory().appendingPathComponent(photoLocation!)
             observationImgView.image = UIImage(contentsOfFile: photoURL.path)
-            
+            print("photoLocation: \(String(describing: observation?.howSensed))")
             if photoLocation == "" {
                 editPhotoBtn.setTitle("Add Photo", for: .normal)
             } else {
@@ -283,6 +283,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             let date = Date()
             let df = DateFormatter()
             df.dateFormat = "yyyyMMddhhmmss"
+            
             // The photo name format, this is an example：photo20180212160522.png（Photo name can be self-defined）
             let fileName = "photo\(df.string(from: date)).png"
             // Get the decimal file of the photo, this parameter will be used if it wants to be submitted to server!

@@ -52,14 +52,26 @@ class ObservationContainer {
         return count
     }
     
+    func isConnected()-> Bool{
+        var connected: Bool = false
+        if Reachability.isConnectedToNetwork(){
+            connected = true
+        }
+
+        return connected
+    }
+    
     func populateObservationContainerInstance(groupCode: String, chosenTrackerString: String)->String{
         var outputMessage = ""
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available! Downloading and loading data from the server...")
             //loading json Data from Server Response
-            let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php")
+            //PRODUCTION
+            let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroup.php")
+            //TEST
+            //let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php")
             let parameters: Parameters = ["uniqueCode": groupCode, "trackerID": chosenTrackerString]
-            sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTracker: chosenTrackerString)
+            sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTracker: chosenTrackerString, groupCode: groupCode)
         }else{
             print("Internet Connection not Available! Loading data from Local Storage...")
             //loading data from UserDefaults (i.e. local storage)
@@ -102,7 +114,7 @@ class ObservationContainer {
         }
     }
     
-    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTracker: String) {
+    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTracker: String, groupCode: String) {
         
         Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { (response) in
             
@@ -134,7 +146,7 @@ class ObservationContainer {
                     //                        print("=================</JSON RESP/>=================");
                     //
                     let teacherNameGot = self.parseJSONData(json: JSONResponse, trackerValuePassed: chosenTracker)
-                    self.saveJSONDataToUserDefaults(teacher: teacherNameGot)
+                    self.saveJSONDataToUserDefaults(teacher: teacherNameGot, groupCode: groupCode)
                     
                     print("Logged In Successfully!")
                     
@@ -168,13 +180,14 @@ class ObservationContainer {
         return teacher
     }
     
-    func saveJSONDataToUserDefaults(teacher: String){
+    func saveJSONDataToUserDefaults(teacher: String, groupCode: String){
         let defaults = UserDefaults.standard
         
         defaults.set(true, forKey: "loggedIn")
         defaults.set(teacher, forKey: "teacherName")
         defaults.set(self.groupName, forKey: "groupName")
         defaults.set(self.trackerID, forKey: "trackerID")
+        defaults.set(groupCode, forKey: "groupCode")
         //defaults.set(self.groupID, forKey: "groupID")
         //defaults.set(self.trackerID, forKey: "chosenTracker")
         //defaults.set(self.teacherID, forKey: "teacherID")

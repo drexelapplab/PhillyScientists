@@ -40,12 +40,14 @@ class SensedHowViewController: UIViewController {
         nextBtn.layer.cornerRadius = 10
         cancelBtn.layer.cornerRadius = 10
         
+        nextBtn.isEnabled = false
         
         //***This line of codes fixes the second time add object flash out problem!!*****
         //observation = Observation()           //this line reinstantiates the object -_- meaning that the information saved until here is lost -_-
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
+            nextBtn.isEnabled = true
             
             let values = observation.howSensed.split(separator: ",")
             
@@ -85,6 +87,7 @@ class SensedHowViewController: UIViewController {
             sensedHowArray.append("see")
             seeBtn.isSelected = true
         }
+        toggleNextBtn(sensed: sensedHowArray)
         
     }
     
@@ -97,6 +100,8 @@ class SensedHowViewController: UIViewController {
             sensedHowArray.append("hear")
             hearBtn.isSelected = true
         }
+        
+        toggleNextBtn(sensed: sensedHowArray)
     }
     
     @IBAction func didPressSmellBtn(_ sender: Any) {
@@ -108,6 +113,7 @@ class SensedHowViewController: UIViewController {
             sensedHowArray.append("smell")
             smellBtn.isSelected = true
         }
+        toggleNextBtn(sensed: sensedHowArray)
     }
     
     @IBAction func didPressFeelBtn(_ sender: Any) {
@@ -119,8 +125,17 @@ class SensedHowViewController: UIViewController {
             sensedHowArray.append("feel")
             feelBtn.isSelected = true
         }
+        toggleNextBtn(sensed: sensedHowArray)
     }
     
+    func toggleNextBtn(sensed:[String]) {
+        if sensed.isEmpty {
+            nextBtn.isEnabled = false
+        }
+        else {
+            nextBtn.isEnabled = true
+        }
+    }
     
     func showMessageToUser(title: String, msg: String)  {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)

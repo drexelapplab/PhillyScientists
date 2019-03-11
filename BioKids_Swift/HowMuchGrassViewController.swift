@@ -38,8 +38,11 @@ class HowMuchGrassViewController: UIViewController {
         moreThanHalfBtn.layer.cornerRadius = 10
         almostAllBtn.layer.cornerRadius = 10
         
+        nextBtn.isEnabled = false
+        
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
+            nextBtn.isEnabled = true
             
             switch observation.whatSensed {
             case "Almost None":
@@ -97,6 +100,7 @@ class HowMuchGrassViewController: UIViewController {
         aboutHalfBtn.isSelected = false
         moreThanHalfBtn.isSelected = false
         almostAllBtn.isSelected = false
+        nextBtn.isEnabled = true
         
         if !editMode{
             observation.howMuchPlant = "Almost None"
@@ -115,6 +119,7 @@ class HowMuchGrassViewController: UIViewController {
         aboutHalfBtn.isSelected = false
         moreThanHalfBtn.isSelected = false
         almostAllBtn.isSelected = false
+        nextBtn.isEnabled = true
         
         if !editMode{
             observation.howMuchPlant = "Less Than Half"
@@ -133,6 +138,7 @@ class HowMuchGrassViewController: UIViewController {
         aboutHalfBtn.isSelected = true
         moreThanHalfBtn.isSelected = false
         almostAllBtn.isSelected = false
+        nextBtn.isEnabled = true
         
         if !editMode{
             observation.howMuchPlant = "About Half"
@@ -151,6 +157,7 @@ class HowMuchGrassViewController: UIViewController {
         aboutHalfBtn.isSelected = false
         moreThanHalfBtn.isSelected = true
         almostAllBtn.isSelected = false
+        nextBtn.isEnabled = true
         
         if !editMode{
             observation.howMuchPlant = "More Than Half"
@@ -169,6 +176,7 @@ class HowMuchGrassViewController: UIViewController {
         aboutHalfBtn.isSelected = false
         moreThanHalfBtn.isSelected = false
         almostAllBtn.isSelected = true
+        nextBtn.isEnabled = true
         
         if !editMode{
             observation.howMuchPlant = "Almost All"

@@ -39,11 +39,13 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
                 self.tabBarController?.selectedIndex = 0
             }
         }
+
     }
     
     @IBAction func useCamera(_ sender: AnyObject) {
         
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
+            
             let imagePicker = UIImagePickerController()
             
             imagePicker.delegate = self
@@ -154,4 +156,5 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             destination.observation = self.observation
         }
     }
+    
 }

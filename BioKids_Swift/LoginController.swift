@@ -34,6 +34,7 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     var teacherID = ""
     var groupID = ""
     var teacher = ""
+    var groupCode = ""
     var locations = [Location]()
     let trackerNames = ["Select A Tracker", "Alem", "Aren", "Faraji", "Ghele", "Isoke", "Miniya", "Mkali", "Rakanja", "Sanjo", "Zahra"]
     let trackerImgs = ["none", "tracker-alem", "tracker-aren", "tracker-faraji", "tracker-ghele", "tracker-isoke","tracker-miniya", "tracker-mkali", "tracker-rakanja", "tracker-sanjo", "tracker-zahra"]
@@ -46,19 +47,21 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         
         // Do any additional setup after loading the view.
         
-        titleLbl.adjustsFontSizeToFitWidth = true
+        //titleLbl.adjustsFontSizeToFitWidth = true
         
         checkInBtn.layer.cornerRadius = 10
         
-        titleLbl.textColor = C.Colors.headingText
+        //titleLbl.textColor = C.Colors.headingText
         groupTextField.textColor = C.Colors.normalText
-        trackerPickerLbl.textColor = C.Colors.subheadingText
+        //trackerPickerLbl.textColor = UIColor.white
         checkInBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         checkInBtn.backgroundColor = C.Colors.buttonBg
         
         checkInBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         checkInBtn.backgroundColor = C.Colors.buttonBg
         
+        //statusLbl.textColor = UIColor.red
+
         print("inside loginController")
         
     }
@@ -71,7 +74,9 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         else if trackerPicker.selectedRow(inComponent: 0) == 0 {
             statusLbl.text = "Please select a tracker"
         }
-            
+        else if !observationContainer.isConnected() {
+            statusLbl.text = "Please connect to the Internet to continue."
+        }
         else {
             
             statusLbl.text = ""
@@ -94,18 +99,21 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
 //            if (UserDisplayText == "Logged In Successfully!") {
 //                 self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
 //            }
-//
-            let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDev.php")
+//          //PRODUCTION
+            let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroup.php")
+            //TEST
+            //let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDEV.php")
+            
             let parameters: Parameters = ["uniqueCode": groupCode, "trackerID": self.trackerNames[chosenTracker]]
             let chosenTrackerString = trackerNames[chosenTracker]
             
-            sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTrackerStr: chosenTrackerString)
+            sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTrackerStr: chosenTrackerString, groupCode: groupCode)
             
         }
     }
     
     
-    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTrackerStr: String){
+    func sendAlamofireRequest(submissionURL: URL, parameters: Parameters, chosenTrackerStr: String, groupCode: String){
         
         Alamofire.request(submissionURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString() { (response) in
             
@@ -132,7 +140,7 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
                     let JSONResponse : JSON = JSON.init(parseJSON: response.result.value!)
                     
                     let teacherNameGot = self.parseJSONData(json: JSONResponse, trackerValuePassed: chosenTrackerStr)
-                    self.saveJSONDataToUserDefaults(teacher: teacherNameGot)
+                    self.saveJSONDataToUserDefaults(teacher: teacherNameGot, groupCode: groupCode)
                     self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
                     break
                 }
@@ -179,13 +187,14 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         return teacher
     }
     
-    func saveJSONDataToUserDefaults(teacher: String){
+    func saveJSONDataToUserDefaults(teacher: String, groupCode: String){
         let defaults = UserDefaults.standard
         
         defaults.set(true, forKey: "loggedIn")
         defaults.set(teacher, forKey: "teacherName")
         defaults.set(self.groupName, forKey: "groupName")
         defaults.set(self.trackerID, forKey: "trackerID")
+        defaults.set(groupCode, forKey: "groupCode")
     }
     
     public func saveJSON(j: JSON) {

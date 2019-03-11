@@ -156,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         print("UserDefaults Values========================")
-
+        
 
         // Then push that view controller onto the navigation stack
         if UserDefaults.standard.bool(forKey: "loggedIn"){
@@ -175,7 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    self.sendAlamofireRequest(submissionURL: submissionURL!, parameters: parameters, chosenTracker: observationContainer.trackerID)
                     
                     
-                    observationContainer.populateObservationContainerInstance(groupCode: UserDefaults.standard.string(forKey: "groupName")!, chosenTrackerString: UserDefaults.standard.string(forKey: "trackerID")!)
+                    observationContainer.populateObservationContainerInstance(groupCode: UserDefaults.standard.string(forKey: "groupCode")!, chosenTrackerString: UserDefaults.standard.string(forKey: "trackerID")!)
 
                 }
             }
@@ -233,8 +233,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    //this is the internet connection check function
-   
 
 }
 

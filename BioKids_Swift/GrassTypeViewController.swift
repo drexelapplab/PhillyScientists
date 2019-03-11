@@ -34,11 +34,13 @@ class GrassTypeViewController: UIViewController, UITableViewDataSource, UITableV
         cancelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         
+        nextBtn.isEnabled = false
+        
         self.grassTypeTable.rowHeight = 120.0
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
-            
+            nextBtn.isEnabled = true
             if let grassTypeIndex = grassTypes.index(of: observation.grassKind) {
                 let index = grassTypes.startIndex.distance(to: grassTypeIndex)
                 let indexPath = IndexPath(row: index, section: 0)
@@ -95,6 +97,11 @@ class GrassTypeViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if !grassTypes[indexPath.row].isEmpty {
+            nextBtn.isEnabled = true
+        }
+        
         if !editMode {
             observation.grassKind = grassTypes[indexPath.row]
         }

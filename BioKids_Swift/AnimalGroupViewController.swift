@@ -36,6 +36,8 @@ class AnimalGroupViewController: UIViewController, UITableViewDelegate, UITableV
         nextBtn.layer.cornerRadius = 10
         nextBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         nextBtn.backgroundColor = C.Colors.buttonBg
+        
+        nextBtn.isEnabled = false
                 
         self.tableView.rowHeight = 120.0
         
@@ -58,6 +60,7 @@ class AnimalGroupViewController: UIViewController, UITableViewDelegate, UITableV
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
+            nextBtn.isEnabled = true
             if let animalGroupIndex = animalGroups.index(of: observation.animalGroup) {
                 let index = animalGroups.startIndex.distance(to: animalGroupIndex)
                 let indexPath = IndexPath(row: index, section: 0)
@@ -101,6 +104,10 @@ class AnimalGroupViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !editMode {
+            
+            if !animalGroups[indexPath.row].isEmpty {
+                nextBtn.isEnabled = true
+            }
             observation.animalGroup = animalGroups[indexPath.row]
             observation.animalType_screen = animalTypes[indexPath.row]
         }

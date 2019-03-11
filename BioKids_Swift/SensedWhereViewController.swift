@@ -26,6 +26,7 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
         cancelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         
+        
         locationPicker.dataSource = self //(observationContainer.locations[0].locationID as! UIPickerViewDataSource)
         locationPicker.delegate = self
         
@@ -49,6 +50,7 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return observationContainer.locations.count;
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         print("The chosen location is: ")
         print(observationContainer.locations[row].locationName!)
         print("The location ID is: ")
@@ -79,6 +81,9 @@ class SensedWhereViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode {
+            if observation.locationID < 1 {
+                observation.locationID = observationContainer.locations[0].locationID!
+            }
             performSegue(withIdentifier: "notesSegue", sender: self)
         }
         else {

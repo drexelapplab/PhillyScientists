@@ -23,10 +23,10 @@ class AnimalPositionViewController: UIViewController, UITableViewDelegate, UITab
     var editMode = false
 
     override func viewDidLoad() {
-        print("Here4:\(observation)")
+        print("AnimalPositionView:\(observation)")
 
         super.viewDidLoad()
-        print ("Here4: \(observation)")
+        //print ("AnimalPositionView: \(observation)")
         
         cancelBtn.layer.cornerRadius = 10
         cancelBtn.setTitleColor(C.Colors.buttonText, for: .normal)
@@ -35,6 +35,7 @@ class AnimalPositionViewController: UIViewController, UITableViewDelegate, UITab
         nextBtn.layer.cornerRadius = 10
         nextBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         nextBtn.backgroundColor = C.Colors.buttonBg
+        nextBtn.isEnabled = false
         
         self.positionTableView.rowHeight = 120.0
         // Uncomment the following line to preserve selection between presentations
@@ -64,6 +65,8 @@ class AnimalPositionViewController: UIViewController, UITableViewDelegate, UITab
         // Modifications needed;
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
+            nextBtn.isEnabled = true
+            
             if let animalPositionIndex = animalPositionsArray.index(of: observation.animalPosition) {
                 let index = animalPositionsArray.startIndex.distance(to: animalPositionIndex)
                 let indexPath = IndexPath(row: index, section: 0)
@@ -125,6 +128,11 @@ class AnimalPositionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if !animalPositionsArray[indexPath.row].isEmpty {
+            nextBtn.isEnabled = true
+        }
+        
         if !editMode{
             observation.animalPosition = animalPositionsArray[indexPath.row]
            // observation.animalPosition_screen = animalPosition[indexPath.row]

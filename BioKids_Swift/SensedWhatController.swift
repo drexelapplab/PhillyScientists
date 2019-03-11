@@ -20,12 +20,15 @@ class SensedWhatViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     
     var observation = Observation()
+    var observationContainer = ObservationContainer.sharedInstance
     var editMode = false
+    var tempPhoto = String()
     
     override func viewDidLoad() {
         
         print("In sensedWhatViewController, ", observation)
-        
+        print("locations: \(observationContainer)")
+        print("photo name is:\(observation.photoLocation)")
         plantBtn.layer.cornerRadius = 10
         animalBtn.layer.cornerRadius = 10
         tracksBtn.layer.cornerRadius = 10
@@ -33,10 +36,23 @@ class SensedWhatViewController: UIViewController {
         cancelBtn.layer.cornerRadius = 10
         nextBtn.layer.cornerRadius = 10
         
+        //disable Next Button
+        nextBtn.isEnabled = false
+        
+        //temp - save photoLocation to temp var
+        tempPhoto = observation.photoLocation
+        
+        //reinit the object to clear out old record
+        observation = Observation()
+        
+        //add photoLocation back
+        observation.photoLocation = tempPhoto
+    
+    
         if editMode {
             
             nextBtn.setTitle("Save", for: .normal)
-            
+            nextBtn.isEnabled = true
             switch observation.whatSensed {
             case "Live Animal":
                 animalBtn.isSelected = true
@@ -63,6 +79,7 @@ class SensedWhatViewController: UIViewController {
         animalBtn.isSelected = false
         tracksBtn.isSelected = false
         otherBtn.isSelected = false
+        nextBtn.isEnabled = true
         
         if editMode {
             let realm = try! Realm()
@@ -80,6 +97,7 @@ class SensedWhatViewController: UIViewController {
         animalBtn.isSelected = true
         tracksBtn.isSelected = false
         otherBtn.isSelected = false
+        nextBtn.isEnabled = true
         
         if editMode {
             let realm = try! Realm()
@@ -98,6 +116,7 @@ class SensedWhatViewController: UIViewController {
         animalBtn.isSelected = false
         tracksBtn.isSelected = true
         otherBtn.isSelected = false
+        nextBtn.isEnabled = true
         
         if editMode {
             let realm = try! Realm()
@@ -116,6 +135,7 @@ class SensedWhatViewController: UIViewController {
         animalBtn.isSelected = false
         tracksBtn.isSelected = false
         otherBtn.isSelected = true
+        nextBtn.isEnabled = true
         
         if editMode {
             let realm = try! Realm()
@@ -160,6 +180,7 @@ class SensedWhatViewController: UIViewController {
     
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode {
+           
             if plantBtn.isSelected {
                 performSegue(withIdentifier: "howSensedSegue", sender: plantBtn)
                 print("plant btn selected")

@@ -15,7 +15,8 @@ class AnimalActionViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     
-    var animalAction = String()
+    //var animalAction = String()
+    var animalAction = [String]()
     var animalActions = Array<String>()
     var observation = Observation()
     
@@ -23,7 +24,7 @@ class AnimalActionViewController: UIViewController, UITableViewDelegate, UITable
     
     
     override func viewDidLoad() {
-        print("Here5:\(observation)")
+        //print("Here5:\(observation)")
 
         super.viewDidLoad()
         print("Here5:\(observation)")
@@ -35,6 +36,7 @@ class AnimalActionViewController: UIViewController, UITableViewDelegate, UITable
         nextBtn.layer.cornerRadius = 10
         nextBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         nextBtn.backgroundColor = C.Colors.buttonBg
+        nextBtn.isEnabled = false
         
         self.actionTableView.rowHeight = 120.0
         
@@ -56,11 +58,17 @@ class AnimalActionViewController: UIViewController, UITableViewDelegate, UITable
         // Modifications needed;
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
-            if let animalActionIndex = animalActions.index(of: observation.animalAction) {
-                let index = animalActions.startIndex.distance(to: animalActionIndex)
-                let indexPath = IndexPath(row: index, section: 0)
-                actionTableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-                actionTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+            nextBtn.isEnabled = true
+            
+            let values = observation.animalAction.split(separator: ",")
+            
+            for val in values{
+                if let animalActionIndex = animalActions.index(of: String(val)) {
+                    let index = animalActions.startIndex.distance(to: animalActionIndex)
+                    let indexPath = IndexPath(row: index, section: 0)
+                    actionTableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                    actionTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+                }
             }
         }
         
@@ -117,22 +125,39 @@ class AnimalActionViewController: UIViewController, UITableViewDelegate, UITable
     }
     // Problems needs to be addressed here;
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !editMode{
-            observation.animalAction = animalActions[indexPath.row]
-        }else {
-            let realm = try! Realm()
-            try! realm.write {
-                observation.animalAction = animalActions[indexPath.row]
-            }
+        
+        if let index = animalAction.index(of: animalActions[indexPath.row]){
+            animalAction.remove(at: index)
         }
+        else {
+            animalAction.append(animalActions[indexPath.row])
+        }
+        
+        if animalAction.isEmpty {
+            nextBtn.isEnabled = false
+        }
+        else {
+            nextBtn.isEnabled = true
+        }
+//        if !animalActions[indexPath.row].isEmpty{
+//            nextBtn.isEnabled = true
+//        }
+        
+//        if !editMode{
+//           observation.animalAction = animalActions[indexPath.row]
+//        }else {
+//            let realm = try! Realm()
+//           try! realm.write {
+//               observation.animalAction = animalActions[indexPath.row]
+//            }
+//        }
     }
     
     // Issues needs to be addressed; Segue jump issues;
     @IBAction func didPressNextBtn(_ sender: Any) {
         if !editMode {
-            if observation.animalAction != "" {
+            observation.animalAction = animalAction.joined(separator: ",")
                 performSegue(withIdentifier: "amountSensedSegue4", sender: self)
-            }
         }else {
             self.navigationController?.popViewController(animated: true)
         }

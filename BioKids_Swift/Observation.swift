@@ -38,8 +38,9 @@ class Observation: Object {
     
     func getDisplayStrings() -> [String] {
         var displayStrings = [String]()
-        
-        displayStrings.append("Date: \(date)")
+        let df = DateFormatter()
+        df.dateFormat = "MM-dd-yyyy"
+        displayStrings.append("Date: \(df.string(from: date))")
         displayStrings.append("How it was sensed: \(howSensed.capitalized)")
         displayStrings.append("What was sensed: \(whatSensed.capitalized)")
         displayStrings.append("What kind of plant: \(plantKind.capitalized)")
@@ -50,8 +51,6 @@ class Observation: Object {
         displayStrings.append("Animal subtype: \(animalSubType.capitalized)")
         displayStrings.append("Animal position: \(animalPosition.capitalized)") //New added; make it consistant with above variables
         displayStrings.append("Animal action: \(animalAction.capitalized)") //New added; make it consistant with above variables
-        
-        
         
         if howManySeen > 0 {
             if howManyIsExact {

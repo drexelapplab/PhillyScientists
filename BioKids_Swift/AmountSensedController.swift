@@ -21,14 +21,14 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     var observation = Observation()
     var editMode = false
     
-    
-    
     override func viewDidLoad() {
         // Do something
+       // nextBtn.isEnabled = false
         nextBtn.layer.cornerRadius = 10
         cancelBtn.layer.cornerRadius = 10
         
         amountField.delegate = self
+        
         segmentBtn.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 48.0)! ], for: .normal)
         
         if editMode {
@@ -57,7 +57,9 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didChangeHowManyField(_ sender: Any) {
         if !editMode {
-            observation.howManySeen = Int(amountField.text!)!
+            if amountField.text != nil {
+                observation.howManySeen = Int(amountField.text!)!
+            }
         }
         else {
             let realm = try! Realm()
@@ -68,10 +70,24 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if (string == "\n") {
-            textField.resignFirstResponder()
-            return false
+
+        let inverseSet = NSCharacterSet(charactersIn:".0123456789").inverted
+        let components = string.components(separatedBy: inverseSet)
+        let filtered = components.joined(separator: "")
+        
+        if let _ = Int(string) {
+            nextBtn.isEnabled = true
         }
+        return string == filtered && true
+        
+        //return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        //or
+        //self.view.endEditing(true)
         return true
     }
     
@@ -120,4 +136,5 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
             destination.observation = self.observation
         }
     }
+    
 }

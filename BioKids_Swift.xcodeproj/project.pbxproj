@@ -183,12 +183,12 @@
 				CAB8FC791E240EFB00B6EAC4 /* SensedHowViewController.swift */,
 				CAB8FC7B1E240F0D00B6EAC4 /* SensedWhatController.swift */,
 				CAFC278D1F8FA95B00CB1363 /* SingleObservationViewController.swift */,
+				FE19A51C20DC741D0028EA75 /* SensedWhereViewController.swift */,
+				FE7874A320F007BD008909E9 /* AboutViewController.swift */,
+				FEC1B3AD20C74D8B007CD2F5 /* Location.swift */,
 				CAB8FC681E23F05E00B6EAC4 /* Assets.xcassets */,
 				CAB8FC6A1E23F05E00B6EAC4 /* LaunchScreen.storyboard */,
 				CAB8FC651E23F05E00B6EAC4 /* Main.storyboard */,
-				FEC1B3AD20C74D8B007CD2F5 /* Location.swift */,
-				FE19A51C20DC741D0028EA75 /* SensedWhereViewController.swift */,
-				FE7874A320F007BD008909E9 /* AboutViewController.swift */,
 			);
 			path = BioKids_Swift;
 			sourceTree = "<group>";
@@ -217,7 +217,6 @@
 				CAB8FC5B1E23F05E00B6EAC4 /* Frameworks */,
 				CAB8FC5C1E23F05E00B6EAC4 /* Resources */,
 				681760B9910237F8432AD6DE /* [CP] Embed Pods Frameworks */,
-				8A37F7A91F87895AF77703C9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,7 +239,7 @@
 				TargetAttributes = {
 					CAB8FC5D1E23F05E00B6EAC4 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = W5Z2YHFP33;
+						DevelopmentTeam = 8NNST48ZF6;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -326,21 +325,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BioKids_Swift/Pods-BioKids_Swift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A37F7A91F87895AF77703C9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BioKids_Swift/Pods-BioKids_Swift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -520,11 +504,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W5Z2YHFP33;
+				DEVELOPMENT_TEAM = 8NNST48ZF6;
 				INFOPLIST_FILE = BioKids_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.applab.PhilaScientists.shiv1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phillysci.drexel.iOS930;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -539,11 +523,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W5Z2YHFP33;
+				DEVELOPMENT_TEAM = 8NNST48ZF6;
 				INFOPLIST_FILE = BioKids_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.applab.PhilaScientists.shiv1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phillysci.drexel.iOS930;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;

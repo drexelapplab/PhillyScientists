@@ -2,10 +2,28 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Brandon/Desktop/Post-Doc/App Lab/GitHubProjects/PhillyScientists/BioKids_Swift/GroupInfoViewController.swift">
+      location = "group:BioKids_Swift">
    </FileRef>
    <FileRef
       location = "group:BioKids_Swift.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PhillyScienceImages">
+   </FileRef>
+   <FileRef
+      location = "group:Podfile">
+   </FileRef>
+   <FileRef
+      location = "group:Podfile.lock">
+   </FileRef>
+   <FileRef
+      location = "group:PodfileCopy.lock">
+   </FileRef>
+   <FileRef
+      location = "group:Pods">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

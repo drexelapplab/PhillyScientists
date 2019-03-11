@@ -24,11 +24,11 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
     var editMode = false
     
     override func viewDidLoad() {
-        print("Here3:\(observation)")
+        print("AnimalSubTypeView:\(observation)")
 
         super.viewDidLoad()
-        print("Here3:\(observation)")
-
+        //print("AnimalSubTypeView:\(observation)")
+        
         cancelBtn.layer.cornerRadius = 10
         cancelBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         cancelBtn.backgroundColor = C.Colors.buttonBg
@@ -36,6 +36,7 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
         nextBtn.layer.cornerRadius = 10
         nextBtn.setTitleColor(C.Colors.buttonText, for: .normal)
         nextBtn.backgroundColor = C.Colors.buttonBg
+        nextBtn.isEnabled = false
         
         self.tableView.rowHeight = 120.0
         
@@ -59,6 +60,8 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)
+            nextBtn.isEnabled = true
+            
             if let animalSubTypeIndex = animalSubTypes.index(of: observation.animalSubType) {
                 let index = animalSubTypes.startIndex.distance(to: animalSubTypeIndex)
                 let indexPath = IndexPath(row: index, section: 0)
@@ -119,15 +122,32 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if !editMode{
-            observation.animalSubType = animalSubTypes[indexPath.row]
+            
+            if !animalSubTypes[indexPath.row].isEmpty {
+                nextBtn.isEnabled = true
+            }
+            
+            if !animalSubTypes[indexPath.row].isEmpty {
+                observation.animalSubType = animalSubTypes[indexPath.row]
+                observation.animalPosition_screen = animalSubTypes[indexPath.row]
+            }
+            else {
+                observation.animalSubType = animalSubTypes[indexPath.row]
+            }
+            
         }
         else {
             let realm = try! Realm()
             try! realm.write {
-                observation.animalSubType = animalSubTypes[indexPath.row]
-                // Modified here;
-                observation.animalPosition_screen = animalSubTypes[indexPath.row]
+                if !animalSubTypes[indexPath.row].isEmpty {
+                    observation.animalSubType = animalSubTypes[indexPath.row]
+                    observation.animalPosition_screen = animalSubTypes[indexPath.row]
+                }
+                else {
+                    observation.animalSubType = animalSubTypes[indexPath.row]
+                }
             }
         }
     }
@@ -153,7 +173,7 @@ class AnimalSubtypeViewController: UIViewController, UITableViewDelegate, UITabl
     }
     //Codes modified here;
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "animalPositionSegue2" {
+        if segue.identifier == "animalPositionSegue" {
             let nextScene = segue.destination as! AnimalPositionViewController
             nextScene.observation = observation
         }
