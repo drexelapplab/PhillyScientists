@@ -15,17 +15,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>For taking photos while using the Philly Scientists App</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>For storing photos taken using the Philly Scientists App</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>For storing photos taken using the Philly Scientists App</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>For storing photos taken using the Philly Scientists App</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Regular.otf</string>
