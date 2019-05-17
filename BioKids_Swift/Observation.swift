@@ -12,29 +12,29 @@ import RealmSwift
 class Observation: Object {
     
     // MARK: Properties
-    dynamic var date = Date()
-    dynamic var photoLocation = ""
-    dynamic var howSensed = ""
-    dynamic var whatSensed = ""
-    dynamic var plantKind = ""
-    dynamic var grassKind = ""
-    dynamic var howMuchPlant = ""
-    dynamic var howManySeen = 0
-    dynamic var animalGroup = ""
-    dynamic var animalType = ""
-    dynamic var animalSubType = ""
-    dynamic var animalPosition = "" //New added; the value passing issue needs to be resolved
-    dynamic var animalAction = ""// New added; the value passing issue needs to be resolved
-    dynamic var note = ""
-    dynamic var howManyIsExact = false
-    dynamic var wasSubmitted = false
-    dynamic var animalType_screen = ""
-    dynamic var animalSubType_screen = ""
+    @objc dynamic var date = Date()
+    @objc dynamic var photoLocation = ""
+    @objc dynamic var howSensed = ""
+    @objc dynamic var whatSensed = ""
+    @objc dynamic var plantKind = ""
+    @objc dynamic var grassKind = ""
+    @objc dynamic var howMuchPlant = ""
+    @objc dynamic var howManySeen = 0
+    @objc dynamic var animalGroup = ""
+    @objc dynamic var animalType = ""
+    @objc dynamic var animalSubType = ""
+    @objc dynamic var animalPosition = "" //New added; the value passing issue needs to be resolved
+    @objc dynamic var animalAction = ""// New added; the value passing issue needs to be resolved
+    @objc dynamic var note = ""
+    @objc dynamic var howManyIsExact = false
+    @objc dynamic var wasSubmitted = false
+    @objc dynamic var animalType_screen = ""
+    @objc dynamic var animalSubType_screen = ""
     // To modify the newly added objects and comform with the AppDelegte.swift;
-    dynamic var animalPosition_screen = ""
-    dynamic var animalAction_screen = ""
-    dynamic var animalAmount_screen = ""
-    dynamic var locationID = 0 //// New added by Shiv
+    @objc dynamic var animalPosition_screen = ""
+    @objc dynamic var animalAction_screen = ""
+    @objc dynamic var animalAmount_screen = ""
+    @objc dynamic var locationID = 0 //// New added by Shiv
     
     func getDisplayStrings() -> [String] {
         var displayStrings = [String]()

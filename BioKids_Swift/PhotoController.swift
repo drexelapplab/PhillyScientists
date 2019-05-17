@@ -72,9 +72,15 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         
         if mediaType.isEqual(to: kUTTypeImage as String) {
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            printImageSize(image: image)
+            
+            var imageData = image.jpeg(.lowest)
+            
+            let imageCompressed = UIImage(data: imageData!)
+            printImageSize(image: imageCompressed!)
             
             if (newMedia == true) {
-                UIImageWriteToSavedPhotosAlbum(image,
+                UIImageWriteToSavedPhotosAlbum(imageCompressed!,
                                                self,
                                                #selector(PhotoController.image(image:didFinishSavingWithError:contextInfo:)),
                                                nil)
@@ -83,7 +89,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         self.dismiss(animated: true, completion: nil)
     }
     
-    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
+    @objc func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
         
         if error != nil {
             let alert = UIAlertController(title: "Save Failed",
@@ -156,5 +162,15 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             destination.observation = self.observation
         }
     }
+    
+    func printImageSize(image: UIImage){
+        if let imageData = UIImagePNGRepresentation(image) {
+            let bytes = imageData.count
+            let kB = Double(bytes) / 1000.0 // Note the difference
+            let KB = Double(bytes) / 1024.0 // Note the difference
+            print("image size: \(KB)")
+        }
+    }
+    
     
 }

@@ -29,7 +29,7 @@ class AmountSensedViewController: UIViewController, UITextFieldDelegate {
         
         amountField.delegate = self
         
-        segmentBtn.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 48.0)! ], for: .normal)
+        segmentBtn.setTitleTextAttributes([ NSAttributedStringKey.font: UIFont(name: "Montserrat-Regular", size: 48.0)! ], for: .normal)
         
         if editMode {
             nextBtn.setTitle("Save", for: .normal)

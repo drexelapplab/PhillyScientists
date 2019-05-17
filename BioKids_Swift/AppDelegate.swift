@@ -143,8 +143,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Change the font size of the Tab Bar Controller
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Montserrat", size: 18)!], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Montserrat", size: 18)!], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "Montserrat", size: 18)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "Montserrat", size: 18)!], for: .selected)
         
         
         

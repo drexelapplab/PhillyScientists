@@ -267,7 +267,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
         self.dismiss(animated: true, completion: nil)
     }
 
-    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
+    @objc func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
         
         if error != nil {
             let alert = UIAlertController(title: "Save Failed",
