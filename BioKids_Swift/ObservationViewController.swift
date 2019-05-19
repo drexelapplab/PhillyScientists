@@ -27,7 +27,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         
         if let object = UserDefaults.standard.string(forKey: "groupName") {
             print(object);
-            groupNameLbl.text = "Group Name: \(String(object) ?? "Group Name not found!")"
+            groupNameLbl.text = "Group Name: \(String(object) )"
         }
         else{
             print("ObservationViewController.swift: GroupName not found in userDefaults.standard")
@@ -35,7 +35,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         
         if let object = UserDefaults.standard.string(forKey: "teacherName") {
             print(object);
-            teacherProgramLbl.text = "Teacher Name: \(String(object) ?? "Teacher's name not found!")"
+            teacherProgramLbl.text = "Teacher Name: \(String(object) )"
         }
         else{
             print("ObservationViewController.swift: teacherName not found in userDefaults.standard")
@@ -46,13 +46,13 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
 //        }
         
         let origImage = UIImage(named: "checked");
-        let tintedImage = origImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        let tintedImage = origImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         submitBtn.setImage(tintedImage, for: [])
         submitBtn.contentMode = .center
         submitBtn.imageView?.contentMode = .scaleAspectFit
         //tintedImage.contentEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 100.0)
         submitBtn.tintColor = UIColor.init(red: (245/255), green: (187/255), blue: (50/255), alpha: 1.0)
-        submitBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 50);
+        submitBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 50);
         //rgb(245, 187, 50)
         
     }
@@ -63,7 +63,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         
         if let object = UserDefaults.standard.string(forKey: "groupName") {
             print(object);
-            groupNameLbl.text = "Group Name: \(String(object) ?? "Group Name not found!")"
+            groupNameLbl.text = "Group Name: \(String(object) )"
         }
         else{
             print("ObservationViewController.swift: GroupName not found in userDefaults.standard")
@@ -71,7 +71,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
         
         if let object = UserDefaults.standard.string(forKey: "teacherName") {
             print(object);
-            teacherProgramLbl.text = "Teacher Name: \(String(object) ?? "Teacher's name not found!")"
+            teacherProgramLbl.text = "Teacher Name: \(String(object) )"
         }
         else{
             print("ObservationViewController.swift: teacherName not found in userDefaults.standard")
@@ -145,7 +145,7 @@ class ObservationViewController: UIViewController, UITableViewDataSource, UITabl
             //                self.sumbitData()
             //            })
             // Two buttons, deal with one event
-            if !observationContainer.isConnected() {
+            if !Reachability.isConnectedToNetwork() {
                 AlertControllerTool.showAlert(currentVC: self, cancelBtn: "OK", meg: "You must be connected to the Internet to submit data.")
             }
             else {

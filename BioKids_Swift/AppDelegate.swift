@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
 //
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // Update Realm Schemas if necessary
@@ -143,8 +143,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Change the font size of the Tab Bar Controller
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "Montserrat", size: 18)!], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "Montserrat", size: 18)!], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Montserrat", size: 18)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Montserrat", size: 18)!], for: .selected)
         
         
         

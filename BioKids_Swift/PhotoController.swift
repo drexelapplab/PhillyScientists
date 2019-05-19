@@ -6,7 +6,6 @@
 //  Modified by Shiv
 //  Copyright © 2017 App Lab. All rights reserved.
 //
-
 import MobileCoreServices
 import UIKit
 import Photos
@@ -39,7 +38,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
                 self.tabBarController?.selectedIndex = 0
             }
         }
-
+        
     }
     
     @IBAction func useCamera(_ sender: AnyObject) {

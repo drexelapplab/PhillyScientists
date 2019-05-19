@@ -5,7 +5,6 @@
 //  Created by Yashwanth Dahanayake on 7/19/17.
 //  Copyright © 2017 App Lab. All rights reserved.
 //
-
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -19,7 +18,6 @@ import Foundation
 //    let trackerNames = ["Select A Tracker", "Alem", "Aren", "Faraji", "Ghele", "Isoke", "Miniya", "Mkali", "Rakanja", "Sanjo", "Zahra"]
 //    let trackerImgs = ["none", "tracker-alem", "tracker-aren", "tracker-faraji", "tracker-ghele", "tracker-isoke","tracker-miniya", "tracker-mkali", "tracker-rakanja", "tracker-sanjo", "tracker-zahra"]
 //}
-
 class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var observationContainer = ObservationContainer.sharedInstance
@@ -40,7 +38,7 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     let trackerImgs = ["none", "tracker-alem", "tracker-aren", "tracker-faraji", "tracker-ghele", "tracker-isoke","tracker-miniya", "tracker-mkali", "tracker-rakanja", "tracker-sanjo", "tracker-zahra"]
     let chosenTracker = ""
     var trackerID = ""
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +59,6 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         checkInBtn.backgroundColor = C.Colors.buttonBg
         
         //statusLbl.textColor = UIColor.red
-
         print("inside loginController")
         
     }
@@ -74,7 +71,7 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         else if trackerPicker.selectedRow(inComponent: 0) == 0 {
             statusLbl.text = "Please select a tracker"
         }
-        else if !observationContainer.isConnected() {
+        else if !Reachability.isConnectedToNetwork() {
             statusLbl.text = "Please connect to the Internet to continue."
         }
         else {
@@ -96,10 +93,10 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
             
             //print("UserDisplayText: \(String(describing: UserDisplayText))")
             
-//            if (UserDisplayText == "Logged In Successfully!") {
-//                 self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
-//            }
-//          //PRODUCTION
+            //            if (UserDisplayText == "Logged In Successfully!") {
+            //                 self.performSegue(withIdentifier: "groupInfoSegue", sender: self)
+            //            }
+            //          //PRODUCTION
             let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroup.php")
             //TEST
             //let submissionURL = URL(string: "https://app.phillyscientists.com/verifyGroupDEV.php")
@@ -269,4 +266,3 @@ class LoginController: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     }
     
 }
-

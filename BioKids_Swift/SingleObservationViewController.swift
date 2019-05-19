@@ -5,7 +5,6 @@
 //  Created by Brandon Morton on 10/12/17.
 //  Copyright © 2017 App Lab. All rights reserved.
 //
-
 import Foundation
 import UIKit
 import MobileCoreServices
@@ -30,7 +29,6 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         //editReminderLbl.textColor = C.Colors.subheadingText
-
         observationTableView.setEditing(false, animated: false)
         
         if observationIdx > -1 {
@@ -45,7 +43,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
                 editPhotoBtn.setTitle("Edit Photo", for: .normal)
             }
             // TODO: Change this be returned by a function in the observation container
-            propertyNames = observationContainer.observations[observationIdx].getPropertyNames()            
+            propertyNames = observationContainer.observations[observationIdx].getPropertyNames()
             displayStrings = (observation?.getDisplayStrings())!
         }
     }
@@ -94,7 +92,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     //****modified*****
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
-
+            
             let property = self.propertyNames[editActionsForRowAt.row]
             // Codes needs to be modified here; add new kinds of cases to demo the viewcontroller!!
             switch property {
@@ -180,7 +178,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             case "howMuchPlantSegue":
                 let destination = segue.destination as! HowMuchGrassViewController
                 destination.observation = self.observation!
-                 destination.editMode = true
+                destination.editMode = true
                 break
             case "howManySeenSegue":
                 let destination = segue.destination as! AmountSensedViewController
@@ -232,7 +230,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidDisappear(_ animated: Bool) {
         // viewdiddisapper ||this controller will be called after current pictures disapper, if this one wants to be edited, it will return to last page
-//        self.navigationController?.popToRootViewController(animated: false)
+        //        self.navigationController?.popToRootViewController(animated: false)
     }
     
     // MARK: PHOTO SELECT
@@ -266,7 +264,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
         }
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     @objc func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
         
         if error != nil {
@@ -300,7 +298,7 @@ class SingleObservationViewController: UIViewController, UITableViewDelegate, UI
             // Save it to the database after edit the photo
             let realm = try! Realm()
             try! realm.write {
-                 observation?.photoLocation = fileName
+                observation?.photoLocation = fileName
             }
         }
     }

@@ -179,16 +179,16 @@ class PlantKindViewController: UIViewController {
     }
     
     func showMessageToUser(title: String, msg: String)  {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
         
-        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) { (result : UIAlertAction) -> Void in
             // Return
             print("pressed yes")
             
             _ = self.navigationController?.popToRootViewController(animated: true)
         }
         
-        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+        let noAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) { (result : UIAlertAction) -> Void in
             print("pressed no")
         }
         

@@ -5,7 +5,6 @@
 //  Created by Brandon Morton on 3/29/17.
 //  Copyright © 2017 App Lab. All rights reserved.
 //
-
 import Foundation
 import Alamofire
 import RealmSwift
@@ -52,14 +51,14 @@ class ObservationContainer {
         return count
     }
     
-//    func isConnected()-> Bool{
-//        var connected: Bool = false
-//        if Reachability.isConnectedToNetwork(){
-//            connected = true
-//        }
-//
-//        return connected
-//    }
+    //    func isConnected()-> Bool{
+    //        var connected: Bool = false
+    //        if Reachability.isConnectedToNetwork(){
+    //            connected = true
+    //        }
+    //
+    //        return connected
+    //    }
     
     func populateObservationContainerInstance(groupCode: String, chosenTrackerString: String)->String{
         var outputMessage = ""
@@ -96,7 +95,7 @@ class ObservationContainer {
     
     //changes by Shiv: Functionalities to login/logout from anywhere
     
-   
+    
     func parseJSONFromStorage(json : JSON) -> Void {
         self.groupID = json["groupID"].stringValue
         self.teacherID = json["teacherID"].stringValue
@@ -200,7 +199,7 @@ class ObservationContainer {
         return returnJSON
         // JSON from string must be initialized using .parse()
     }
-
+    
     public func saveJSON(j: JSON) {
         print("Just saved the json data to userDefaults")
         let defaults = UserDefaults.standard

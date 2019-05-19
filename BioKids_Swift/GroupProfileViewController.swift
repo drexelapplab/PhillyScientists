@@ -31,7 +31,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         
         if let object = UserDefaults.standard.string(forKey: "groupName") {
             print(object);
-            groupCodeLbl.text = "Group Name: \(String(object) ?? "Group Name not found!")"
+            groupCodeLbl.text = "Group Name: \(String(object) )"
         }
         else{
             print("GroupProfileViewController.swift: GroupName not found in userDefaults.standard")
@@ -39,7 +39,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
 
         if let object = UserDefaults.standard.string(forKey: "trackerID") {
             print(object);
-            groupTrackerLbl.text = "Group Tracker:\(String(object) ?? "Teacher not found!")"
+            groupTrackerLbl.text = "Group Tracker:\(String(object) )"
         }
         else{
             print("GroupProfileViewController.swift: trackerID not found in userDefaults.standard")
@@ -47,7 +47,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
 
         if let object = UserDefaults.standard.string(forKey: "teacherName") {
             print(object);
-            groupTeacherLbl.text = "Teacher Name: \(String(object) ?? "Teacher's name not found!")"
+            groupTeacherLbl.text = "Teacher Name: \(String(object) )"
         }
         else{
             print("GroupProfileViewController.swift: teacherName not found in userDefaults.standard")
@@ -70,7 +70,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         logoutBtn.layer.cornerRadius = 10
         
         let origImage = UIImage(named: "exit");
-        let tintedImage = origImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        let tintedImage = origImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         
         logoutBtn.setImage(tintedImage, for: [])
         logoutBtn.contentMode = .center
@@ -109,9 +109,9 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func showMessageToUser(title: String, msg: String)  {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
         
-        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) { (result : UIAlertAction) -> Void in
             // Return
             print("pressed yes")
             
@@ -123,7 +123,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
             
         }
         
-        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+        let noAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) { (result : UIAlertAction) -> Void in
             print("pressed no")
         }
         
