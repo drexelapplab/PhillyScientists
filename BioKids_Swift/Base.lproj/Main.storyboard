@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nSO-Xp-irl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nSO-Xp-irl">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,20 +18,19 @@
         <scene sceneID="fgi-3m-pKq">
             <objects>
                 <viewController id="F2k-Qh-3R8" customClass="AboutViewController" customModule="BioKids_Swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" id="I68-EV-rVd">
+                    <containerView key="view" opaque="NO" contentMode="scaleToFill" id="t8A-Qv-hCi">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </webView>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <segue destination="1TM-fh-WSp" kind="embed" id="n09-Om-RP7"/>
+                        </connections>
+                    </containerView>
                     <tabBarItem key="tabBarItem" title="About" image="about" selectedImage="about" id="uTz-oI-pmV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="webView" destination="I68-EV-rVd" id="RQb-ht-oIW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxO-NV-w5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1148.4375" y="1278.90625"/>
+            <point key="canvasLocation" x="-1035" y="724"/>
         </scene>
         <!--Group Profile-->
         <scene sceneID="6ca-CI-doK">
@@ -51,7 +50,7 @@
                                     <constraint firstAttribute="height" constant="59" id="Ht8-ve-2r4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.18728365453937307" green="0.29149855895054511" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybc-xU-FHU">
@@ -100,16 +99,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Cc1-Ev-qjy" firstAttribute="top" secondItem="43g-QM-0aQ" secondAttribute="bottom" constant="20" id="6oK-5f-PSM"/>
                             <constraint firstItem="ybc-xU-FHU" firstAttribute="top" secondItem="Cc1-Ev-qjy" secondAttribute="bottom" constant="30" id="7ax-P8-zKV"/>
                             <constraint firstItem="HLJ-pu-RWZ" firstAttribute="centerX" secondItem="0o2-pn-pfn" secondAttribute="centerX" id="7ng-LV-1bm"/>
                             <constraint firstItem="ybc-xU-FHU" firstAttribute="leading" secondItem="0o2-pn-pfn" secondAttribute="leadingMargin" constant="20" id="AOa-sF-16a"/>
+                            <constraint firstItem="tNL-hv-u1X" firstAttribute="top" secondItem="HLJ-pu-RWZ" secondAttribute="bottom" constant="12" id="Exi-Qn-9up"/>
                             <constraint firstItem="Wlp-ks-hdQ" firstAttribute="leading" secondItem="0o2-pn-pfn" secondAttribute="leadingMargin" constant="20" id="Gr1-4D-T3U"/>
                             <constraint firstItem="c3h-Mc-Cbi" firstAttribute="centerX" secondItem="0o2-pn-pfn" secondAttribute="centerX" id="JjE-0w-5L1"/>
                             <constraint firstItem="Cc1-Ev-qjy" firstAttribute="centerX" secondItem="0o2-pn-pfn" secondAttribute="centerX" id="JoP-wN-LYZ"/>
                             <constraint firstItem="Wlp-ks-hdQ" firstAttribute="centerX" secondItem="0o2-pn-pfn" secondAttribute="centerX" id="OG4-N3-kEk"/>
-                            <constraint firstItem="Cc1-Ev-qjy" firstAttribute="top" secondItem="43g-QM-0aQ" secondAttribute="bottom" constant="20" id="W9d-md-2xT"/>
                             <constraint firstItem="c3h-Mc-Cbi" firstAttribute="top" secondItem="ybc-xU-FHU" secondAttribute="bottom" constant="5" id="WRy-o7-zB1"/>
-                            <constraint firstItem="tNL-hv-u1X" firstAttribute="top" secondItem="HLJ-pu-RWZ" secondAttribute="bottom" constant="12" id="bYV-Vh-82T"/>
                             <constraint firstItem="ybc-xU-FHU" firstAttribute="centerX" secondItem="0o2-pn-pfn" secondAttribute="centerX" id="eWG-oG-CfC"/>
                             <constraint firstItem="Wlp-ks-hdQ" firstAttribute="top" secondItem="c3h-Mc-Cbi" secondAttribute="bottom" constant="5" id="rL8-mg-gRk"/>
                             <constraint firstItem="c3h-Mc-Cbi" firstAttribute="leading" secondItem="0o2-pn-pfn" secondAttribute="leadingMargin" constant="20" id="xoC-C2-QzR"/>
@@ -2364,6 +2363,49 @@
             </objects>
             <point key="canvasLocation" x="7677.5390624999991" y="1226.5625"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="w21-ui-m4p">
+            <objects>
+                <viewController id="1TM-fh-WSp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jXT-2O-1Ql">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="l3H-pX-IRG">
+                                <rect key="frame" x="393" y="169" width="598" height="492"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">The Philly Scientists mobile app was modified from a safari animal tracking tool and walks students through identifying and cataloging neighborhood plants and animals. Local scientists visit the school sites to engage students in discussions about how scientists make good observations and aid in data collection of neighborhood biodiversity.
+
+Students use their data and online resources to generate a solution to increase biodiversity in their neighborhood. The lessons culminate in students presenting their solutions to local peers, scientists, and city planners at a student summit. The data students collect are aggregated on the Philly Scientists website for large-scale data display and analysis. 
+
+Visit us at https://www.phillyscientists.com</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NSF-Philly-Scientists-logo-final" translatesAutoresizingMaskIntoConstraints="NO" id="iEV-Lo-2jG">
+                                <rect key="frame" x="50" y="169" width="289" height="229"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About PhillyScientists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUS-xa-F89">
+                                <rect key="frame" x="243" y="40" width="538" height="59"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="48"/>
+                                <color key="textColor" red="0.1903577447" green="0.29684269429999999" blue="0.61899781229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cUS-xa-F89" firstAttribute="leading" secondItem="jXT-2O-1Ql" secondAttribute="leadingMargin" constant="223" id="6I0-Dq-CqH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cUS-xa-F89" secondAttribute="trailing" constant="223" id="K4R-ML-mrj"/>
+                            <constraint firstItem="cUS-xa-F89" firstAttribute="top" secondItem="jXT-2O-1Ql" secondAttribute="topMargin" constant="20" id="LJU-az-Ngp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-jj-rko" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1035.3515625" y="1527.34375"/>
+        </scene>
     </scenes>
     <resources>
         <image name="NSF-Philly-Scientists-logo-final" width="1000" height="400"/>
@@ -2375,17 +2417,17 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iRe-WJ-2T3"/>
-        <segue reference="TSv-Yv-Y2L"/>
-        <segue reference="xEE-H4-4Bt"/>
+        <segue reference="inQ-y6-tnO"/>
+        <segue reference="J2s-J4-PQO"/>
         <segue reference="QSM-nS-LJt"/>
         <segue reference="Hr4-wp-J15"/>
         <segue reference="gUt-cu-0o1"/>
-        <segue reference="I80-p6-4Kt"/>
+        <segue reference="Gis-1T-sGW"/>
         <segue reference="P9R-dw-xzB"/>
         <segue reference="bTG-ob-7cF"/>
         <segue reference="GZF-ol-zgk"/>
         <segue reference="R1p-Re-bYy"/>
         <segue reference="cfi-3j-ESE"/>
-        <segue reference="fGi-ng-nwX"/>
+        <segue reference="V3p-tT-No3"/>
     </inferredMetricsTieBreakers>
 </document>

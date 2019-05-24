@@ -12,9 +12,11 @@ class AboutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         
 
-        let url = URL(string: "https://www.phillyscientists.com/index.php/about/")
-        webView.loadRequest(URLRequest(url: url!))
+//        let url = URL(string: "https://www.phillyscientists.com/index.php/about/")
+//        webView.loadRequest(URLRequest(url: url!))
         
         // Do any additional setup after loading the view.
     }
