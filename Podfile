@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'BioKids_Swift' do
     pod 'Alamofire', '~> 4.5'
-    pod 'RealmSwift'
+    pod 'RealmSwift', '~> 3.20.0' 
     pod 'SwiftyJSON', '~> 4.0'
 end
 
